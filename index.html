@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pambuddha Newsletter · Eventos</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Forum&family=Gilda+Display&family=Inter:wght@300;400;500&family=Playfair+Display:wght@500;600&family=Reenie+Beanie&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#fdf5ea;--cream-2:#f6ebdb;--brown:#8a6a52;--ink:#2b1f18;--muted:#6b5a4d;--line:#d9c7b2;--gold:#b98a4e;--panel:#201813;--panel-ink:#f3e8d8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,sans-serif;background:#e9dfd1;color:var(--ink);line-height:1.55}
+img{display:block;max-width:100%}
+.shell{min-height:100vh}
+.panel{background:var(--panel);color:var(--panel-ink);padding:36px 30px 50px;position:sticky;top:0;height:100vh;overflow:auto}
+.panel .tag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.panel h1{font-family:'Gilda Display',serif;font-weight:400;font-size:28px;line-height:1.15;margin:10px 0 14px}
+.panel p{font-size:13.5px;color:#cdbfae}
+.panel h2{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:28px 0 10px;font-weight:500}
+.panel ul{list-style:none}
+.panel li{font-size:13px;padding:9px 0;border-bottom:1px solid #3a2e25;color:#e4d6c3}
+.panel li b{display:block;color:#fff;font-weight:500}
+.panel li span{color:#a89886;font-size:12.5px}
+.pill{display:inline-block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:2px 8px;border-radius:99px;margin-left:6px;vertical-align:middle}
+.pill.ok{background:#3b4a2e;color:#cfe3b4}.pill.tbc{background:#5a4220;color:#f1d29b}
+.stage{padding:40px 24px 60px;display:flex;flex-direction:column;align-items:center}
+.toggle{display:flex;gap:6px;margin-bottom:22px;background:#d7c9b6;padding:4px;border-radius:99px}
+.toggle button{border:0;background:transparent;padding:8px 18px;border-radius:99px;font:500 12px Inter;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);cursor:pointer}
+.toggle button.on{background:var(--ink);color:#fff}
+
+/* ===== banner / newsletter ===== */
+.mail{width:640px;max-width:100%;background:var(--cream);box-shadow:0 30px 80px rgba(43,31,24,.25);transition:width .3s}
+.mail.mobile{width:375px}
+.logo{padding:22px 0 20px;text-align:center}
+.logo img{height:46px;margin:0 auto;filter:brightness(0) sepia(1) saturate(1.6) hue-rotate(-12deg) brightness(.55)}
+.hero{position:relative;height:520px;overflow:hidden}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%}
+.hero::after{content:"";position:absolute;inset:0;background:rgba(30,20,12,.34)}
+.mosaic .m1{grid-row:1/3;object-position:center}.mosaic .m2{object-position:center 60%}.hero h2{position:absolute;z-index:2;left:0;right:0;bottom:78px;text-align:center;color:#fff;font:600 32px/1.25 'Playfair Display',serif;letter-spacing:.07em;text-transform:uppercase;padding:0 30px}
+.hero small{position:absolute;z-index:2;left:0;right:0;bottom:36px;text-align:center;color:#f5e8d6;font-size:11px;letter-spacing:.28em;text-transform:uppercase}
+.script{font-family:'Reenie Beanie',cursive;color:var(--brown);font-size:44px;line-height:1.05;text-align:center;padding:46px 30px 18px}
+
+/* tarjeta de evento: formato de la invitación de referencia */
+.weekline{text-align:center;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);padding:0 24px 26px}
+.weekline span{color:var(--gold)}
+.event{text-align:center;padding:0 0 50px;position:relative}
+.ev-img{display:block;overflow:hidden;-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 78%,transparent 100%);mask-image:linear-gradient(to bottom,#000 0%,#000 78%,transparent 100%)}
+.ev-img img{width:100%;height:auto;opacity:.95}
+.ev-img.tall{height:460px}.ev-img.tall img{height:100%;object-fit:cover}
+.ev-body{padding:0 36px;margin-top:6px;position:relative}
+.hours{font-size:12.5px;color:var(--muted);margin-top:6px}
+.event .note{font-size:12px;font-style:italic;color:var(--muted);margin-top:12px}
+.event .eyebrow{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold)}
+.event h3{font-family:'Gilda Display',serif;font-weight:400;font-size:42px;line-height:1.1;color:var(--brown);margin:14px 0 8px}
+.event .sub{font-family:'Gilda Display',serif;font-size:19px;color:var(--ink);margin-bottom:16px}
+.event .body{font-size:13px;line-height:1.7;max-width:420px;margin:0 auto 24px}
+.event .when{font-family:'Gilda Display',serif;font-size:26px;color:var(--brown);text-transform:uppercase;letter-spacing:.04em;line-height:1.3}
+.event .when span{font-size:20px}
+.rule{width:52px;height:1px;background:var(--brown);margin:18px auto}
+.event .venue{font-family:'Gilda Display',serif;font-size:18px;line-height:1.5;margin-bottom:26px}
+.event .venue span{font-size:15px;color:var(--muted)}
+.btn{display:inline-block;background:var(--brown);color:#fff;text-decoration:none;font-size:11px;letter-spacing:.24em;text-transform:uppercase;padding:13px 54px;border-radius:99px}
+.more{text-align:center;font-family:'Gilda Display',serif;font-size:24px;color:var(--brown);padding:8px 24px 22px;border-top:1px solid var(--line);margin:0 30px;padding-top:34px}
+.grid{display:grid;grid-template-columns:1fr;gap:20px;padding:0 28px 56px}
+.pc{display:grid;grid-template-columns:57% 43%;background:var(--cream-2);font-family:Forum,Georgia,serif;text-align:left}
+.pc.flip{grid-template-columns:43% 57%}.pc.flip .pc-img{order:2}
+.pc-img{display:block;position:relative;min-height:250px;overflow:hidden}
+.pc-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pc-body{padding:22px 20px;display:flex;flex-direction:column;justify-content:center}
+.pc-cat{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.pc-title{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;text-transform:uppercase;letter-spacing:.06em;font-size:24px;line-height:1.1;color:var(--ink);margin:8px 0 14px}
+.pc-list{list-style:none;display:grid;gap:9px;margin-bottom:18px}
+.pc-list li{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;line-height:1.4;color:var(--ink)}
+.pc-list svg{width:16px;height:16px;flex:none;margin-top:1px;fill:none;stroke:var(--brown);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.pc-link{align-self:flex-start;display:inline-flex;gap:10px;align-items:center;border:1px solid var(--ink);color:var(--ink);text-decoration:none;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:9px 14px}
+.pc-link i{font-style:normal}
+.pc-note{font-size:11px;font-style:italic;color:var(--muted);margin-top:10px;line-height:1.4}
+@media(max-width:480px){.pc,.pc.flip{grid-template-columns:1fr}.pc.flip .pc-img{order:0}.pc-img{min-height:0;aspect-ratio:16/9}.pc-img img{position:static}}
+@media(max-width:480px){.grid{grid-template-columns:1fr}.more{margin:0 20px}}
+.cta{text-align:center;padding:50px 30px 46px;border-top:1px solid var(--line)}
+.cta p{font-size:13px;max-width:380px;margin:0 auto 20px}
+footer{background:var(--ink);color:#cdbfae;text-align:center;padding:30px;font-size:11.5px;line-height:1.8}
+footer img{height:32px;margin:0 auto 12px;opacity:.9}
+footer .nav{letter-spacing:.2em;text-transform:uppercase;font-size:10.5px;margin-bottom:10px;color:#e8d9c4}
+.mail.mobile .hero{height:440px}.mail.mobile .hero h2{font-size:24px}
+.mail.mobile .event h3{font-size:34px}.mail.mobile .ev-img.tall{height:340px}.mail.mobile .ev-body{padding:0 22px}
+@media(max-width:980px){.shell{grid-template-columns:1fr}.panel{position:static;height:auto}}
+@media(max-width:680px){.mail{width:100%}.stage{padding:24px 0 60px}}
+</style>
+</head>
+<body>
+<div class="shell">
+
+<main class="stage">
+  <article class="mail" id="mail">
+    <div class="logo"><img src="img/pambuddha-homes-confirmed-full-lockup-light.png" alt="Pambuddha Homes"></div>
+
+    <section class="hero">
+      <img class="hero-img" src="img/pambuddha-home-our-approach-oak-kitchen.jpg" alt="Oak kitchen by Pambuddha Homes">
+      <h2>Upcoming<br>events.</h2>
+      <small>Design week · Miami</small>
+    </section>
+
+    <p class="script">Save the date.</p>
+    <div class="weekline"><span>Miami Art Week</span> · November 30 – December 6, 2026</div>
+
+    <section class="event feat">
+      <a class="ev-img" href="https://www.artbasel.com/miami-beach/buy-tickets?lang=en" target="_blank" rel="noopener"><img src="img/events/art-basel.jpg" alt="Art Basel Miami Beach" style="object-position:center 50%"></a>
+      <div class="ev-body">
+        <div class="eyebrow">Featured · Art fair</div>
+        <h3>Art Basel<br>Miami Beach</h3>
+        <p class="sub">Art to think a space with</p>
+        <p class="body">Not a furniture fair. Come to discover works and build your eye for scale, composition and the relationship between art and interior architecture.</p>
+        <div class="when">December 4 – 6<br><span>Public days</span></div>
+        
+        <div class="rule"></div>
+        <div class="venue">Miami Beach Convention Center<br><span>1901 Convention Center Drive</span></div>
+        <a class="btn" href="https://www.artbasel.com/miami-beach/buy-tickets?lang=en" target="_blank" rel="noopener">Official tickets</a>
+        <div class="note">Ticketed · Dec 2–3 by invitation only</div>
+      </div>
+    </section>
+
+    <div class="more">More to explore</div>
+    <div class="grid">
+      <article class="pc">
+        <a class="pc-img" href="https://designmiami.com/fair/miami-2026" target="_blank" rel="noopener"><img src="img/events/design-miami.jpg" alt="Design Miami 2026" style="object-position:left center"></a>
+        <div class="pc-body">
+          <div class="pc-cat">Design fair</div>
+          <h4 class="pc-title">Design<br>Miami</h4>
+          <ul class="pc-list"><li><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="1.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span>Dec 2 – 6 · Public days</span></li><li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span>Hours vary by day</span></li><li><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.7-6.5-11a6.5 6.5 0 0 1 13 0c0 5.3-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg><span>19th St &amp; Convention Center Dr, Miami Beach</span></li></ul>
+          <a class="pc-link" href="https://designmiami.com/fair/miami-2026" target="_blank" rel="noopener">Info &amp; tickets <i>↗</i></a>
+          <p class="pc-note">Ticketed · Dec 1 by invitation only</p>
+        </div>
+      </article>
+      <article class="pc flip">
+        <a class="pc-img" href="https://www.rimadesio.it/en/event-registration?POSTID=173047" target="_blank" rel="noopener"><img src="img/events/rimadesio.jpg" alt="Rimadesio Becoming" style="object-position:center 45%"></a>
+        <div class="pc-body">
+          <div class="pc-cat">Showroom event</div>
+          <h4 class="pc-title">Rimadesio<br>“Becoming”</h4>
+          <ul class="pc-list"><li><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="1.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span>Thursday, Dec 3</span></li><li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span>6:00 – 9:00 PM</span></li><li><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.7-6.5-11a6.5 6.5 0 0 1 13 0c0 5.3-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg><span>2601 Biscayne Blvd, Miami</span></li></ul>
+          <a class="pc-link" href="https://www.rimadesio.it/en/event-registration?POSTID=173047" target="_blank" rel="noopener">Register <i>↗</i></a>
+          <p class="pc-note">Confirm admission before attending</p>
+        </div>
+      </article>
+      <article class="pc">
+        <a class="pc-img" href="https://www.kohler.com/en/products/promotions/design-miami" target="_blank" rel="noopener"><img src="img/events/kohler.jpg" alt="Kohler All for Color" style="object-position:center 8%"></a>
+        <div class="pc-body">
+          <div class="pc-cat">Installation</div>
+          <h4 class="pc-title">Kohler<br>“All for Color”</h4>
+          <ul class="pc-list"><li><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="1.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span>Dec 2 – 6</span></li><li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span>Design Miami hours</span></li><li><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.7-6.5-11a6.5 6.5 0 0 1 13 0c0 5.3-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg><span>Inside Design Miami, Miami Beach</span></li></ul>
+          <a class="pc-link" href="https://www.kohler.com/en/products/promotions/design-miami" target="_blank" rel="noopener">Details <i>↗</i></a>
+          <p class="pc-note">With Design Miami admission</p>
+        </div>
+      </article>
+      <article class="pc flip">
+        <a class="pc-img" href="https://untitledartfairs.com/" target="_blank" rel="noopener"><img src="img/events/untitled.jpg" alt="Untitled Art" style="object-position:center 50%"></a>
+        <div class="pc-body">
+          <div class="pc-cat">Art fair</div>
+          <h4 class="pc-title">Untitled<br>Art</h4>
+          <ul class="pc-list"><li><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="1.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span>Dec 2 – 6 · Public days</span></li><li><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.7-6.5-11a6.5 6.5 0 0 1 13 0c0 5.3-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg><span>Ocean Dr &amp; 12th St, Miami Beach</span></li></ul>
+          <a class="pc-link" href="https://untitledartfairs.com/" target="_blank" rel="noopener">Info &amp; tickets <i>↗</i></a>
+          <p class="pc-note">Ticketed · Dec 1 VIP &amp; press preview</p>
+        </div>
+      </article>
+    </div>
+
+
+    <footer>
+      <img src="img/pambuddha-homes-confirmed-full-lockup-light.png" alt="">
+      <div class="nav">Interior Design · Architecture · Custom Millwork · Renovation</div>
+      Pambuddha Homes · Miami, Florida<br>
+      <a href="#" style="color:inherit">Unsubscribe</a> · <a href="#" style="color:inherit">View in browser</a>
+    </footer>
+  </article>
+</main>
+</div>
+</body>
+</html>
