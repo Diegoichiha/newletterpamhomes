@@ -462,6 +462,33 @@ svg{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-l
 }
 @media(max-width:1000px){.story,.story.rev{grid-template-columns:1fr}.story.rev .ph{order:0}.story .ph{min-height:460px}.story .tx{padding:50px 28px}}
 .script,.scr,.sl{font-style:italic;font-weight:500}
+/* instagram real */
+.ig{width:min(540px,94%);background:#fff;color:#111;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;padding:30px 22px 0;box-shadow:0 24px 50px rgba(0,0,0,.3);position:relative;z-index:2}
+.ig-top{display:flex;gap:28px;align-items:center}
+.ig-av{width:116px;height:116px;border-radius:50%;padding:3px;background:linear-gradient(45deg,#f9b233,#f0486f 55%,#c13584 78%,#8a3ab9);flex:none}
+.ig-av>div{width:100%;height:100%;border-radius:50%;border:4px solid #fff;background:var(--walnut);display:grid;place-items:center}
+.ig-av .clover{width:44px;color:var(--cream)}
+.ig-name{font-size:19px;line-height:1.3}.ig-name b{font-weight:600}.ig-name i{font-style:normal;color:#666;margin-left:6px}
+.ig-sub{font-size:14px;color:#444;margin:2px 0 8px}
+.ig-stats{display:flex;gap:18px;font-size:13.5px;flex-wrap:wrap}.ig-stats b{font-weight:600}
+.ig-bio{margin-top:18px;font-size:14px;line-height:1.45}
+.ig-cat{color:#6b7280;margin-bottom:3px}
+.ig-bio a{color:#3b5bdb}
+.ig-link{margin-top:6px;color:#3b5bdb;font-weight:500}
+.ig-btns{display:flex;gap:8px;margin:18px 0 16px}
+.ig-btns span{height:38px;border-radius:10px;display:grid;place-items:center;font-size:14px;font-weight:600}
+.ig-b1{background:#4f5dff;color:#fff;flex:2}
+.ig-b2{background:#eff1f5;color:#111;flex:2}
+.ig-b3{background:#eff1f5;flex:.5}
+.ig-btns svg{width:18px;height:18px;fill:none;stroke:#111;stroke-width:1.6;stroke-linecap:round}
+.ig-tabs{display:flex;justify-content:space-around;border-top:1px solid #dbdbdb;padding:12px 0 10px}
+.ig-tabs span{width:24px;height:24px;color:#8e8e8e}.ig-tabs span.on{color:#111}
+.ig-tabs svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linejoin:round}
+.ig-tabs span.on svg{fill:currentColor;stroke:none}
+.ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:0 -22px}
+.ig-grid>div{aspect-ratio:3/4;overflow:hidden;background:#eee}
+.ig-grid img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s var(--ease)}
+@media(hover:hover){.ig-grid>div:hover img{transform:scale(1.06)}}
 </style>
 </head>
 <body>
@@ -665,18 +692,24 @@ svg{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-l
 </section>
 
 <section class="grid" style="margin-top:var(--gap)">
-  <div class="tile bg-sand app" style="min-height:700px"><div class="social"><div class="ph"><span class="seal"></span><div><b>pambuddhahomes</b><span>Luxury residential interiors · Miami<br>Design · Wellness · Execution</span></div></div>
-    <div class="sgrid">
-      <div><img src="img/regatta-24.jpg" alt=""></div>
-      <div class="bg-sand"><div class="q big">Design with<br>intention.</div></div>
-      <div class="bg-walnut"><span class="seal on-dark" style="font-size:78px"></span></div>
-      <div><img src="img/oak-kitchen.jpg" alt=""></div>
-      <div class="bg-espresso"><div class="q">We listen, observe, question and explore before we design.</div></div>
-      <div><img src="img/team.jpg" alt=""></div>
-      <div><img src="img/samples.jpg" alt=""></div>
-      <div style="background:var(--cream)"><div class="sl" style="color:var(--walnut)">Crafted<br>for living.</div></div>
-      <div><img src="img/delray.jpg" alt=""></div>
-    </div></div><span class="mk">Mockup: perfil de Instagram</span></div>
+  <div class="tile bg-sand app" style="min-height:1000px"><div class="ig">
+      <div class="ig-top">
+        <div class="ig-av"><div><span class="clover"></span></div></div>
+        <div class="ig-info">
+          <div class="ig-name"><b>pambuddhahomes</b> <i>···</i></div>
+          <div class="ig-sub">Pambuddha Homes</div>
+          <div class="ig-stats"><span><b>49</b> publicaciones</span><span><b>600</b> seguidores</span><span><b>1786</b> seguidos</span></div>
+        </div>
+      </div>
+      <div class="ig-bio">
+        <div class="ig-cat">Estudio de diseño de interiores</div>
+        <div>INTERIOR DESIGN BOUTIQUE<br>BESPOKE LUXURY MILLWORK<br>Lead Arq. <a>@melsierra</a><br>Creative Dir. <a>@pambuddha</a></div>
+        <div class="ig-link">pambuddhahomes.com</div>
+      </div>
+      <div class="ig-btns"><span class="ig-b1">Seguir</span><span class="ig-b2">Mensaje</span><span class="ig-b3"><svg viewBox="0 0 24 24"><circle cx="10" cy="8" r="3.6"/><path d="M3.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6M19 7v6M16 10h6"/></svg></span></div>
+      <div class="ig-tabs"><span class="on"><svg viewBox="0 0 24 24"><path d="M4 4h5v5H4zM10 4h5v5h-5zM16 4h4v5h-4zM4 10h5v5H4zM10 10h5v5h-5zM16 10h4v5h-4zM4 16h5v4H4zM10 16h5v4h-5zM16 16h4v4h-4z"/></svg></span><span><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M10 9l5 3-5 3z"/></svg></span><span><svg viewBox="0 0 24 24"><path d="M7 7h9a3 3 0 0 1 3 3v1M17 17H8a3 3 0 0 1-3-3v-1M15 4l3 3-3 3M9 20l-3-3 3-3"/></svg></span><span><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="12" cy="10" r="2.6"/><path d="M7 19c.8-2.6 2.8-4 5-4s4.2 1.4 5 4"/></svg></span></div>
+      <div class="ig-grid"><div><img src="img/ig-01.jpg" alt=""></div><div><img src="img/ig-02.jpg" alt=""></div><div><img src="img/ig-03.jpg" alt=""></div><div><img src="img/ig-04.jpg" alt=""></div><div><img src="img/ig-05.jpg" alt=""></div><div><img src="img/ig-06.jpg" alt=""></div><div><img src="img/ig-07.jpg" alt=""></div><div><img src="img/ig-08.jpg" alt=""></div><div><img src="img/ig-09.jpg" alt=""></div></div>
+    </div><span class="mk">Perfil real de Instagram (capturas)</span></div>
 </section>
 
 <section class="band short">
@@ -687,7 +720,7 @@ svg{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-l
 <!-- ================= 07 MOTION ================= -->
 <div class="sec"><div class="n">07</div><h2>Motion<br>&amp; GIF</h2><p>GIF del scroll apilado del sitio (arriba) y loops en vivo con su movimiento: letras escalonadas, fechas, etiqueta, botón con flecha y reveal de imagen. Todos se exportan a GIF o MP4 para redes y correo.</p></div>
 <section class="grid g3">
-  <div class="tile bg-white mo" style="grid-column:span 2;aspect-ratio:760/475;min-height:0;padding:0"><img class="gifimg" src="img/scroll-stack.gif" alt="GIF: scroll apilado de fotos, como en pambuddhahomes.com"><span class="gc gif">GIF · scroll apilado (sitio)</span></div>
+  <div class="tile bg-white mo" style="grid-column:span 2;aspect-ratio:760/475;min-height:0;padding:0"><img class="gifimg" src="img/scroll-stack.gif?v=2" alt="GIF: scroll apilado de fotos, como en pambuddhahomes.com"><span class="gc gif">GIF · scroll apilado (sitio)</span></div>
   <div class="tile bg-walnut mo"><div class="mo-wm chars loop">PAMBUDDHA</div><span class="gc">LOOP · letras escalonadas</span></div>
   <div class="tile bg-sand mo"><span class="seal spin" style="font-size:170px"></span><span class="gc">LOOP · trébol</span></div>
   <div class="tile bg-ink mo"><div class="flip">
