@@ -25,15 +25,16 @@ img{display:block;max-width:100%}
 /* ---- seal (sello): escalonado + trébol, recoloreable ---- */
 .seal{--sb:var(--walnut);--sc:var(--cream);position:relative;display:inline-block;width:1em;height:1em;flex:none}
 .seal::before,.seal::after{content:"";position:absolute}
-.seal::before{inset:0;background:var(--sb);-webkit-mask:url(img/seal-shape.png) center/contain no-repeat;mask:url(img/seal-shape.png) center/contain no-repeat;transition:transform 1s var(--ease)}
-.seal:hover::before{transform:rotate(90deg)}
-.seal::after{left:23%;right:23%;top:18%;bottom:13%;background:var(--sc);-webkit-mask:url(img/clover.svg) center/contain no-repeat;mask:url(img/clover.svg) center/contain no-repeat}
+.seal::before{inset:0;background:var(--sb);border-radius:50%}
+.seal::after{left:27%;right:27%;top:20%;bottom:16%;background:var(--sc);-webkit-mask:url(img/clover.svg) center/contain no-repeat;mask:url(img/clover.svg) center/contain no-repeat}
 .seal.on-dark{--sb:var(--cream);--sc:var(--walnut)}
 .clover{display:inline-block;background:currentColor;-webkit-mask:url(img/clover.svg) center/contain no-repeat;mask:url(img/clover.svg) center/contain no-repeat;aspect-ratio:103/126}
 
 /* ---- lockup ---- */
 .lockup{display:inline-flex;flex-direction:column;align-items:center;gap:.28em;color:var(--walnut);text-align:center;line-height:1}
-.lockup .seal{font-size:1.5em}
+.lockup .seal{font-size:1.9em}
+.lockup .seal::before{display:none}
+.lockup .seal::after{left:4%;right:4%;top:0;bottom:0;background:var(--sb)}
 .lockup .wm{font-family:var(--serif);font-weight:500;letter-spacing:.16em;text-transform:uppercase;margin-right:-.16em}
 .lockup .sub{font-family:var(--ui);font-size:.26em;letter-spacing:.7em;text-transform:uppercase;margin-right:-.7em;color:inherit;opacity:.85}
 .lockup.cream{color:var(--cream)}
@@ -147,7 +148,11 @@ body.nonotes .mk{display:none}
 /* ---- elementos gráficos ---- */
 .ge{flex-direction:column;gap:22px;padding:40px;text-align:center}
 .hair{width:70px;height:1px;background:var(--walnut)}
-.btn{display:inline-flex;gap:10px;align-items:center;border:1px solid var(--ink);color:var(--ink);font-family:var(--ui);font-size:11px;letter-spacing:.16em;text-transform:uppercase;padding:11px 17px;background:transparent;box-shadow:4px 4px 0 -1px var(--line)}
+.btn{display:inline-flex;gap:10px;align-items:center;border:1px solid var(--ink);color:var(--ink);font-family:var(--ui);font-size:11px;letter-spacing:.16em;text-transform:uppercase;padding:11px 17px;background:transparent;position:relative;margin:7px}
+.btn::before,.btn::after{content:"";position:absolute;width:38%;height:62%;border:1px solid currentColor;opacity:.45;pointer-events:none;transition:width .5s var(--ease),height .5s var(--ease),opacity .5s var(--ease)}
+.btn::before{left:-7px;top:-7px;border-right:0;border-bottom:0}
+.btn::after{right:-7px;bottom:-7px;border-left:0;border-top:0}
+.btn:hover::before,.btn:hover::after{width:calc(100% + 14px);height:calc(100% + 14px);opacity:.6}
 .btn.fill{background:var(--walnut);border-color:var(--walnut);color:var(--cream);box-shadow:none}
 .pattern{background-color:var(--walnut);background-image:url(img/clover.svg);background-size:46px;background-repeat:space;background-blend-mode:normal}
 .pattern-wrap{position:absolute;inset:0;background:var(--walnut)}
@@ -289,7 +294,7 @@ body.nonotes .mk{display:none}
 .close h2{font-family:var(--serif);font-weight:500;text-transform:uppercase;letter-spacing:.06em;font-size:clamp(34px,5vw,64px);line-height:1.05}
 .close .script{font-family:var(--script);font-size:44px;line-height:1}
 .close .ct{font-family:var(--ui);font-size:13px;letter-spacing:.14em;line-height:2;text-transform:uppercase}
-.close .btn{border-color:var(--cream);color:var(--cream);box-shadow:4px 4px 0 -1px rgba(248,241,231,.35)}
+.close .btn{border-color:var(--cream);color:var(--cream)}
 footer{padding:26px 28px;display:flex;justify-content:space-between;font-family:var(--ui);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--taupe)}
 
 .notes-toggle{position:fixed;right:16px;bottom:16px;z-index:50;font-family:var(--ui);font-size:11px;letter-spacing:.12em;text-transform:uppercase;background:var(--ink);color:#fff;border:0;padding:10px 14px;border-radius:99px;cursor:pointer;opacity:.85}
@@ -369,8 +374,7 @@ svg{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-l
 .gc::before{content:"";position:absolute;left:9px;top:50%;width:6px;height:6px;margin-top:-3px;border-radius:50%;background:#c0561e;animation:blink 1.4s steps(2) infinite}
 @keyframes blink{50%{opacity:.15}}
 .mo-wm{font-family:var(--serif);font-weight:500;font-size:clamp(34px,4vw,56px);letter-spacing:.16em;color:var(--cream)}
-.seal.spin::before{animation:spin 10s linear infinite}
-.seal.spin::after{animation:pulse 3s ease-in-out infinite}
+.seal.spin::after{top:18%;bottom:18%;animation:spin 9s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes pulse{50%{transform:scale(1.07)}}
 .flip{position:relative;width:250px;height:310px;perspective:1000px}
@@ -448,10 +452,22 @@ svg{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-l
   .typo .row:hover{transform:translateX(16px);opacity:1}
   .btn i{display:inline-block}
   .btn:hover i{animation:hvArrow .6s var(--ease)}
-  .btn{transition:box-shadow .3s,transform .3s}
-  .btn:hover{box-shadow:0 0 0 0 var(--line);transform:translate(4px,4px)}
 }
 @media(max-width:1000px){.story,.story.rev{grid-template-columns:1fr}.story.rev .ph{order:0}.story .ph{min-height:460px}.story .tx{padding:50px 28px}}
+/* scroll apilado (hv2-cta del sitio) */
+.cta-s{position:relative;margin-top:var(--gap);background:var(--cream);--card-top:190px}
+.cta-pin{position:sticky;top:0;height:100vh;min-height:calc(var(--card-top) + min(475px,77.5vw));overflow:hidden;pointer-events:none}
+.cta-head{position:absolute;left:0;right:0;top:clamp(20px,4vh,44px);z-index:1;text-align:center}
+.cta-head .clover{display:block;width:30px;color:var(--walnut);margin:0 auto 14px;opacity:.9}
+.cta-head h3{font-family:var(--serif);font-weight:500;font-size:clamp(31px,3.33vw,48px);line-height:1.04;text-transform:uppercase;letter-spacing:.02em}
+.cta-mark{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);font-family:var(--serif);font-weight:400;font-size:clamp(48px,14vw,210px);line-height:.8;letter-spacing:.02em;color:#EADAC5;white-space:nowrap;z-index:0}
+.cta-cards{display:grid;grid-template-columns:1fr;align-items:start;gap:46vh;position:relative;z-index:2;margin-top:-100vh;padding-top:100vh}
+.cta-card{position:sticky;top:var(--card-top);width:min(380px,62vw);aspect-ratio:4/5;margin:0 auto;overflow:hidden;box-shadow:0 30px 60px -28px rgba(23,20,17,.45);will-change:transform}
+.cta-card img{width:100%;height:100%;object-fit:cover;display:block}
+.cta-card:nth-child(even){transform:translateX(12px) rotate(.8deg)}
+.cta-card:nth-child(3n){transform:translateX(-10px) rotate(-.8deg)}
+.cta-end{position:relative;z-index:3;text-align:center;padding:60px 24px 130px}
+.cta-end p{max-width:480px;margin:0 auto 34px;color:var(--taupe)}
 </style>
 </head>
 <body>
@@ -511,7 +527,7 @@ svg{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-l
 <section class="manifesto">
   <h2>Design with intention.<br><b>Live with purpose.</b></h2>
   <p>Pambuddha Homes integra diseño interior, desarrollo arquitectónico, carpintería a medida y ejecución de obra para crear espacios residenciales pensados con detalle. Del concepto y la selección de materiales al desarrollo técnico y la instalación final, cada elemento se reúne con un enfoque en funcionalidad, oficio y bienestar.</p>
-  <p>La identidad refleja ese trabajo: sobria, cálida y táctil. Una paleta tomada de la madera, la piedra y la luz natural; una tipografía serif de contraste que habla de oficio; y un sello con un trébol que funciona como firma en cada pieza, del plano a la obra terminada.</p>
+  <p>La identidad refleja ese trabajo: sobria, cálida y táctil. Una paleta tomada de la madera, la piedra y la luz natural; una tipografía serif de contraste que habla de oficio; y un trébol que funciona como firma en cada pieza, del plano a la obra terminada.</p>
   <p>La promesa es una sola, la misma que guía al estudio: no seguir tendencias, sino entender a las personas, sus necesidades y sus rutinas, y llevar esa idea a cada detalle. Porque el buen diseño no es solo algo que se ve, es algo que se vive cada día.</p>
 </section>
 
@@ -550,10 +566,10 @@ svg{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-l
 </section>
 
 <!-- ================= 01 LOGO ================= -->
-<div class="sec"><div class="n">01</div><h2>Logo<br>&amp; sello</h2><p>El sello escalonado con el trébol es la firma de la marca; se acompaña del wordmark PAMBUDDHA en serif de alto contraste y HOMES en versalitas espaciadas. Se usa en nogal sobre claros y en crema sobre fotografía u oscuros.</p></div>
+<div class="sec"><div class="n">01</div><h2>Logo<br>&amp; sello</h2><p>El logo es el trébol: se usa solo y acompaña al wordmark PAMBUDDHA en serif de alto contraste, con HOMES en versalitas espaciadas. Cuando lleva fondo, va dentro de un círculo perfecto, como en el sitio. Nogal sobre claros, crema sobre fotografía u oscuros.</p></div>
 <section class="grid" style="grid-template-columns:2fr 1fr">
   <div class="tile bg-cream logo-big" style="background:#fff"><div class="lockup"><span class="seal"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div><span class="cap">Logo principal · nogal</span></div>
-  <div class="tile bg-walnut logo-big"><span class="seal on-dark" style="font-size:190px"></span><span class="cap">Sello · favicon</span></div>
+  <div class="tile bg-walnut logo-big"><span class="seal on-dark" style="font-size:190px"></span><span class="cap">Trébol en círculo · favicon</span></div>
 </section>
 <section class="grid g3" style="margin-top:var(--gap)">
   <div class="tile bg-walnut" style="min-height:340px"><div class="lockup cream" style="font-size:46px"><span class="seal"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div><span class="cap">Negativo · crema</span></div>
@@ -563,7 +579,7 @@ svg{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-l
 <section class="grid g3" style="margin-top:var(--gap)">
   <div class="tile bg-white" style="min-height:340px;flex-direction:column;gap:22px"><div class="clear"><div class="lockup" style="font-size:46px"><span class="seal"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div><i style="top:6px;left:50%;transform:translateX(-50%)">x</i><i style="bottom:6px;left:50%;transform:translateX(-50%)">x</i><i style="left:12px;top:50%">x</i><i style="right:12px;top:50%">x</i></div><span class="cap">Zona de respeto · x = ancho del sello ÷ 2</span></div>
   <div class="tile bg-cream" style="min-height:340px;flex-direction:column;gap:26px"><div style="display:flex;align-items:flex-end;gap:36px"><div class="lockup" style="font-size:26px"><span class="seal"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div><span class="seal" style="font-size:24px"></span></div><div class="up" style="color:var(--taupe);text-align:center;line-height:2">Tamaño mínimo · lockup 90 px / 24 mm<br>Sello 16 px / 6 mm</div><span class="cap">Tamaños mínimos (propuesta)</span></div>
-  <div class="tile bg-sand" style="min-height:340px;flex-direction:column;gap:20px;padding:30px"><div class="up" style="color:var(--taupe)">Variantes de uso</div><div style="display:flex;gap:22px;align-items:center"><span class="seal" style="font-size:72px"></span><span class="seal on-dark" style="font-size:72px;background:var(--walnut);border-radius:50%;padding:0;--sb:var(--cream);--sc:var(--walnut)"></span><span class="seal" style="font-size:72px;--sb:var(--olive)"></span></div><span class="cap">Sello · nogal / crema / oliva</span></div>
+  <div class="tile bg-sand" style="min-height:340px;flex-direction:column;gap:20px;padding:30px"><div class="up" style="color:var(--taupe)">Variantes de uso</div><div style="display:flex;gap:26px;align-items:center"><span class="clover" style="width:46px;color:var(--walnut)"></span><span class="seal" style="font-size:76px"></span><span class="seal" style="font-size:76px;--sb:var(--olive)"></span></div><span class="cap">Trébol solo · círculo nogal · círculo oliva</span></div>
 </section>
 <section class="grid" style="grid-template-columns:repeat(4,1fr);margin-top:var(--gap)">
   <div class="tile bg-white dont"><span class="x">×</span><div class="lockup" style="font-size:30px;transform:scaleX(1.45)"><span class="seal"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div><p>No deformar</p></div>
@@ -669,7 +685,7 @@ svg{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-l
 </section>
 
 <!-- ================= 07 MOTION ================= -->
-<div class="sec"><div class="n">07</div><h2>Motion<br>&amp; GIF</h2><p>Loops recreados con el movimiento del sitio web: reveal que sube, recorte de imagen, letras escalonadas, marquee y la flecha ↗ que sale y entra. Se exportan a GIF o MP4 para redes y correo.</p></div>
+<div class="sec"><div class="n">07</div><h2>Motion<br>&amp; GIF</h2><p>Loops recreados con el movimiento del sitio web: reveal que sube, recorte de imagen, letras escalonadas, marquee y la flecha ↗ que sale y entra. Incluye el scroll apilado de fotos del sitio (más abajo). Se exportan a GIF o MP4 para redes y correo.</p></div>
 <section class="grid g3">
   <div class="tile bg-walnut mo"><div class="mo-wm chars loop">PAMBUDDHA</div><span class="gc">GIF · letras escalonadas</span></div>
   <div class="tile bg-sand mo"><span class="seal spin" style="font-size:170px"></span><span class="gc">GIF · sello</span></div>
@@ -686,6 +702,21 @@ svg{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-l
   </div></div></div><span class="gc">GIF · etiqueta</span></div>
   <div class="tile mo" style="background:#fff"><a class="btn loop" style="font-size:14px;padding:16px 24px">Begin a conversation <i>↗</i></a><span class="gc">GIF · botón ↗</span></div>
   <div class="tile mo bg-espresso"><div class="clipbox"><img src="img/webb.jpg" alt="" style="object-position:center 30%"><div class="clip-t"><small>Custom millwork</small><h4>Webb Residence</h4></div></div><span class="gc">GIF · reveal de imagen</span></div>
+</section>
+
+<section class="cta-s" aria-label="Scroll apilado, como el sitio">
+  <div class="cta-pin">
+    <span class="gc">GIF · scroll apilado (sitio)</span>
+    <div class="cta-head"><span class="clover"></span><h3>Let’s talk about<br>your project</h3></div>
+    <div class="cta-mark">PAMBUDDHA</div>
+  </div>
+  <div class="cta-cards">
+    <div class="cta-card"><img src="img/oak-kitchen.jpg" alt="Cocina de roble" style="object-position:55% 50%"></div>
+    <div class="cta-card"><img src="img/bathroom.jpg" alt="Baño con espejo iluminado"></div>
+    <div class="cta-card"><img src="img/limonti.jpg" alt="Limonti Residence" style="object-position:40% 50%"></div>
+    <div class="cta-card"><img src="img/hernandez.jpg" alt="Hernandez Residence" style="object-position:35% 50%"></div>
+  </div>
+  <div class="cta-end"><p>Cuéntanos del espacio y de la vida que quieres dentro de él. Pamela te responderá personalmente.</p><a class="btn" href="https://pambuddhahomes.com/contact-us/" target="_blank" rel="noopener">Begin a conversation <i style="font-style:normal">↗</i></a></div>
 </section>
 
 <section class="story rev">
