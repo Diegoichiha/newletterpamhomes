@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pambuddha Homes · Brandbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Forum&family=Hanken+Grotesk:wght@400;500;600&family=Reenie+Beanie&display=swap" rel="stylesheet">
+<style>
+:root{
+  --walnut:#5B3923; --espresso:#2B2520; --ink:#171411; --taupe:#6B5E52;
+  --olive:#56603E; --sage:#939F76; --sand:#F1E3D1; --cream:#F8F1E7; --white:#fff; --line:#D9C7B0;
+  --serif:'Cormorant Garamond',Georgia,serif; --body:Forum,Georgia,serif; --ui:'Hanken Grotesk',system-ui,sans-serif; --script:'Reenie Beanie',cursive;
+  --gap:8px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+.wrap{max-width:1440px;margin:0 auto}
+.up{font-family:var(--ui);font-size:11px;letter-spacing:.22em;text-transform:uppercase}
+
+/* ---- seal (sello): escalonado + trébol, recoloreable ---- */
+.seal{--sb:var(--walnut);--sc:var(--cream);position:relative;display:inline-block;width:1em;height:1em;flex:none}
+.seal::before,.seal::after{content:"";position:absolute}
+.seal::before{inset:0;background:var(--sb);-webkit-mask:url(img/scallop.svg) center/contain no-repeat;mask:url(img/scallop.svg) center/contain no-repeat}
+.seal::after{left:26%;right:26%;top:19%;bottom:15%;background:var(--sc);-webkit-mask:url(img/clover.svg) center/contain no-repeat;mask:url(img/clover.svg) center/contain no-repeat}
+.seal.on-dark{--sb:var(--cream);--sc:var(--walnut)}
+.clover{display:inline-block;background:currentColor;-webkit-mask:url(img/clover.svg) center/contain no-repeat;mask:url(img/clover.svg) center/contain no-repeat;aspect-ratio:103/126}
+
+/* ---- lockup ---- */
+.lockup{display:inline-flex;flex-direction:column;align-items:center;gap:.28em;color:var(--walnut);text-align:center;line-height:1}
+.lockup .seal{font-size:1.5em}
+.lockup .wm{font-family:var(--serif);font-weight:500;letter-spacing:.16em;text-transform:uppercase;margin-right:-.16em}
+.lockup .sub{font-family:var(--ui);font-size:.26em;letter-spacing:.7em;text-transform:uppercase;margin-right:-.7em;color:inherit;opacity:.85}
+.lockup.cream{color:var(--cream)}
+.lockup.cream .seal{--sb:var(--cream);--sc:var(--walnut)}
+.lockup.ink{color:var(--ink)}
+.lockup.ink .seal{--sb:var(--ink);--sc:var(--cream)}
+
+/* ---- estructura de láminas ---- */
+.grid{display:grid;gap:var(--gap);padding:0 var(--gap)}
+.g2{grid-template-columns:1fr 1fr}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g12{grid-template-columns:repeat(12,1fr)}
+.tile{position:relative;overflow:hidden;min-height:480px;display:flex;align-items:center;justify-content:center}
+.tile img.fill{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.bg-cream{background:var(--cream)}.bg-sand{background:var(--sand)}.bg-walnut{background:var(--walnut);color:var(--cream)}
+.bg-espresso{background:var(--espresso);color:var(--cream)}.bg-ink{background:var(--ink);color:var(--cream)}
+.bg-olive{background:var(--olive);color:var(--cream)}.bg-sage{background:var(--sage);color:var(--ink)}.bg-white{background:#fff}
+.mk{position:absolute;top:14px;right:14px;z-index:20;font-family:var(--ui);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;background:rgba(23,20,17,.72);color:#fff;padding:5px 9px;border-radius:99px}
+body.nonotes .mk{display:none}
+.cap{position:absolute;left:18px;bottom:14px;z-index:5;font-family:var(--ui);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;opacity:.8}
+
+.sec{padding:110px 5vw 40px;display:grid;grid-template-columns:110px 1fr 1fr;gap:20px 40px;align-items:start}
+.sec .n{font-family:var(--serif);font-size:64px;line-height:.9;color:var(--walnut);font-weight:400}
+.sec h2{font-family:var(--serif);font-weight:500;font-size:44px;line-height:1.05;letter-spacing:.04em;text-transform:uppercase}
+.sec p{color:var(--taupe);font-size:16px;max-width:520px}
+
+/* ---- cover ---- */
+.cover{position:relative;height:min(92vh,860px);min-height:560px;overflow:hidden;color:var(--cream);display:grid;place-items:center;text-align:center}
+.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cover::after{content:"";position:absolute;inset:0;background:rgba(23,20,17,.34)}
+.cover .in{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:18px}
+.cover .lockup{font-size:clamp(46px,8vw,104px)}
+.cover .tagline{font-family:var(--ui);font-size:12px;letter-spacing:.34em;text-transform:uppercase}
+.cover .foot{position:absolute;z-index:2;left:0;right:0;bottom:26px;display:flex;justify-content:space-between;padding:0 28px;font-family:var(--ui);font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+
+/* ---- sello tipo estampilla ---- */
+.stamp{--p:var(--espresso);position:relative;background:var(--cream);padding:20px;width:min(380px,78%);aspect-ratio:4/5;box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.stamp::before{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:
+ radial-gradient(circle at 7px 0,var(--p) 5px,transparent 5.5px) 0 0/14px 10px repeat-x,
+ radial-gradient(circle at 7px 10px,var(--p) 5px,transparent 5.5px) 0 100%/14px 10px repeat-x,
+ radial-gradient(circle at 0 7px,var(--p) 5px,transparent 5.5px) 0 0/10px 14px repeat-y,
+ radial-gradient(circle at 10px 7px,var(--p) 5px,transparent 5.5px) 100% 0/10px 14px repeat-y}
+.stamp .ph{position:absolute;inset:20px;overflow:hidden}
+.stamp .ph img{width:100%;height:100%;object-fit:cover}
+.stamp .t1,.stamp .t2{position:absolute;z-index:4;left:34px;color:#fff;font-family:var(--ui);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+.stamp .t1{top:34px}.stamp .t2{bottom:34px}
+
+/* ---- tote ---- */
+.tote{position:relative;width:300px;height:380px}
+.tote .h{position:absolute;left:50%;top:-110px;width:150px;height:150px;transform:translateX(-50%);border:9px solid #e3d7c3;border-bottom:0;border-radius:90px 90px 0 0;filter:drop-shadow(0 4px 5px rgba(0,0,0,.18))}
+.tote .b{position:absolute;inset:0;background:#ece3d2;background-image:repeating-linear-gradient(0deg,rgba(0,0,0,.025) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(0,0,0,.025) 0 1px,transparent 1px 3px);box-shadow:0 30px 50px rgba(60,40,20,.28),inset 0 -26px 40px rgba(0,0,0,.05);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center}
+.tote .b .lockup{font-size:34px}
+.tote .b .tx{font-family:var(--serif);text-transform:uppercase;letter-spacing:.12em;font-size:14px;color:var(--walnut);font-weight:500;line-height:1.5}
+.shadowleaf{position:absolute;inset:0;background:radial-gradient(ellipse 40% 55% at 12% 20%,rgba(91,57,35,.16),transparent 70%),radial-gradient(ellipse 30% 40% at 90% 85%,rgba(91,57,35,.12),transparent 70%)}
+
+/* ---- manifiesto ---- */
+.manifesto{padding:150px 6vw 130px;max-width:1100px}
+.manifesto h2{font-family:var(--serif);font-size:clamp(34px,4.6vw,60px);line-height:1.05;letter-spacing:.04em;text-transform:uppercase;font-weight:400}
+.manifesto h2 b{font-weight:600}
+.manifesto p{max-width:760px;margin-top:26px;color:var(--taupe);font-size:18px}
+.manifesto p:first-of-type{margin-top:48px;color:var(--ink)}
+
+/* ---- tipográfico oscuro ---- */
+.typo{flex-direction:column;align-items:flex-start;justify-content:center;padding:60px 56px;gap:4px}
+.typo .row{display:flex;align-items:baseline;gap:18px;font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(38px,4.2vw,62px);line-height:1.04;color:var(--cream);opacity:.92}
+.typo .row i{font-family:var(--ui);font-style:normal;font-size:11px;letter-spacing:.1em;opacity:.55;width:22px}
+.typo .frame{position:absolute;right:34px;top:34px;width:min(160px,28%);transform:rotate(3deg);background:var(--cream);padding:10px 10px 16px;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.typo .frame img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.typo .frame span{display:block;font-family:var(--ui);font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--taupe);margin-top:8px;text-align:center}
+.emboss{color:var(--cream);position:relative;z-index:2}
+.emboss .clover{width:200px;filter:drop-shadow(0 2px 0 rgba(255,255,255,.18)) drop-shadow(0 -2px 2px rgba(0,0,0,.55)) drop-shadow(0 22px 30px rgba(0,0,0,.45))}
+.veil{position:absolute;inset:0;background:rgba(30,18,10,.45)}
+
+/* ---- logo ---- */
+.logo-big{min-height:560px}
+.logo-big .lockup{font-size:clamp(46px,6vw,86px)}
+.clear{position:relative;padding:34px 38px;border:1px dashed var(--taupe)}
+.clear .lockup{font-size:46px}
+.clear i{position:absolute;font-family:var(--ui);font-style:normal;font-size:10px;color:var(--taupe);letter-spacing:.1em}
+.dont{min-height:300px;flex-direction:column;gap:18px}
+.dont .x{position:absolute;top:12px;left:14px;width:22px;height:22px;border-radius:50%;background:#b82105;color:#fff;font:600 13px/22px var(--ui);text-align:center}
+.dont p{font-family:var(--ui);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--taupe);position:absolute;bottom:14px;left:0;right:0;text-align:center}
+
+/* ---- color ---- */
+.swatches{display:flex;min-height:560px;padding:0 var(--gap);gap:var(--gap)}
+.sw{flex:1;padding:22px 18px;display:flex;flex-direction:column;justify-content:flex-end;font-family:var(--ui);font-size:12px;line-height:1.55;min-width:0;transition:flex .3s}
+.sw:hover{flex:1.6}
+.sw b{font-family:var(--serif);font-size:19px;font-weight:500;letter-spacing:.02em;text-transform:uppercase;display:block;line-height:1.05;margin-bottom:6px}
+.sw.main{flex:2.2}
+.ratio{display:flex;height:16px;margin:var(--gap);margin-bottom:0}
+.ratio span{display:block;height:100%}
+.ratio-l{display:flex;justify-content:space-between;padding:8px var(--gap) 0;font-family:var(--ui);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--taupe)}
+
+/* ---- tipografía ---- */
+.spec{flex-direction:column;align-items:flex-start;justify-content:space-between;padding:42px;gap:20px}
+.spec .aa{font-size:clamp(120px,16vw,230px);line-height:.85}
+.spec .nm{font-family:var(--ui);font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.7}
+.spec .sm{max-width:520px}
+.f-serif{font-family:var(--serif);font-weight:500}.f-body{font-family:var(--body)}.f-ui{font-family:var(--ui);font-weight:500}.f-script{font-family:var(--script)}
+
+/* ---- imagery ---- */
+.m1{grid-column:span 7;min-height:560px}.m2{grid-column:span 5;min-height:560px}
+.m3{grid-column:span 4;min-height:420px}.m4{grid-column:span 4;min-height:420px}.m5{grid-column:span 4;min-height:420px}
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);padding:var(--gap)}
+.rule-c{background:var(--sand);padding:34px}
+.rule-c .num{font-family:var(--serif);font-size:44px;color:var(--walnut);line-height:1}
+.rule-c h4{font-family:var(--serif);text-transform:uppercase;letter-spacing:.06em;font-weight:500;font-size:22px;margin:10px 0 8px}
+.rule-c p{color:var(--taupe);font-size:15px}
+
+/* ---- elementos gráficos ---- */
+.ge{flex-direction:column;gap:22px;padding:40px;text-align:center}
+.hair{width:70px;height:1px;background:var(--walnut)}
+.btn{display:inline-flex;gap:10px;align-items:center;border:1px solid var(--ink);color:var(--ink);font-family:var(--ui);font-size:11px;letter-spacing:.16em;text-transform:uppercase;padding:11px 17px;background:transparent;box-shadow:4px 4px 0 -1px var(--line)}
+.btn.fill{background:var(--walnut);border-color:var(--walnut);color:var(--cream);box-shadow:none}
+.pattern{background-color:var(--walnut);background-image:url(img/clover.svg);background-size:46px;background-repeat:space;background-blend-mode:normal}
+.pattern-wrap{position:absolute;inset:0;background:var(--walnut)}
+.pattern-wrap i{position:absolute;inset:0;background:var(--sand);opacity:.16;-webkit-mask:url(img/clover.svg) 0 0/44px 54px repeat;mask:url(img/clover.svg) 0 0/44px 54px repeat}
+
+/* ---- aplicaciones ---- */
+.app{min-height:620px}
+.sign-bg{background:linear-gradient(180deg,#d9dccd 0%,#c4cbb2 55%,#8f9b72 55%,#7d8963 100%)}
+.sign{position:relative;width:min(560px,86%);margin-top:30px}
+.sign .board{background:var(--cream);border:10px solid var(--walnut);display:grid;grid-template-columns:42% 1fr;box-shadow:0 20px 40px rgba(0,0,0,.28)}
+.sign .board img{width:100%;height:100%;object-fit:cover;min-height:230px}
+.sign .board .tx{padding:22px 20px;display:flex;flex-direction:column;justify-content:space-between;gap:12px}
+.sign .board .tx .lockup{font-size:24px;align-self:flex-start;align-items:flex-start}
+.sign .board h5{font-family:var(--serif);font-weight:500;text-transform:uppercase;letter-spacing:.06em;font-size:24px;line-height:1.05;color:var(--ink)}
+.sign .board small{font-family:var(--ui);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--taupe);line-height:1.8}
+.sign .post{position:absolute;bottom:-120px;width:14px;height:130px;background:#4b3322}
+.sign .post.l{left:12%}.sign .post.r{right:12%}
+
+.boxes{perspective:1400px;display:flex;align-items:flex-end;justify-content:center;gap:26px;padding-bottom:40px;background:none}
+.cube{position:relative;width:var(--w);height:var(--h);transform-style:preserve-3d;transform:rotateX(-12deg) rotateY(-30deg)}
+.cube>div{position:absolute;backface-visibility:hidden;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px}
+.cube .f{width:var(--w);height:var(--h);transform:translateZ(calc(var(--d)/2));background:var(--cream)}
+.cube .bk{width:var(--w);height:var(--h);transform:rotateY(180deg) translateZ(calc(var(--d)/2));background:var(--sand)}
+.cube .r{width:var(--d);height:var(--h);left:calc((var(--w) - var(--d))/2);transform:rotateY(90deg) translateZ(calc(var(--w)/2));background:#e5d6bf}
+.cube .l{width:var(--d);height:var(--h);left:calc((var(--w) - var(--d))/2);transform:rotateY(-90deg) translateZ(calc(var(--w)/2));background:#e5d6bf}
+.cube .t{width:var(--w);height:var(--d);top:calc((var(--h) - var(--d))/2);transform:rotateX(90deg) translateZ(calc(var(--h)/2));background:#fbf6ee}
+.cube .f .lockup{font-size:calc(var(--w)/7)}
+.cube .f small,.cube .r small{font-family:var(--ui);font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--taupe)}
+.cube .r .clover,.cube .l .clover{width:26px;color:var(--walnut)}
+.floor{position:absolute;left:0;right:0;bottom:0;height:34%;background:linear-gradient(#cdbfa9,#b9a98f)}
+.boxwall{background:linear-gradient(#ece3d2,#e0d4be 66%,#cdbfa9 66%)}
+
+.cards{position:relative;width:420px;height:300px}
+.bc{position:absolute;width:300px;height:176px;box-shadow:0 18px 30px rgba(40,25,10,.3);display:flex;align-items:center;justify-content:center}
+.bc.a{left:0;top:80px;background:var(--walnut);transform:rotate(-8deg)}
+.bc.b{left:96px;top:20px;background:var(--cream);transform:rotate(5deg);flex-direction:column;align-items:flex-start;justify-content:space-between;padding:20px 22px;font-family:var(--ui);font-size:8.5px;letter-spacing:.12em;line-height:1.7;color:var(--ink)}
+.bc.b b{font-family:var(--serif);font-size:19px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;display:block;line-height:1.1;margin-bottom:3px}
+.bc.b em{font-style:normal;color:var(--taupe);text-transform:uppercase}
+.bc .seal{font-size:46px}
+
+.stationery{position:relative;width:440px;height:480px}
+.paper{position:absolute;background:#fff;box-shadow:0 20px 40px rgba(40,25,10,.22)}
+.paper.a4{left:0;top:0;width:300px;height:420px;padding:26px 28px;display:flex;flex-direction:column}
+.paper.a4 .hd{display:flex;align-items:center;justify-content:space-between}
+.paper.a4 .hd .lockup{font-size:15px}
+.paper.a4 .hd .seal{font-size:0}
+.paper.a4 .ln{height:5px;background:#e8e0d3;margin:9px 0}
+.paper.a4 .ft{margin-top:auto;font-family:var(--ui);font-size:7px;letter-spacing:.14em;text-transform:uppercase;color:var(--taupe);border-top:1px solid var(--line);padding-top:10px;display:flex;justify-content:space-between}
+.paper.env{left:190px;top:250px;width:250px;height:180px;background:var(--sand);padding:18px;transform:rotate(4deg);display:flex;align-items:flex-start}
+.paper.env .lockup{font-size:14px}
+.paper.env::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom right,transparent 49.4%,rgba(91,57,35,.14) 50%,transparent 50.6%)}
+
+.laptop{width:min(620px,92%)}
+.laptop .scr{background:#18130f;border-radius:16px 16px 0 0;padding:14px 14px 18px;aspect-ratio:16/10;box-shadow:0 30px 60px rgba(0,0,0,.4)}
+.laptop .site{background:var(--cream);height:100%;overflow:hidden;position:relative;border-radius:3px;display:flex;flex-direction:column}
+.laptop .nav{display:flex;justify-content:space-between;align-items:center;padding:8px 14px;font-family:var(--ui);font-size:6px;letter-spacing:.16em;text-transform:uppercase;color:var(--taupe)}
+.laptop .nav .seal{font-size:15px}
+.laptop .hero{flex:1;position:relative;margin:0 14px;overflow:hidden}
+.laptop .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.laptop .ht{padding:6px 14px 0}
+.laptop .ht small{font-family:var(--ui);font-size:5.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--taupe)}
+.laptop .ht h6{font-family:var(--serif);font-weight:500;font-size:34px;line-height:1;letter-spacing:.06em;color:var(--ink)}
+.laptop .base{height:15px;background:linear-gradient(#d4cfc7,#a6a097);border-radius:0 0 18px 18px;width:110%;margin-left:-5%;position:relative}
+.laptop .base::after{content:"";position:absolute;left:50%;top:0;width:90px;height:5px;transform:translateX(-50%);background:#9a948b;border-radius:0 0 8px 8px}
+.tab{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);background:#2b2622;color:#eee;border-radius:12px;padding:9px 16px;font:500 12px var(--ui);display:flex;align-items:center;gap:10px;box-shadow:0 10px 24px rgba(0,0,0,.3);z-index:6}
+.tab .seal{font-size:17px}
+
+.phone{width:272px;height:560px;border-radius:42px;background:#14110e;padding:10px;box-shadow:0 30px 60px rgba(0,0,0,.4);position:relative}
+.phone .ps{border-radius:33px;overflow:hidden;height:100%;background:#e9dfd1;position:relative}
+.phone iframe{width:700px;height:1560px;border:0;transform:scale(.3543);transform-origin:0 0;background:#e9dfd1}
+.phone::before{content:"";position:absolute;top:16px;left:50%;transform:translateX(-50%);width:76px;height:20px;border-radius:12px;background:#14110e;z-index:5}
+
+.tee{position:relative;width:340px}
+.tee svg{width:100%;filter:drop-shadow(0 24px 24px rgba(0,0,0,.3))}
+.tee .chest{position:absolute;left:62%;top:30%;transform:translateX(-50%);text-align:center}
+.tee .chest .lockup{font-size:15px;color:var(--walnut)}
+.tee .back{position:absolute;left:0;right:0;bottom:20%;text-align:center;font-family:var(--ui);font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--walnut);opacity:0}
+
+.tagwrap{position:relative;width:260px;height:480px}
+.tagwrap svg.str{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible;z-index:2}
+.hangtag{position:absolute;left:58px;top:150px;width:150px;height:250px;background:var(--cream);border-radius:10px;transform:rotate(-12deg);box-shadow:0 22px 30px rgba(0,0,0,.5);padding:44px 14px 16px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--ink)}
+.hangtag::before{content:"";position:absolute;top:14px;left:50%;transform:translateX(-50%);width:16px;height:16px;border-radius:50%;background:var(--espresso);box-shadow:inset 0 2px 3px rgba(0,0,0,.5)}
+.hangtag .seal{font-size:40px}
+.hangtag h5{font-family:var(--serif);text-transform:uppercase;letter-spacing:.08em;font-weight:500;font-size:22px;line-height:1.05;color:var(--walnut)}
+.hangtag small{font-family:var(--ui);font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--taupe);line-height:1.7}
+
+.social{width:min(500px,92%);background:#fff;color:var(--ink);padding:18px 18px 8px;box-shadow:0 24px 50px rgba(0,0,0,.3)}
+.social .ph{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.social .ph .seal{font-size:54px}
+.social .ph b{font-family:var(--ui);font-size:15px}
+.social .ph span{display:block;font-family:var(--ui);font-size:11px;color:var(--taupe);line-height:1.4}
+.sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+.sgrid>div{aspect-ratio:1;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;padding:8px}
+.sgrid img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sgrid .q{font-family:var(--serif);text-transform:uppercase;letter-spacing:.05em;font-size:13px;line-height:1.1;font-weight:500}
+.sgrid .q.big{font-size:15px}
+.sgrid .sl{font-family:var(--script);font-size:20px;line-height:1}
+
+/* ---- proceso ---- */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap);padding:0 var(--gap)}
+.step{min-height:380px;padding:30px;display:flex;flex-direction:column;justify-content:space-between}
+.step .n{font-family:var(--serif);font-size:80px;line-height:.9;font-weight:400}
+.step h4{font-family:var(--serif);font-size:30px;text-transform:uppercase;letter-spacing:.08em;font-weight:500;margin-bottom:8px}
+.step p{font-size:15px;opacity:.85}
+
+/* ---- voz ---- */
+.voice{display:grid;grid-template-columns:1.2fr 1fr;gap:var(--gap);padding:0 var(--gap)}
+.voice .big{background:var(--sand);padding:70px 56px;display:flex;flex-direction:column;justify-content:center;gap:24px}
+.voice .big q{font-family:var(--serif);font-size:clamp(32px,4vw,56px);line-height:1.05;text-transform:uppercase;letter-spacing:.04em;quotes:none}
+.voice .big q b{font-weight:600}
+.voice .big .script{font-family:var(--script);font-size:46px;color:var(--walnut);line-height:1}
+.pillars{display:grid;grid-template-rows:repeat(4,1fr);gap:var(--gap)}
+.pillar{background:#fff;padding:22px 28px;display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:center}
+.pillar i{font-family:var(--serif);font-size:34px;font-style:normal;color:var(--walnut)}
+.pillar b{font-family:var(--serif);font-size:22px;letter-spacing:.06em;text-transform:uppercase;font-weight:500;display:block}
+.pillar span{font-size:14.5px;color:var(--taupe);line-height:1.45;display:block}
+
+/* ---- equipo / proyectos ---- */
+.team{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:var(--gap);padding:0 var(--gap)}
+.person{position:relative;min-height:600px;overflow:hidden;color:var(--cream)}
+.person img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.person::after{content:"";position:absolute;inset:0;background:rgba(23,20,17,.28)}
+.person .tx{position:absolute;z-index:2;left:26px;right:26px;bottom:24px}
+.person .tx h4{font-family:var(--serif);font-size:30px;letter-spacing:.07em;text-transform:uppercase;font-weight:500;line-height:1.05}
+.person .tx span{font-family:var(--ui);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;opacity:.9}
+.proj{position:relative;min-height:520px;overflow:hidden;color:var(--cream);background:var(--espresso)}
+.proj img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.proj::after{content:"";position:absolute;inset:0;background:rgba(23,20,17,.22)}
+.proj .tx{position:absolute;z-index:2;left:24px;bottom:22px}
+.proj .tx span{font-family:var(--ui);font-size:10px;letter-spacing:.2em;text-transform:uppercase;opacity:.9;display:block;margin-bottom:4px}
+.proj .tx h4{font-family:var(--serif);font-size:30px;letter-spacing:.07em;text-transform:uppercase;font-weight:500;line-height:1}
+
+/* ---- cierre ---- */
+.close{position:relative;min-height:80vh;display:grid;place-items:center;text-align:center;color:var(--cream);overflow:hidden;margin-top:var(--gap)}
+.close img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.close::after{content:"";position:absolute;inset:0;background:rgba(23,20,17,.5)}
+.close .in{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:22px;padding:60px 20px}
+.close h2{font-family:var(--serif);font-weight:500;text-transform:uppercase;letter-spacing:.06em;font-size:clamp(34px,5vw,64px);line-height:1.05}
+.close .script{font-family:var(--script);font-size:44px;line-height:1}
+.close .ct{font-family:var(--ui);font-size:13px;letter-spacing:.14em;line-height:2;text-transform:uppercase}
+.close .btn{border-color:var(--cream);color:var(--cream);box-shadow:4px 4px 0 -1px rgba(248,241,231,.35)}
+footer{padding:26px 28px;display:flex;justify-content:space-between;font-family:var(--ui);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--taupe)}
+
+.notes-toggle{position:fixed;right:16px;bottom:16px;z-index:50;font-family:var(--ui);font-size:11px;letter-spacing:.12em;text-transform:uppercase;background:var(--ink);color:#fff;border:0;padding:10px 14px;border-radius:99px;cursor:pointer;opacity:.85}
+
+@media(max-width:1000px){
+  .g2,.g3,.team,.voice,.steps{grid-template-columns:1fr}
+  .sec{grid-template-columns:1fr;padding-top:80px}
+  .m1,.m2,.m3,.m4,.m5{grid-column:span 12;min-height:380px}
+  .rules{grid-template-columns:1fr}
+  .swatches{flex-direction:column;min-height:0}.sw{min-height:130px}
+  .tile{min-height:420px}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= PORTADA ================= -->
+<header class="cover">
+  <img src="img/delray.jpg" alt="Baño de The Delray Residence con millwork a medida">
+  <div class="in">
+    <div class="lockup cream"><span class="seal"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div>
+    <div class="tagline">Luxury Residential Interiors</div>
+  </div>
+  <div class="foot"><span>Brand Identity · Portafolio &amp; Brandbook</span><span>Design · Wellness · Execution</span></div>
+</header>
+
+<main class="wrap">
+
+<!-- ================= 2-UP: estampilla + tote ================= -->
+<section class="grid g2" style="margin-top:var(--gap)">
+  <div class="tile bg-espresso" style="min-height:640px">
+    <div class="stamp" style="--p:var(--espresso)">
+      <div class="ph"><img src="img/hernandez.jpg" alt="Baño Hernandez Residence"></div>
+      <span class="t1">Luxury residential<br>interiors</span>
+      <span class="t2">Follow us<br>pambuddhahomes.com</span>
+    </div>
+    <span class="mk">Mockup de ejemplo</span>
+  </div>
+  <div class="tile bg-sand" style="min-height:640px">
+    <div class="shadowleaf"></div>
+    <div class="tote" style="margin-top:90px">
+      <div class="h"></div>
+      <div class="b">
+        <div class="lockup"><span class="seal"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div>
+        <div class="tx">Design with intention.<br>Crafted for living.</div>
+      </div>
+    </div>
+    <span class="mk">Mockup de ejemplo</span>
+  </div>
+</section>
+
+<!-- ================= MANIFIESTO ================= -->
+<section class="manifesto">
+  <h2>Design with intention.<br><b>Live with purpose.</b></h2>
+  <p>Pambuddha Homes integra diseño interior, desarrollo arquitectónico, carpintería a medida y ejecución de obra para crear espacios residenciales pensados con detalle. Del concepto y la selección de materiales al desarrollo técnico y la instalación final, cada elemento se reúne con un enfoque en funcionalidad, oficio y bienestar.</p>
+  <p>La identidad refleja ese trabajo: sobria, cálida y táctil. Una paleta tomada de la madera, la piedra y la luz natural; una tipografía serif de contraste que habla de oficio; y un sello con un trébol que funciona como firma en cada pieza, del plano a la obra terminada.</p>
+  <p>La promesa es una sola, la misma que guía al estudio: no seguir tendencias, sino entender a las personas, sus necesidades y sus rutinas, y llevar esa idea a cada detalle. Porque el buen diseño no es solo algo que se ve, es algo que se vive cada día.</p>
+</section>
+
+<!-- ================= 2-UP: servicios tipográfico + trébol ================= -->
+<section class="grid g2">
+  <div class="tile bg-espresso typo" style="min-height:640px">
+    <div class="row"><i>01</i>Interior Design</div>
+    <div class="row"><i>02</i>Architecture</div>
+    <div class="row"><i>03</i>Custom Millwork</div>
+    <div class="row"><i>04</i>Renovation</div>
+    <div class="frame"><img src="img/drawings.jpg" alt="Planos y detalles de millwork"><span>Pambuddha Homes · Plans &amp; details</span></div>
+  </div>
+  <div class="tile" style="min-height:640px;background:var(--walnut)">
+    <img class="fill" src="img/workshop.jpg" alt="Millwork en nogal en el taller" style="opacity:.85">
+    <div class="veil"></div>
+    <div class="emboss"><span class="clover"></span></div>
+    <span class="mk">Render 3D / grabado: reemplazar</span>
+  </div>
+</section>
+
+<!-- ================= 01 LOGO ================= -->
+<div class="sec"><div class="n">01</div><h2>Logo<br>&amp; sello</h2><p>El sello escalonado con el trébol es la firma de la marca; se acompaña del wordmark PAMBUDDHA en serif de alto contraste y HOMES en versalitas espaciadas. Se usa en nogal sobre claros y en crema sobre fotografía u oscuros.</p></div>
+<section class="grid" style="grid-template-columns:2fr 1fr">
+  <div class="tile bg-cream logo-big" style="background:#fff"><div class="lockup"><span class="seal"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div><span class="cap">Logo principal · nogal</span></div>
+  <div class="tile bg-walnut logo-big"><span class="seal on-dark" style="font-size:190px"></span><span class="cap">Sello · favicon</span></div>
+</section>
+<section class="grid g3" style="margin-top:var(--gap)">
+  <div class="tile bg-walnut" style="min-height:340px"><div class="lockup cream" style="font-size:46px"><span class="seal"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div><span class="cap">Negativo · crema</span></div>
+  <div class="tile" style="min-height:340px"><img class="fill" src="img/oak-kitchen.jpg" alt=""><div style="position:absolute;inset:0;background:rgba(23,20,17,.32)"></div><div class="lockup cream" style="font-size:46px;position:relative"><span class="seal"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div><span class="cap" style="color:#fff">Sobre fotografía</span></div>
+  <div class="tile bg-sand" style="min-height:340px"><div class="lockup ink" style="font-size:46px"><span class="seal"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div><span class="cap">Monocromo · tinta</span></div>
+</section>
+<section class="grid g3" style="margin-top:var(--gap)">
+  <div class="tile bg-white" style="min-height:340px;flex-direction:column;gap:22px"><div class="clear"><div class="lockup" style="font-size:46px"><span class="seal"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div><i style="top:6px;left:50%;transform:translateX(-50%)">x</i><i style="bottom:6px;left:50%;transform:translateX(-50%)">x</i><i style="left:12px;top:50%">x</i><i style="right:12px;top:50%">x</i></div><span class="cap">Zona de respeto · x = ancho del sello ÷ 2</span></div>
+  <div class="tile bg-cream" style="min-height:340px;flex-direction:column;gap:26px"><div style="display:flex;align-items:flex-end;gap:36px"><div class="lockup" style="font-size:26px"><span class="seal"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div><span class="seal" style="font-size:24px"></span></div><div class="up" style="color:var(--taupe);text-align:center;line-height:2">Tamaño mínimo · lockup 90 px / 24 mm<br>Sello 16 px / 6 mm</div><span class="cap">Tamaños mínimos (propuesta)</span></div>
+  <div class="tile bg-sand" style="min-height:340px;flex-direction:column;gap:20px;padding:30px"><div class="up" style="color:var(--taupe)">Variantes de uso</div><div style="display:flex;gap:22px;align-items:center"><span class="seal" style="font-size:72px"></span><span class="seal on-dark" style="font-size:72px;background:var(--walnut);border-radius:50%;padding:0;--sb:var(--cream);--sc:var(--walnut)"></span><span class="seal" style="font-size:72px;--sb:var(--olive)"></span></div><span class="cap">Sello · nogal / crema / oliva</span></div>
+</section>
+<section class="grid" style="grid-template-columns:repeat(4,1fr);margin-top:var(--gap)">
+  <div class="tile bg-white dont"><span class="x">×</span><div class="lockup" style="font-size:30px;transform:scaleX(1.45)"><span class="seal"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div><p>No deformar</p></div>
+  <div class="tile bg-white dont"><span class="x">×</span><div class="lockup" style="font-size:30px;color:#b82105"><span class="seal" style="--sb:#b82105"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div><p>No cambiar colores</p></div>
+  <div class="tile dont" style="background:linear-gradient(135deg,#939F76,#F1E3D1 50%,#5B3923)"><span class="x">×</span><div class="lockup" style="font-size:30px"><span class="seal"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div><p style="color:#171411">No sobre fondos ruidosos</p></div>
+  <div class="tile bg-white dont"><span class="x">×</span><div class="lockup" style="font-size:30px;transform:rotate(-10deg);text-shadow:3px 4px 4px rgba(0,0,0,.35)"><span class="seal"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div><p>No rotar ni añadir efectos</p></div>
+</section>
+
+<!-- ================= 02 COLOR ================= -->
+<div class="sec"><div class="n">02</div><h2>Paleta<br>de color</h2><p>Colores cálidos y naturales tomados de la madera, la piedra y la luz de los proyectos. Nogal y crema llevan la marca; oliva y salvia aparecen como acentos puntuales.</p></div>
+<section class="swatches">
+  <div class="sw main" style="background:var(--walnut);color:var(--cream)"><b>Walnut</b>Primario · logo, botones<br>#5B3923<br>RGB 91 · 57 · 35</div>
+  <div class="sw" style="background:var(--espresso);color:var(--cream)"><b>Espresso</b>Fondos oscuros<br>#2B2520<br>43 · 37 · 32</div>
+  <div class="sw" style="background:var(--ink);color:var(--cream)"><b>Ink</b>Texto<br>#171411<br>23 · 20 · 17</div>
+  <div class="sw" style="background:var(--taupe);color:var(--cream)"><b>Taupe</b>Texto secundario<br>#6B5E52<br>107 · 94 · 82</div>
+  <div class="sw" style="background:var(--olive);color:var(--cream)"><b>Olive</b>Acento<br>#56603E<br>86 · 96 · 62</div>
+  <div class="sw" style="background:var(--sage);color:var(--ink)"><b>Sage</b>Acento suave<br>#939F76<br>147 · 159 · 118</div>
+  <div class="sw" style="background:var(--sand);color:var(--ink)"><b>Sand</b>Superficies<br>#F1E3D1<br>241 · 227 · 209</div>
+  <div class="sw" style="background:var(--cream);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)"><b>Cream</b>Fondo base<br>#F8F1E7<br>248 · 241 · 231</div>
+  <div class="sw" style="background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)"><b>White</b>Papelería<br>#FFFFFF<br>255 · 255 · 255</div>
+</section>
+<div class="ratio"><span style="width:38%;background:var(--cream);box-shadow:inset 0 0 0 1px var(--line)"></span><span style="width:20%;background:var(--sand)"></span><span style="width:18%;background:var(--walnut)"></span><span style="width:12%;background:var(--espresso)"></span><span style="width:7%;background:var(--olive)"></span><span style="width:5%;background:var(--sage)"></span></div>
+<div class="ratio-l"><span>Cream 38% · Sand 20% · Walnut 18% · Espresso 12% · Acentos 12%</span><span>Proporción de uso (propuesta)</span></div>
+
+<!-- ================= 03 TIPOGRAFÍA ================= -->
+<div class="sec"><div class="n">03</div><h2>Tipo&shy;grafía</h2><p>Un serif de contraste para titulares en versalitas con tracking amplio, Forum para lectura y Hanken Grotesk para etiquetas y UI. Un trazo manuscrito acompaña frases de cierre.</p></div>
+<section class="grid g2">
+  <div class="tile bg-cream spec" style="background:#fff"><div class="nm">Titulares · Cormorant Garamond 500</div><div class="aa f-serif" style="color:var(--walnut)">Aa</div><div class="sm f-serif" style="font-size:32px;line-height:1.1;letter-spacing:.05em;text-transform:uppercase">Design with intention.<br>Crafted for living.</div></div>
+  <div class="tile bg-sand spec"><div class="nm">Texto · Forum Regular</div><div class="aa f-body" style="color:var(--walnut)">Aa</div><div class="sm f-body" style="font-size:19px;line-height:1.5">Meaningful spaces are not created by following trends, but by understanding the people, needs and experiences behind them.</div></div>
+  <div class="tile bg-walnut spec"><div class="nm">Etiquetas &amp; UI · Hanken Grotesk 500</div><div class="aa f-ui" style="font-weight:500">Aa</div><div class="sm f-ui up" style="line-height:2.1">Interior design · Architecture · Custom millwork · Renovation</div></div>
+  <div class="tile bg-espresso spec"><div class="nm">Acento manuscrito · Reenie Beanie (confirmar fuente)</div><div class="aa f-script" style="color:var(--sage)">Aa</div><div class="sm f-script" style="font-size:44px;line-height:1">It needs the right vision, materials and execution.</div></div>
+</section>
+
+<!-- ================= 04 FOTOGRAFÍA ================= -->
+<div class="sec"><div class="n">04</div><h2>Direc&shy;ción<br>fotográfica</h2><p>Fotografía real de proyectos y de proceso: luz cálida, materiales a la vista y encuadres que muestran proporción y oficio. Sin stock, sin saturación.</p></div>
+<section class="grid g12">
+  <div class="tile m1"><img class="fill" src="img/pinecrest.jpg" alt="Cocina Pinecrest"><span class="cap" style="color:#fff">Espacio · luz natural</span></div>
+  <div class="tile m2"><img class="fill" src="img/webb.jpg" alt="Webb wine bar" style="object-position:center 30%"><span class="cap" style="color:#fff">Millwork + luz integrada</span></div>
+  <div class="tile m3"><img class="fill" src="img/samples.jpg" alt="Muestras"><span class="cap" style="color:#fff">Materiales</span></div>
+  <div class="tile m4"><img class="fill" src="img/fab-014.jpg" alt="Gabinete en proceso"><span class="cap" style="color:#171411">Proceso · taller</span></div>
+  <div class="tile m5"><img class="fill" src="img/limonti.jpg" alt="Limonti Residence"><span class="cap" style="color:#fff">Detalle · baño</span></div>
+</section>
+<section class="rules">
+  <div class="rule-c"><div class="num">01</div><h4>Luz cálida</h4><p>Luz natural o ambiental cálida; evitar blancos fríos y filtros pesados.</p></div>
+  <div class="rule-c"><div class="num">02</div><h4>Material primero</h4><p>Veta, piedra y textura como protagonistas; planos de detalle junto a planos generales.</p></div>
+  <div class="rule-c"><div class="num">03</div><h4>Gente y proceso</h4><p>Taller, planos y obra real. El trabajo hecho a mano es parte de la historia.</p></div>
+</section>
+
+<!-- ================= 05 ELEMENTOS GRÁFICOS ================= -->
+<div class="sec"><div class="n">05</div><h2>Elementos<br>gráficos</h2><p>Un lenguaje sencillo: filete fino, etiquetas espaciadas, botones de línea con desplazamiento y el trébol como patrón.</p></div>
+<section class="grid g3">
+  <div class="tile bg-cream ge" style="background:#fff"><div class="up" style="color:var(--gold,#b98a4e)">Custom millwork · Completed</div><div class="hair"></div><div style="font-family:var(--serif);font-size:34px;letter-spacing:.06em;text-transform:uppercase;line-height:1.05">Webb<br>Residence</div><span class="cap">Etiqueta + filete + título</span></div>
+  <div class="tile bg-sand ge"><span class="btn">Begin a conversation <i style="font-style:normal">↗</i></span><span class="btn fill">View project</span><span class="cap">Botones</span></div>
+  <div class="tile" style="min-height:480px"><div class="pattern-wrap"><i></i></div><div style="position:relative;z-index:2"><div class="lockup cream" style="font-size:44px"><span class="seal"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div></div><span class="cap" style="color:var(--sand)">Patrón de tréboles</span></div>
+</section>
+
+<!-- ================= 06 APLICACIONES ================= -->
+<div class="sec"><div class="n">06</div><h2>Aplica&shy;ciones</h2><p>La identidad llevada a obra, papelería, empaque y entorno digital. Los mockups son ejemplos construidos con las fotos reales del sitio y se reemplazarán por los finales.</p></div>
+
+<section class="grid g2">
+  <div class="tile sign-bg app" style="align-items:center"><div class="sign"><div class="board"><img src="img/hernandez.jpg" alt=""><div class="tx"><div class="lockup"><span class="seal"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div><h5>A home,<br>considered.</h5><small>Interior design · Custom millwork<br>Renovation · (786) 617-2548</small></div></div><span class="post l"></span><span class="post r"></span></div><span class="mk">Mockup: letrero de obra</span></div>
+  <div class="tile boxwall app" style="align-items:flex-end"><div class="floor"></div>
+    <div class="boxes" style="position:relative;z-index:2;padding-bottom:70px">
+      <div class="cube" style="--w:150px;--h:110px;--d:150px"><div class="f"><div class="lockup"><span class="seal"></span><span class="wm">Pambuddha</span></div><small>Material kit</small></div><div class="bk"></div><div class="r"><small>Veneer · Stone</small></div><div class="l"><span class="clover"></span></div><div class="t"></div></div>
+      <div class="cube" style="--w:230px;--h:170px;--d:200px"><div class="f"><div class="lockup"><span class="seal"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div><small>Sample kit · Regatta</small></div><div class="bk"></div><div class="r"><small>Handle with care</small></div><div class="l"><span class="clover"></span></div><div class="t"></div></div>
+      <div class="cube" style="--w:110px;--h:240px;--d:110px"><div class="f"><div class="lockup"><span class="seal"></span><span class="wm">Pambuddha</span></div></div><div class="bk"></div><div class="r"><small>Drawings</small></div><div class="l"><span class="clover"></span></div><div class="t"></div></div>
+    </div><span class="mk">Mockup: empaque</span></div>
+</section>
+
+<section class="grid g2" style="margin-top:var(--gap)">
+  <div class="tile bg-sand app"><div class="cards"><div class="bc a"><span class="seal on-dark" style="font-size:58px"></span></div><div class="bc b"><div><b>Pamela Sarmiento</b><em>Cofounder · Realtor®</em></div><div>(786) 617-2548<br>management@pambuddhahomes.com<br>pambuddhahomes.com · Miami, FL</div></div></div><span class="mk">Mockup: tarjetas</span></div>
+  <div class="tile bg-cream app" style="background:#e9dfd1"><div class="stationery"><div class="paper a4"><div class="hd"><div class="lockup"><span class="seal"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div></div><div style="height:46px"></div><div class="ln" style="width:38%;background:var(--line)"></div><div class="ln"></div><div class="ln"></div><div class="ln" style="width:92%"></div><div class="ln" style="width:70%"></div><div style="height:10px"></div><div class="ln"></div><div class="ln" style="width:84%"></div><div class="ln" style="width:55%"></div><div class="ft"><span>Miami · South Florida</span><span>pambuddhahomes.com</span></div></div><div class="paper env"><div class="lockup"><span class="seal"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div></div></div><span class="mk">Mockup: papelería</span></div>
+</section>
+
+<section class="grid" style="grid-template-columns:1.35fr 1fr;margin-top:var(--gap)">
+  <div class="tile app" style="background:radial-gradient(ellipse at 50% 30%,#9a5a34,#5b3320 70%)"><div class="laptop"><div class="scr"><div class="site"><div class="nav"><span class="seal" style="--sb:var(--walnut)"></span><span>Services · Portfolio · About · Contact</span></div><div class="ht"><small>Luxury residential interiors</small><h6>PAMBUDDHA</h6></div><div class="hero"><img src="img/webb.jpg" alt="" style="object-position:center 32%"></div><div style="height:10px"></div></div></div><div class="base"></div></div><div class="tab"><span class="seal on-dark"></span> Pambuddha Homes · pambuddhahomes.com</div><span class="mk">Mockup: sitio web</span></div>
+  <div class="tile bg-sage app"><div class="phone"><div class="ps"><iframe src="https://diegoichiha.github.io/newletterpamhomes/" title="Newsletter de eventos" loading="lazy"></iframe></div></div><span class="mk">Newsletter (propuesta real)</span></div>
+</section>
+
+<section class="grid g2" style="margin-top:var(--gap)">
+  <div class="tile bg-olive app"><div class="tee"><svg viewBox="0 0 200 200"><path fill="#f7f4ee" d="M62 14 Q100 34 138 14 L184 36 L200 84 L168 96 L158 74 L158 188 Q100 196 42 188 L42 74 L32 96 L0 84 L16 36 Z"/><path fill="rgba(0,0,0,.07)" d="M62 14 Q100 34 138 14 Q100 48 62 14Z"/></svg><div class="chest"><div class="lockup"><span class="seal"></span><span class="wm" style="font-size:.0em"></span></div></div></div><span class="mk">Mockup: uniforme</span></div>
+  <div class="tile bg-espresso app"><div class="tagwrap"><svg class="str" viewBox="0 0 260 480"><path d="M88 156 C60 60 120 20 190 50" fill="none" stroke="#C0561E" stroke-width="3.4" stroke-linecap="round"/><circle cx="196" cy="52" r="26" fill="#d8d4cd" stroke="#bdb7ae"/></svg><div class="hangtag"><span class="seal"></span><h5>Walnut</h5><small>Natural oil · Matte<br>Regatta Residence<br>Custom millwork</small></div></div><span class="mk">Mockup: etiqueta de muestra</span></div>
+</section>
+
+<section class="grid" style="margin-top:var(--gap)">
+  <div class="tile bg-sand app" style="min-height:700px"><div class="social"><div class="ph"><span class="seal"></span><div><b>pambuddhahomes</b><span>Luxury residential interiors · Miami<br>Design · Wellness · Execution</span></div></div>
+    <div class="sgrid">
+      <div><img src="img/regatta-24.jpg" alt=""></div>
+      <div class="bg-sand"><div class="q big">Design with<br>intention.</div></div>
+      <div class="bg-walnut"><span class="seal on-dark" style="font-size:78px"></span></div>
+      <div><img src="img/oak-kitchen.jpg" alt=""></div>
+      <div class="bg-olive"><div class="q">We listen, observe, question and explore before we design.</div></div>
+      <div><img src="img/team.jpg" alt=""></div>
+      <div><img src="img/samples.jpg" alt=""></div>
+      <div style="background:var(--cream)"><div class="sl" style="color:var(--walnut)">Crafted<br>for living.</div></div>
+      <div><img src="img/delray.jpg" alt=""></div>
+    </div></div><span class="mk">Mockup: perfil de Instagram</span></div>
+</section>
+
+<!-- ================= 07 PROCESO ================= -->
+<div class="sec"><div class="n">07</div><h2>Proceso<br>de trabajo</h2><p>El método del estudio se vuelve un sistema visual: cuatro pasos numerados que pueden aparecer en propuestas, redes y presentaciones.</p></div>
+<section class="steps">
+  <div class="step bg-sand"><div class="n">01</div><div><h4>Understand</h4><p>Escuchamos, observamos y preguntamos hasta saber cómo vives y qué esperas del espacio.</p></div></div>
+  <div class="step bg-walnut"><div class="n">02</div><div><h4>Design</h4><p>Convertimos esa comprensión en diseño: distribución, luz, materiales, proporciones y piezas hechas para cada habitación.</p></div></div>
+  <div class="step bg-olive"><div class="n">03</div><div><h4>Develop</h4><p>Resolvemos lo técnico antes de empezar: planos, elevaciones, detalles constructivos y especificaciones.</p></div></div>
+  <div class="step bg-espresso"><div class="n">04</div><div><h4>Build</h4><p>Fabricamos el millwork en nuestro taller y coordinamos materiales, oficios e instalación.</p></div></div>
+</section>
+
+<!-- ================= 08 VOZ ================= -->
+<div class="sec"><div class="n">08</div><h2>Voz<br>&amp; mensaje</h2><p>Cercana, serena y precisa. Habla de personas y de oficio, no de tendencias. (Pilares: propuesta a validar con el cliente.)</p></div>
+<section class="voice">
+  <div class="big"><q>We listen, observe, question, <b>and explore before we design.</b></q><div class="script">Design with intention. Crafted for living.</div></div>
+  <div class="pillars">
+    <div class="pillar"><i>I</i><div><b>Considerada</b><span>Cada decisión responde a una intención; nada está ahí por casualidad.</span></div></div>
+    <div class="pillar"><i>II</i><div><b>Cálida</b><span>Habla de cómo se vive, se siente y se conecta en casa.</span></div></div>
+    <div class="pillar"><i>III</i><div><b>Precisa</b><span>Materiales, proporciones y detalles nombrados con claridad.</span></div></div>
+    <div class="pillar"><i>IV</i><div><b>Personal</b><span>Pamela responde personalmente; cada proyecto se construye con una persona.</span></div></div>
+  </div>
+</section>
+
+<!-- ================= EQUIPO ================= -->
+<div class="sec"><div class="n">09</div><h2>El equipo</h2><p>Cofundadoras con miradas distintas sobre el mismo proyecto: diseño, bienestar y real estate, junto a arquitectura, desarrollo técnico y coordinación de obra.</p></div>
+<section class="team">
+  <div class="person"><img src="img/team.jpg" alt="Pamela y Melissa" style="object-position:center 30%"><div class="tx"><h4>Pambuddha<br>Homes</h4><span>Studio team</span></div></div>
+  <div class="person"><img src="img/pamela.jpg" alt="Pamela Sarmiento"><div class="tx"><h4>Pamela Sarmiento</h4><span>Cofounder · Realtor®</span></div></div>
+  <div class="person"><img src="img/melissa.jpg" alt="Melissa Sierra" style="object-position:center 25%"><div class="tx"><h4>Melissa Sierra</h4><span>Architecture · Technical development</span></div></div>
+</section>
+
+<!-- ================= PROYECTOS ================= -->
+<div class="sec"><div class="n">10</div><h2>Proyectos</h2><p>Marca en uso: la identidad se apoya en el trabajo, y el trabajo se firma con el sello.</p></div>
+<section class="grid g3">
+  <div class="proj"><img src="img/delray.jpg" alt=""><div class="tx"><span>Interior design</span><h4>The Delray<br>Residence</h4></div></div>
+  <div class="proj"><img src="img/pinecrest.jpg" alt=""><div class="tx"><span>Interior design</span><h4>Renovation<br>in Pinecrest</h4></div></div>
+  <div class="proj"><img src="img/webb.jpg" alt="" style="object-position:center 30%"><div class="tx"><span>Custom millwork</span><h4>Webb<br>Residence</h4></div></div>
+</section>
+<section class="grid g3" style="margin-top:var(--gap)">
+  <div class="proj"><img src="img/regatta-living.jpg" alt=""><div class="tx"><span>Custom millwork</span><h4>Regatta<br>Residence</h4></div></div>
+  <div class="proj"><img src="img/hernandez.jpg" alt=""><div class="tx"><span>Interior design + custom millwork</span><h4>Hernandez<br>Residence</h4></div></div>
+  <div class="proj"><img src="img/limonti.jpg" alt=""><div class="tx"><span>Interior design + custom millwork</span><h4>Limonti<br>Residence</h4></div></div>
+</section>
+
+<!-- ================= CIERRE ================= -->
+<section class="close">
+  <img src="img/oak-kitchen.jpg" alt="">
+  <div class="in">
+    <span class="seal on-dark" style="font-size:90px"></span>
+    <div class="script">A space that feels like you.</div>
+    <h2>Let’s talk about<br>your project</h2>
+    <div class="ct">Miami · South Florida<br>(786) 617-2548 · management@pambuddhahomes.com</div>
+    <a class="btn" href="https://pambuddhahomes.com/contact-us/" target="_blank" rel="noopener">Begin a conversation <i style="font-style:normal">↗</i></a>
+  </div>
+</section>
+</main>
+<footer><span>Pambuddha Homes · Brandbook · Propuesta</span><span>2026</span></footer>
+
+<button class="notes-toggle" id="nt" type="button">Ocultar notas de mockup</button>
+<script>
+(function(){
+  var b=document.getElementById('nt');
+  b.addEventListener('click',function(){
+    var off=document.body.classList.toggle('nonotes');
+    b.textContent=off?'Mostrar notas de mockup':'Ocultar notas de mockup';
+  });
+})();
+</script>
+</body>
+</html>
