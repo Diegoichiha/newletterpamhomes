@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Pambuddha Homes · Brandbook</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Forum&family=Hanken+Grotesk:wght@400;500;600&family=Reenie+Beanie&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Forum&display=swap" rel="stylesheet">
 <script>if("IntersectionObserver" in window&&!matchMedia("(prefers-reduced-motion:reduce)").matches)document.documentElement.classList.add("js")</script>
 <style>
 :root{
-  --ease:cubic-bezier(.16,1,.3,1);
+  --ease:cubic-bezier(.22,1,.36,1);
   --walnut:#5B3923; --espresso:#2B2520; --ink:#171411; --taupe:#6B5E52;
-  --olive:#56603E; --sage:#939F76; --sand:#F1E3D1; --cream:#F8F1E7; --white:#fff; --line:#D9C7B0;
-  --serif:'Cormorant Garamond',Georgia,serif; --body:Forum,Georgia,serif; --ui:'Hanken Grotesk',system-ui,sans-serif; --script:'Reenie Beanie',cursive;
+  --tan:#E4CFB4; --ghost:#EADAC5; --sand:#F1E3D1; --cream:#F8F1E7; --white:#fff; --line:#D9C7B0;
+  --serif:'Cormorant Garamond',Georgia,serif; --body:Forum,Georgia,serif; --ui:Forum,Georgia,serif; --script:'Cormorant Garamond',Georgia,serif;
   --gap:8px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -51,7 +51,7 @@ img{display:block;max-width:100%}
 .tile img.fill{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .bg-cream{background:var(--cream)}.bg-sand{background:var(--sand)}.bg-walnut{background:var(--walnut);color:var(--cream)}
 .bg-espresso{background:var(--espresso);color:var(--cream)}.bg-ink{background:var(--ink);color:var(--cream)}
-.bg-olive{background:var(--olive);color:var(--cream)}.bg-sage{background:var(--sage);color:var(--ink)}.bg-white{background:#fff}
+.bg-white{background:var(--cream);box-shadow:inset 0 0 0 1px var(--line)}
 .mk{position:absolute;top:14px;right:14px;z-index:20;font-family:var(--ui);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;background:rgba(23,20,17,.72);color:#fff;padding:5px 9px;border-radius:99px}
 body.nonotes .mk{display:none}
 .cap{position:absolute;left:18px;bottom:14px;z-index:5;font-family:var(--ui);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;opacity:.8}
@@ -116,7 +116,7 @@ body.nonotes .mk{display:none}
 .clear .lockup{font-size:46px}
 .clear i{position:absolute;font-family:var(--ui);font-style:normal;font-size:10px;color:var(--taupe);letter-spacing:.1em}
 .dont{min-height:300px;flex-direction:column;gap:18px}
-.dont .x{position:absolute;top:12px;left:14px;width:22px;height:22px;border-radius:50%;background:#b82105;color:#fff;font:600 13px/22px var(--ui);text-align:center}
+.dont .x{position:absolute;top:12px;left:14px;width:22px;height:22px;border-radius:50%;background:var(--ink);color:var(--cream);font:400 13px/22px var(--ui);text-align:center}
 .dont p{font-family:var(--ui);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--taupe);position:absolute;bottom:14px;left:0;right:0;text-align:center}
 
 /* ---- color ---- */
@@ -148,7 +148,10 @@ body.nonotes .mk{display:none}
 /* ---- elementos gráficos ---- */
 .ge{flex-direction:column;gap:22px;padding:40px;text-align:center}
 .hair{width:70px;height:1px;background:var(--walnut)}
-.btn{display:inline-flex;gap:10px;align-items:center;border:1px solid var(--ink);color:var(--ink);font-family:var(--ui);font-size:11px;letter-spacing:.16em;text-transform:uppercase;padding:11px 17px;background:transparent;position:relative;margin:7px}
+.btn{display:inline-flex;gap:10px;align-items:center;border:1px solid var(--ink);color:var(--ink);font-family:var(--body);font-size:14px;letter-spacing:.12em;text-transform:uppercase;line-height:1;padding:15px 22px;background:linear-gradient(var(--walnut),var(--walnut)) no-repeat right center/0 100%;position:relative;margin:7px;transition:background-size .55s var(--ease),color .45s var(--ease),border-color .45s var(--ease)}
+.btn:hover{background-size:100% 100%;background-position:left center;color:var(--sand);border-color:var(--walnut)}
+.ar{display:inline-block;width:11px;height:11px}
+.ar svg{width:100%;height:100%;overflow:visible;stroke-width:1.2}
 .btn::before,.btn::after{content:"";position:absolute;width:38%;height:62%;border:1px solid currentColor;opacity:.45;pointer-events:none;transition:width .5s var(--ease),height .5s var(--ease),opacity .5s var(--ease)}
 .btn::before{left:-7px;top:-7px;border-right:0;border-bottom:0}
 .btn::after{right:-7px;bottom:-7px;border-left:0;border-top:0}
@@ -160,7 +163,7 @@ body.nonotes .mk{display:none}
 
 /* ---- aplicaciones ---- */
 .app{min-height:620px}
-.sign-bg{background:linear-gradient(180deg,#d9dccd 0%,#c4cbb2 55%,#8f9b72 55%,#7d8963 100%)}
+.sign-bg{background:linear-gradient(180deg,#EADAC5 0%,#E4CFB4 56%,#6B5E52 56%,#5a4e43 100%)}
 .sign{position:relative;width:min(560px,86%);margin-top:30px}
 .sign .board{background:var(--cream);border:10px solid var(--walnut);display:grid;grid-template-columns:42% 1fr;box-shadow:0 20px 40px rgba(0,0,0,.28)}
 .sign .board img{width:100%;height:100%;object-fit:cover;min-height:230px}
@@ -250,7 +253,7 @@ body.nonotes .mk{display:none}
 .sgrid img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .sgrid .q{font-family:var(--serif);text-transform:uppercase;letter-spacing:.05em;font-size:13px;line-height:1.1;font-weight:500}
 .sgrid .q.big{font-size:15px}
-.sgrid .sl{font-family:var(--script);font-size:20px;line-height:1}
+.sgrid .sl{font-family:var(--script);font-size:15px;line-height:1.05}
 
 /* ---- proceso ---- */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap);padding:0 var(--gap)}
@@ -264,7 +267,7 @@ body.nonotes .mk{display:none}
 .voice .big{background:var(--sand);padding:70px 56px;display:flex;flex-direction:column;justify-content:center;gap:24px}
 .voice .big q{font-family:var(--serif);font-size:clamp(32px,4vw,56px);line-height:1.05;text-transform:uppercase;letter-spacing:.04em;quotes:none}
 .voice .big q b{font-weight:600}
-.voice .big .script{font-family:var(--script);font-size:46px;color:var(--walnut);line-height:1}
+.voice .big .script{font-family:var(--script);font-size:34px;color:var(--walnut);line-height:1.05}
 .pillars{display:grid;grid-template-rows:repeat(4,1fr);gap:var(--gap)}
 .pillar{background:#fff;padding:22px 28px;display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:center}
 .pillar i{width:34px;height:34px;color:var(--walnut);transition:transform .6s var(--ease)}
@@ -292,9 +295,10 @@ body.nonotes .mk{display:none}
 .close::after{content:"";position:absolute;inset:0;background:rgba(23,20,17,.5)}
 .close .in{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:22px;padding:60px 20px}
 .close h2{font-family:var(--serif);font-weight:500;text-transform:uppercase;letter-spacing:.06em;font-size:clamp(34px,5vw,64px);line-height:1.05}
-.close .script{font-family:var(--script);font-size:44px;line-height:1}
+.close .script{font-family:var(--script);font-size:34px;line-height:1.05}
 .close .ct{font-family:var(--ui);font-size:13px;letter-spacing:.14em;line-height:2;text-transform:uppercase}
-.close .btn{border-color:var(--cream);color:var(--cream)}
+.close .btn{border-color:rgba(241,227,209,.7);color:var(--sand);background-image:linear-gradient(var(--sand),var(--sand))}
+.close .btn:hover{color:var(--ink);border-color:var(--sand)}
 footer{padding:26px 28px;display:flex;justify-content:space-between;font-family:var(--ui);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--taupe)}
 
 .notes-toggle{position:fixed;right:16px;bottom:16px;z-index:50;font-family:var(--ui);font-size:11px;letter-spacing:.12em;text-transform:uppercase;background:var(--ink);color:#fff;border:0;padding:10px 14px;border-radius:99px;cursor:pointer;opacity:.85}
@@ -335,7 +339,7 @@ svg{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-l
 .band::after{content:"";position:absolute;inset:0;background:rgba(23,20,17,.4)}
 .band .bt{position:relative;z-index:2;max-width:980px;padding:0 24px}
 .band h3{font-family:var(--serif);font-weight:500;text-transform:uppercase;letter-spacing:.06em;font-size:clamp(34px,5.4vw,76px);line-height:1.04;margin-top:16px}
-.band .scr{font-family:var(--script);font-size:clamp(44px,5.6vw,78px);line-height:1}
+.band .scr{font-family:var(--script);font-size:clamp(34px,4.6vw,64px);line-height:1.05}
 .story{display:grid;grid-template-columns:1.1fr 1fr;gap:var(--gap);padding:0 var(--gap);margin-bottom:var(--gap)}
 .story .ph{position:relative;min-height:700px;overflow:hidden}
 .story .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -350,7 +354,7 @@ svg{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-l
 .marq-row{display:flex;width:max-content;align-items:center;gap:44px;padding-right:44px;animation:mq 46s linear infinite}
 .marq:hover .marq-row{animation-play-state:paused}
 .marq-row span{font-family:var(--serif);font-size:clamp(34px,4vw,58px);letter-spacing:.08em;text-transform:uppercase;font-weight:500;white-space:nowrap}
-.marq-row .clover{width:22px;color:var(--sage);flex:none}
+.marq-row .clover{width:22px;color:var(--ghost);flex:none}
 @keyframes mq{to{transform:translateX(-50%)}}
 
 /* reveal al hacer scroll (como el sitio) */
@@ -370,24 +374,27 @@ svg{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-l
 
 /* tiles de motion */
 .mo{min-height:420px;flex-direction:column}
+.gifimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.gc.gif{background:var(--walnut);color:var(--cream)}
+.gc.gif::before{background:var(--cream)}
 .gc{position:absolute;top:14px;left:14px;z-index:5;font-family:var(--ui);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;background:rgba(248,241,231,.94);color:var(--ink);padding:5px 10px 5px 22px;border-radius:99px}
-.gc::before{content:"";position:absolute;left:9px;top:50%;width:6px;height:6px;margin-top:-3px;border-radius:50%;background:#c0561e;animation:blink 1.4s steps(2) infinite}
+.gc::before{content:"";position:absolute;left:9px;top:50%;width:6px;height:6px;margin-top:-3px;border-radius:50%;background:var(--walnut);animation:blink 1.4s steps(2) infinite}
 @keyframes blink{50%{opacity:.15}}
 .mo-wm{font-family:var(--serif);font-weight:500;font-size:clamp(34px,4vw,56px);letter-spacing:.16em;color:var(--cream)}
 .seal.spin::after{top:18%;bottom:18%;animation:spin 9s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes pulse{50%{transform:scale(1.07)}}
 .flip{position:relative;width:250px;height:310px;perspective:1000px}
-.flip .day{position:absolute;inset:0;background:var(--cream);color:var(--ink);border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;opacity:0;transform-origin:50% 100%;animation:dayflip 10s var(--ease) infinite;animation-delay:calc(var(--k)*2s);box-shadow:0 24px 40px rgba(0,0,0,.5)}
+.flip .day{position:absolute;inset:0;background:var(--cream);color:var(--ink);border-radius:3px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;opacity:0;transform-origin:50% 100%;animation:dayflip 10s var(--ease) infinite;animation-delay:calc(var(--k)*2s);box-shadow:0 24px 40px rgba(0,0,0,.5)}
 .flip .day small{font-family:var(--ui);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--taupe)}
 .flip .day b{font-family:var(--serif);font-size:150px;line-height:.9;font-weight:500;color:var(--walnut)}
 .flip .day span{font-family:var(--ui);font-size:11px;letter-spacing:.2em;text-transform:uppercase}
 @keyframes dayflip{0%{opacity:0;transform:rotateX(-90deg)}4%,17%{opacity:1;transform:none}20%,100%{opacity:0;transform:rotateX(80deg)}}
 .hang{display:flex;flex-direction:column;align-items:center;transform-origin:50% 0;animation:sway 4.5s ease-in-out infinite}
-.cord{width:2px;height:90px;background:#C0561E}
+.cord{width:2px;height:90px;background:var(--line)}
 .flipcard{width:190px;height:290px;perspective:1000px}
 .flipcard .in{position:relative;width:100%;height:100%;transform-style:preserve-3d;animation:fcflip 6s ease-in-out infinite}
-.flipcard .in>div{position:absolute;inset:0;backface-visibility:hidden;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;box-shadow:0 22px 34px rgba(0,0,0,.4)}
+.flipcard .in>div{position:absolute;inset:0;backface-visibility:hidden;border-radius:3px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;box-shadow:0 22px 34px rgba(0,0,0,.4)}
 .fc-a{background:var(--cream);color:var(--ink)}
 .fc-b{background:var(--walnut);color:var(--cream);transform:rotateY(180deg)}
 .flipcard .seal{font-size:46px}
@@ -454,20 +461,7 @@ svg{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-l
   .btn:hover i{animation:hvArrow .6s var(--ease)}
 }
 @media(max-width:1000px){.story,.story.rev{grid-template-columns:1fr}.story.rev .ph{order:0}.story .ph{min-height:460px}.story .tx{padding:50px 28px}}
-/* scroll apilado (hv2-cta del sitio) */
-.cta-s{position:relative;margin-top:var(--gap);background:var(--cream);--card-top:190px}
-.cta-pin{position:sticky;top:0;height:100vh;min-height:calc(var(--card-top) + min(475px,77.5vw));overflow:hidden;pointer-events:none}
-.cta-head{position:absolute;left:0;right:0;top:clamp(20px,4vh,44px);z-index:1;text-align:center}
-.cta-head .clover{display:block;width:30px;color:var(--walnut);margin:0 auto 14px;opacity:.9}
-.cta-head h3{font-family:var(--serif);font-weight:500;font-size:clamp(31px,3.33vw,48px);line-height:1.04;text-transform:uppercase;letter-spacing:.02em}
-.cta-mark{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);font-family:var(--serif);font-weight:400;font-size:clamp(48px,14vw,210px);line-height:.8;letter-spacing:.02em;color:#EADAC5;white-space:nowrap;z-index:0}
-.cta-cards{display:grid;grid-template-columns:1fr;align-items:start;gap:46vh;position:relative;z-index:2;margin-top:-100vh;padding-top:100vh}
-.cta-card{position:sticky;top:var(--card-top);width:min(380px,62vw);aspect-ratio:4/5;margin:0 auto;overflow:hidden;box-shadow:0 30px 60px -28px rgba(23,20,17,.45);will-change:transform}
-.cta-card img{width:100%;height:100%;object-fit:cover;display:block}
-.cta-card:nth-child(even){transform:translateX(12px) rotate(.8deg)}
-.cta-card:nth-child(3n){transform:translateX(-10px) rotate(-.8deg)}
-.cta-end{position:relative;z-index:3;text-align:center;padding:60px 24px 130px}
-.cta-end p{max-width:480px;margin:0 auto 34px;color:var(--taupe)}
+.script,.scr,.sl{font-style:italic;font-weight:500}
 </style>
 </head>
 <body>
@@ -539,7 +533,7 @@ svg{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-l
 <section class="story">
   <div class="ph"><img src="img/team.jpg" alt="Pamela y Melissa en un proyecto" style="object-position:center 30%"></div>
   <div class="tx">
-    <span class="up" style="color:#b98a4e">Our story</span>
+    <span class="up" style="color:var(--walnut)">Our story</span>
     <h3>A home begins with the people who live there</h3>
     <p>Pamela Sarmiento y Melissa Sierra aportan miradas distintas a un mismo proyecto: Pamela conecta diseño, bienestar y real estate; Melissa suma conocimiento arquitectónico, desarrollo técnico y coordinación de obra.</p>
     <p>Juntas empiezan por tus necesidades, tus rutinas y lo que esperas que el espacio te dé. Esas conversaciones guían la distribución, los materiales y el trabajo que sigue.</p>
@@ -568,7 +562,7 @@ svg{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-l
 <!-- ================= 01 LOGO ================= -->
 <div class="sec"><div class="n">01</div><h2>Logo<br>&amp; sello</h2><p>El logo es el trébol: se usa solo y acompaña al wordmark PAMBUDDHA en serif de alto contraste, con HOMES en versalitas espaciadas. Cuando lleva fondo, va dentro de un círculo perfecto, como en el sitio. Nogal sobre claros, crema sobre fotografía u oscuros.</p></div>
 <section class="grid" style="grid-template-columns:2fr 1fr">
-  <div class="tile bg-cream logo-big" style="background:#fff"><div class="lockup"><span class="seal"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div><span class="cap">Logo principal · nogal</span></div>
+  <div class="tile bg-white logo-big"><div class="lockup"><span class="seal"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div><span class="cap">Logo principal · nogal</span></div>
   <div class="tile bg-walnut logo-big"><span class="seal on-dark" style="font-size:190px"></span><span class="cap">Trébol en círculo · favicon</span></div>
 </section>
 <section class="grid g3" style="margin-top:var(--gap)">
@@ -579,38 +573,44 @@ svg{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-l
 <section class="grid g3" style="margin-top:var(--gap)">
   <div class="tile bg-white" style="min-height:340px;flex-direction:column;gap:22px"><div class="clear"><div class="lockup" style="font-size:46px"><span class="seal"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div><i style="top:6px;left:50%;transform:translateX(-50%)">x</i><i style="bottom:6px;left:50%;transform:translateX(-50%)">x</i><i style="left:12px;top:50%">x</i><i style="right:12px;top:50%">x</i></div><span class="cap">Zona de respeto · x = ancho del sello ÷ 2</span></div>
   <div class="tile bg-cream" style="min-height:340px;flex-direction:column;gap:26px"><div style="display:flex;align-items:flex-end;gap:36px"><div class="lockup" style="font-size:26px"><span class="seal"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div><span class="seal" style="font-size:24px"></span></div><div class="up" style="color:var(--taupe);text-align:center;line-height:2">Tamaño mínimo · lockup 90 px / 24 mm<br>Sello 16 px / 6 mm</div><span class="cap">Tamaños mínimos (propuesta)</span></div>
-  <div class="tile bg-sand" style="min-height:340px;flex-direction:column;gap:20px;padding:30px"><div class="up" style="color:var(--taupe)">Variantes de uso</div><div style="display:flex;gap:26px;align-items:center"><span class="clover" style="width:46px;color:var(--walnut)"></span><span class="seal" style="font-size:76px"></span><span class="seal" style="font-size:76px;--sb:var(--olive)"></span></div><span class="cap">Trébol solo · círculo nogal · círculo oliva</span></div>
+  <div class="tile bg-sand" style="min-height:340px;flex-direction:column;gap:20px;padding:30px"><div class="up" style="color:var(--taupe)">Variantes de uso</div><div style="display:flex;gap:26px;align-items:center"><span class="clover" style="width:46px;color:var(--walnut)"></span><span class="seal" style="font-size:76px"></span><span class="seal" style="font-size:76px;--sb:var(--espresso)"></span></div><span class="cap">Trébol solo · círculo Earth · círculo Hearth</span></div>
 </section>
 <section class="grid" style="grid-template-columns:repeat(4,1fr);margin-top:var(--gap)">
   <div class="tile bg-white dont"><span class="x">×</span><div class="lockup" style="font-size:30px;transform:scaleX(1.45)"><span class="seal"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div><p>No deformar</p></div>
   <div class="tile bg-white dont"><span class="x">×</span><div class="lockup" style="font-size:30px;color:#b82105"><span class="seal" style="--sb:#b82105"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div><p>No cambiar colores</p></div>
-  <div class="tile dont" style="background:linear-gradient(135deg,#939F76,#F1E3D1 50%,#5B3923)"><span class="x">×</span><div class="lockup" style="font-size:30px"><span class="seal"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div><p style="color:#171411">No sobre fondos ruidosos</p></div>
+  <div class="tile dont" style="background:url(img/samples.jpg) center/cover"><span class="x">×</span><div class="lockup" style="font-size:30px"><span class="seal"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div><p style="color:#171411;background:var(--cream);left:50%;right:auto;transform:translateX(-50%);padding:4px 10px;white-space:nowrap">No sobre fondos ruidosos</p></div>
   <div class="tile bg-white dont"><span class="x">×</span><div class="lockup" style="font-size:30px;transform:rotate(-10deg);text-shadow:3px 4px 4px rgba(0,0,0,.35)"><span class="seal"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div><p>No rotar ni añadir efectos</p></div>
 </section>
 
 <!-- ================= 02 COLOR ================= -->
-<div class="sec"><div class="n">02</div><h2>Paleta<br>de color</h2><p>Colores cálidos y naturales tomados de la madera, la piedra y la luz de los proyectos. Nogal y crema llevan la marca; oliva y salvia aparecen como acentos puntuales.</p></div>
+<div class="sec"><div class="n">02</div><h2>Paleta<br>de color</h2><p>La paleta exacta del sitio: papel, lino y arena para superficies, Earth como único acento, y Hearth e Ink para fondos oscuros y texto. Sin colores adicionales.</p></div>
 <section class="swatches">
-  <div class="sw main" style="background:var(--walnut);color:var(--cream)"><b>Walnut</b>Primario · logo, botones<br>#5B3923<br>RGB 91 · 57 · 35</div>
-  <div class="sw" style="background:var(--espresso);color:var(--cream)"><b>Espresso</b>Fondos oscuros<br>#2B2520<br>43 · 37 · 32</div>
-  <div class="sw" style="background:var(--ink);color:var(--cream)"><b>Ink</b>Texto<br>#171411<br>23 · 20 · 17</div>
-  <div class="sw" style="background:var(--taupe);color:var(--cream)"><b>Taupe</b>Texto secundario<br>#6B5E52<br>107 · 94 · 82</div>
-  <div class="sw" style="background:var(--olive);color:var(--cream)"><b>Olive</b>Acento<br>#56603E<br>86 · 96 · 62</div>
-  <div class="sw" style="background:var(--sage);color:var(--ink)"><b>Sage</b>Acento suave<br>#939F76<br>147 · 159 · 118</div>
-  <div class="sw" style="background:var(--sand);color:var(--ink)"><b>Sand</b>Superficies<br>#F1E3D1<br>241 · 227 · 209</div>
-  <div class="sw" style="background:var(--cream);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)"><b>Cream</b>Fondo base<br>#F8F1E7<br>248 · 241 · 231</div>
-  <div class="sw" style="background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)"><b>White</b>Papelería<br>#FFFFFF<br>255 · 255 · 255</div>
+  <div class="sw main" style="background:#5B3923;color:#F8F1E7"><b>Earth</b>Primario · logo, eyebrows, botones<br>#5B3923<br>RGB 91 · 57 · 35</div>
+  <div class="sw" style="background:#2B2520;color:#F1E3D1"><b>Hearth</b>Fondos oscuros, footer<br>#2B2520<br>43 · 37 · 32</div>
+  <div class="sw" style="background:#171411;color:#F1E3D1"><b>Ink</b>Texto<br>#171411<br>23 · 20 · 17</div>
+  <div class="sw" style="background:#6B5E52;color:#F8F1E7"><b>Stone</b>Texto secundario<br>#6B5E52<br>107 · 94 · 82</div>
+  <div class="sw" style="background:#E4CFB4;color:#171411"><b>Tan</b>Detalle<br>#E4CFB4<br>228 · 207 · 180</div>
+  <div class="sw" style="background:#EADAC5;color:#171411"><b>Sand</b>Marca de agua<br>#EADAC5<br>234 · 218 · 197</div>
+  <div class="sw" style="background:#F1E3D1;color:#171411"><b>Linen</b>Superficies<br>#F1E3D1<br>241 · 227 · 209</div>
+  <div class="sw" style="background:#F8F1E7;color:#171411;box-shadow:inset 0 0 0 1px #D9C7B0"><b>Paper</b>Fondo base<br>#F8F1E7<br>248 · 241 · 231</div>
+  <div class="sw" style="background:#D9C7B0;color:#171411"><b>Rule</b>Filetes<br>#D9C7B0<br>217 · 199 · 176</div>
 </section>
-<div class="ratio"><span style="width:38%;background:var(--cream);box-shadow:inset 0 0 0 1px var(--line)"></span><span style="width:20%;background:var(--sand)"></span><span style="width:18%;background:var(--walnut)"></span><span style="width:12%;background:var(--espresso)"></span><span style="width:7%;background:var(--olive)"></span><span style="width:5%;background:var(--sage)"></span></div>
-<div class="ratio-l"><span>Cream 38% · Sand 20% · Walnut 18% · Espresso 12% · Acentos 12%</span><span>Proporción de uso (propuesta)</span></div>
+<div class="ratio"><span style="width:40%;background:#F8F1E7;box-shadow:inset 0 0 0 1px #D9C7B0"></span><span style="width:24%;background:#F1E3D1"></span><span style="width:16%;background:#5B3923"></span><span style="width:12%;background:#2B2520"></span><span style="width:5%;background:#EADAC5"></span><span style="width:3%;background:#171411"></span></div>
+<div class="ratio-l"><span>Paper 40% · Linen 24% · Earth 16% · Hearth 12% · Sand 5% · Ink 3%</span><span>Proporción de uso (propuesta)</span></div>
 
 <!-- ================= 03 TIPOGRAFÍA ================= -->
-<div class="sec"><div class="n">03</div><h2>Tipo&shy;grafía</h2><p>Un serif de contraste para titulares en versalitas con tracking amplio, Forum para lectura y Hanken Grotesk para etiquetas y UI. Un trazo manuscrito acompaña frases de cierre.</p></div>
+<div class="sec"><div class="n">03</div><h2>Tipo&shy;grafía</h2><p>Dos familias, las mismas del sitio: Cormorant Garamond 500 para titulares en mayúsculas con tracking amplio, y Forum para texto, etiquetas, enlaces y botones.</p></div>
 <section class="grid g2">
-  <div class="tile bg-cream spec" style="background:#fff"><div class="nm">Titulares · Cormorant Garamond 500</div><div class="aa f-serif" style="color:var(--walnut)">Aa</div><div class="sm f-serif" style="font-size:32px;line-height:1.1;letter-spacing:.05em;text-transform:uppercase">Design with intention.<br>Crafted for living.</div></div>
+  <div class="tile bg-white spec"><div class="nm">Titulares · Cormorant Garamond 500</div><div class="aa f-serif" style="color:var(--walnut)">Aa</div><div class="sm f-serif" style="font-size:32px;line-height:1.1;letter-spacing:.05em;text-transform:uppercase">Design with intention.<br>Crafted for living.</div></div>
   <div class="tile bg-sand spec"><div class="nm">Texto · Forum Regular</div><div class="aa f-body" style="color:var(--walnut)">Aa</div><div class="sm f-body" style="font-size:19px;line-height:1.5">Meaningful spaces are not created by following trends, but by understanding the people, needs and experiences behind them.</div></div>
-  <div class="tile bg-walnut spec"><div class="nm">Etiquetas &amp; UI · Hanken Grotesk 500</div><div class="aa f-ui" style="font-weight:500">Aa</div><div class="sm f-ui up" style="line-height:2.1">Interior design · Architecture · Custom millwork · Renovation</div></div>
-  <div class="tile bg-espresso spec"><div class="nm">Acento manuscrito · Reenie Beanie (confirmar fuente)</div><div class="aa f-script" style="color:var(--sage)">Aa</div><div class="sm f-script" style="font-size:44px;line-height:1">It needs the right vision, materials and execution.</div></div>
+  <div class="tile bg-espresso spec"><div class="nm">Jerarquía del sitio</div>
+    <div style="display:grid;gap:16px"><div style="font-family:var(--body);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--tan)">Eyebrow · Forum 13 / .14em</div>
+    <div style="font-family:var(--serif);font-weight:500;text-transform:uppercase;letter-spacing:.03em;font-size:36px;line-height:1.05">Título · Cormorant 500<br>mayúsculas</div>
+    <div style="font-family:var(--body);font-size:17px;line-height:1.6;color:var(--ghost);max-width:400px">Texto · Forum 17 / 1.6. Stone sobre fondos claros, Linen sobre oscuros.</div></div>
+    <div class="nm">Cormorant + Forum</div></div>
+  <div class="tile bg-sand spec"><div class="nm">Botón · Forum 14 · .12em · borde 1 px</div>
+    <div style="display:flex;gap:26px;flex-wrap:wrap;align-items:center"><a class="btn">Begin a conversation <i class="ar"><svg viewBox="0 0 11 11"><path d="M1 10 10 1M3.2 1H10v6.8"/></svg></i></a><a class="btn fill" style="color:var(--cream)">View project</a></div>
+    <div class="nm">Esquinas en L que se expanden al hover</div></div>
 </section>
 
 <!-- ================= 04 FOTOGRAFÍA ================= -->
@@ -631,8 +631,8 @@ svg{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-l
 <!-- ================= 05 ELEMENTOS GRÁFICOS ================= -->
 <div class="sec"><div class="n">05</div><h2>Elementos<br>gráficos</h2><p>Un lenguaje sencillo: filete fino, etiquetas espaciadas, botones de línea con desplazamiento y el trébol como patrón.</p></div>
 <section class="grid g3">
-  <div class="tile bg-cream ge" style="background:#fff"><div class="up" style="color:var(--gold,#b98a4e)">Custom millwork · Completed</div><div class="hair"></div><div style="font-family:var(--serif);font-size:34px;letter-spacing:.06em;text-transform:uppercase;line-height:1.05">Webb<br>Residence</div><span class="cap">Etiqueta + filete + título</span></div>
-  <div class="tile bg-sand ge"><span class="btn">Begin a conversation <i style="font-style:normal">↗</i></span><span class="btn fill">View project</span><span class="cap">Botones</span></div>
+  <div class="tile bg-white ge"><div class="up" style="color:var(--walnut)">Custom millwork · Completed</div><div class="hair"></div><div style="font-family:var(--serif);font-size:34px;letter-spacing:.06em;text-transform:uppercase;line-height:1.05">Webb<br>Residence</div><span class="cap">Etiqueta + filete + título</span></div>
+  <div class="tile bg-sand ge"><span class="btn">Begin a conversation <i class="ar"><svg viewBox="0 0 11 11"><path d="M1 10 10 1M3.2 1H10v6.8"/></svg></i></span><span class="btn fill">View project</span><span class="cap">Botones</span></div>
   <div class="tile" style="min-height:480px"><div class="pattern-wrap"><i></i></div><div style="position:relative;z-index:2"><div class="lockup cream" style="font-size:44px"><span class="seal"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div></div><span class="cap" style="color:var(--sand)">Patrón de tréboles</span></div>
 </section>
 
@@ -656,12 +656,12 @@ svg{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-l
 
 <section class="grid" style="grid-template-columns:1.35fr 1fr;margin-top:var(--gap)">
   <div class="tile app" style="background:#2b2520"><img class="fill bgp" src="img/delray.jpg" alt=""><div class="veil" style="background:rgba(23,20,17,.38)"></div><div class="laptop"><div class="scr"><div class="site"><div class="nav"><span class="seal" style="--sb:var(--walnut)"></span><span>Services · Portfolio · About · Contact</span></div><div class="ht"><small>Luxury residential interiors</small><h6>PAMBUDDHA</h6></div><div class="hero"><img src="img/webb.jpg" alt="" style="object-position:center 32%"></div><div style="height:10px"></div></div></div><div class="base"></div></div><div class="tab"><span class="seal on-dark"></span> Pambuddha Homes · pambuddhahomes.com</div><span class="mk">Mockup: sitio web</span></div>
-  <div class="tile bg-sage app"><img class="fill bgp" src="img/limonti.jpg" alt=""><div class="veil" style="background:rgba(23,20,17,.34)"></div><div class="phone"><div class="ps"><iframe src="https://diegoichiha.github.io/newletterpamhomes/" title="Newsletter de eventos" loading="lazy"></iframe></div></div><span class="mk">Newsletter (propuesta real)</span></div>
+  <div class="tile bg-sand app"><img class="fill bgp" src="img/limonti.jpg" alt=""><div class="veil" style="background:rgba(23,20,17,.34)"></div><div class="phone"><div class="ps"><iframe src="https://diegoichiha.github.io/newletterpamhomes/" title="Newsletter de eventos" loading="lazy"></iframe></div></div><span class="mk">Newsletter (propuesta real)</span></div>
 </section>
 
 <section class="grid g2" style="margin-top:var(--gap)">
-  <div class="tile bg-olive app"><img class="fill bgp" src="img/pinecrest.jpg" alt=""><div class="veil" style="background:rgba(43,50,28,.55)"></div><div class="tee"><svg viewBox="0 0 200 200"><path fill="#f7f4ee" d="M62 14 Q100 34 138 14 L184 36 L200 84 L168 96 L158 74 L158 188 Q100 196 42 188 L42 74 L32 96 L0 84 L16 36 Z"/><path fill="rgba(0,0,0,.07)" d="M62 14 Q100 34 138 14 Q100 48 62 14Z"/></svg><div class="chest"><div class="lockup"><span class="seal"></span><span class="wm" style="font-size:.0em"></span></div></div></div><span class="mk">Mockup: uniforme</span></div>
-  <div class="tile bg-espresso app"><img class="fill bgp" src="img/fab-014.jpg" alt="" style="opacity:.55"><div class="veil" style="background:rgba(23,20,17,.5)"></div><div class="tagwrap"><svg class="str" viewBox="0 0 260 480"><path d="M88 156 C60 60 120 20 190 50" fill="none" stroke="#C0561E" stroke-width="3.4" stroke-linecap="round"/><circle cx="196" cy="52" r="26" fill="#d8d4cd" stroke="#bdb7ae"/></svg><div class="pivot"><div class="hangtag"><span class="seal"></span><h5>Walnut</h5><small>Natural oil · Matte<br>Regatta Residence<br>Custom millwork</small></div></div></div><span class="mk">Mockup: etiqueta de muestra</span></div>
+  <div class="tile bg-espresso app"><img class="fill bgp" src="img/pinecrest.jpg" alt=""><div class="veil" style="background:rgba(43,37,32,.55)"></div><div class="tee"><svg viewBox="0 0 200 200"><path fill="#f7f4ee" d="M62 14 Q100 34 138 14 L184 36 L200 84 L168 96 L158 74 L158 188 Q100 196 42 188 L42 74 L32 96 L0 84 L16 36 Z"/><path fill="rgba(0,0,0,.07)" d="M62 14 Q100 34 138 14 Q100 48 62 14Z"/></svg><div class="chest"><div class="lockup"><span class="seal"></span><span class="wm" style="font-size:.0em"></span></div></div></div><span class="mk">Mockup: uniforme</span></div>
+  <div class="tile bg-espresso app"><img class="fill bgp" src="img/fab-014.jpg" alt="" style="opacity:.55"><div class="veil" style="background:rgba(23,20,17,.5)"></div><div class="tagwrap"><svg class="str" viewBox="0 0 260 480"><path d="M88 156 C60 60 120 20 190 50" fill="none" stroke="#D9C7B0" stroke-width="3.4" stroke-linecap="round"/><circle cx="196" cy="52" r="26" fill="#d8d4cd" stroke="#bdb7ae"/></svg><div class="pivot"><div class="hangtag"><span class="seal"></span><h5>Walnut</h5><small>Natural oil · Matte<br>Regatta Residence<br>Custom millwork</small></div></div></div><span class="mk">Mockup: etiqueta de muestra</span></div>
 </section>
 
 <section class="grid" style="margin-top:var(--gap)">
@@ -671,7 +671,7 @@ svg{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-l
       <div class="bg-sand"><div class="q big">Design with<br>intention.</div></div>
       <div class="bg-walnut"><span class="seal on-dark" style="font-size:78px"></span></div>
       <div><img src="img/oak-kitchen.jpg" alt=""></div>
-      <div class="bg-olive"><div class="q">We listen, observe, question and explore before we design.</div></div>
+      <div class="bg-espresso"><div class="q">We listen, observe, question and explore before we design.</div></div>
       <div><img src="img/team.jpg" alt=""></div>
       <div><img src="img/samples.jpg" alt=""></div>
       <div style="background:var(--cream)"><div class="sl" style="color:var(--walnut)">Crafted<br>for living.</div></div>
@@ -685,44 +685,30 @@ svg{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-l
 </section>
 
 <!-- ================= 07 MOTION ================= -->
-<div class="sec"><div class="n">07</div><h2>Motion<br>&amp; GIF</h2><p>Loops recreados con el movimiento del sitio web: reveal que sube, recorte de imagen, letras escalonadas, marquee y la flecha ↗ que sale y entra. Incluye el scroll apilado de fotos del sitio (más abajo). Se exportan a GIF o MP4 para redes y correo.</p></div>
+<div class="sec"><div class="n">07</div><h2>Motion<br>&amp; GIF</h2><p>GIF del scroll apilado del sitio (arriba) y loops en vivo con su movimiento: letras escalonadas, fechas, etiqueta, botón con flecha y reveal de imagen. Todos se exportan a GIF o MP4 para redes y correo.</p></div>
 <section class="grid g3">
-  <div class="tile bg-walnut mo"><div class="mo-wm chars loop">PAMBUDDHA</div><span class="gc">GIF · letras escalonadas</span></div>
-  <div class="tile bg-sand mo"><span class="seal spin" style="font-size:170px"></span><span class="gc">GIF · sello</span></div>
+  <div class="tile bg-white mo" style="grid-column:span 2;aspect-ratio:760/475;min-height:0;padding:0"><img class="gifimg" src="img/scroll-stack.gif" alt="GIF: scroll apilado de fotos, como en pambuddhahomes.com"><span class="gc gif">GIF · scroll apilado (sitio)</span></div>
+  <div class="tile bg-walnut mo"><div class="mo-wm chars loop">PAMBUDDHA</div><span class="gc">LOOP · letras escalonadas</span></div>
+  <div class="tile bg-sand mo"><span class="seal spin" style="font-size:170px"></span><span class="gc">LOOP · trébol</span></div>
   <div class="tile bg-ink mo"><div class="flip">
     <div class="day" style="--k:0"><small>Miami Art Week</small><b>02</b><span>Wednesday · Dec</span></div>
     <div class="day" style="--k:1"><small>Miami Art Week</small><b>03</b><span>Thursday · Dec</span></div>
     <div class="day" style="--k:2"><small>Miami Art Week</small><b>04</b><span>Friday · Dec</span></div>
     <div class="day" style="--k:3"><small>Miami Art Week</small><b>05</b><span>Saturday · Dec</span></div>
     <div class="day" style="--k:4"><small>Miami Art Week</small><b>06</b><span>Sunday · Dec</span></div>
-  </div><span class="gc">GIF · fechas (newsletter)</span></div>
-  <div class="tile bg-olive mo"><div class="hang"><div class="cord"></div><div class="flipcard"><div class="in">
+  </div><span class="gc">LOOP · fechas (newsletter)</span></div>
+  <div class="tile bg-espresso mo"><div class="hang"><div class="cord"></div><div class="flipcard"><div class="in">
     <div class="fc-a"><span class="seal"></span><h5>Studio<br>open</h5><small>By appointment</small></div>
     <div class="fc-b"><span class="seal on-dark"></span><h5>See you<br>soon</h5><small>Begin a conversation</small></div>
-  </div></div></div><span class="gc">GIF · etiqueta</span></div>
-  <div class="tile mo" style="background:#fff"><a class="btn loop" style="font-size:14px;padding:16px 24px">Begin a conversation <i>↗</i></a><span class="gc">GIF · botón ↗</span></div>
-  <div class="tile mo bg-espresso"><div class="clipbox"><img src="img/webb.jpg" alt="" style="object-position:center 30%"><div class="clip-t"><small>Custom millwork</small><h4>Webb Residence</h4></div></div><span class="gc">GIF · reveal de imagen</span></div>
-</section>
-
-<section class="cta-s" aria-label="Scroll apilado, como el sitio">
-  <div class="cta-pin">
-    <span class="gc">GIF · scroll apilado (sitio)</span>
-    <div class="cta-head"><span class="clover"></span><h3>Let’s talk about<br>your project</h3></div>
-    <div class="cta-mark">PAMBUDDHA</div>
-  </div>
-  <div class="cta-cards">
-    <div class="cta-card"><img src="img/oak-kitchen.jpg" alt="Cocina de roble" style="object-position:55% 50%"></div>
-    <div class="cta-card"><img src="img/bathroom.jpg" alt="Baño con espejo iluminado"></div>
-    <div class="cta-card"><img src="img/limonti.jpg" alt="Limonti Residence" style="object-position:40% 50%"></div>
-    <div class="cta-card"><img src="img/hernandez.jpg" alt="Hernandez Residence" style="object-position:35% 50%"></div>
-  </div>
-  <div class="cta-end"><p>Cuéntanos del espacio y de la vida que quieres dentro de él. Pamela te responderá personalmente.</p><a class="btn" href="https://pambuddhahomes.com/contact-us/" target="_blank" rel="noopener">Begin a conversation <i style="font-style:normal">↗</i></a></div>
+  </div></div></div><span class="gc">LOOP · etiqueta</span></div>
+  <div class="tile bg-white mo"><a class="btn loop">Begin a conversation <i class="ar"><svg viewBox="0 0 11 11"><path d="M1 10 10 1M3.2 1H10v6.8"/></svg></i></a><span class="gc">LOOP · botón ↗</span></div>
+  <div class="tile mo bg-espresso" style="grid-column:span 2"><div class="clipbox"><img src="img/webb.jpg" alt="" style="object-position:center 30%"><div class="clip-t"><small>Custom millwork</small><h4>Webb Residence</h4></div></div><span class="gc">LOOP · reveal de imagen</span></div>
 </section>
 
 <section class="story rev">
   <div class="ph"><img src="img/workshop.jpg" alt="Millwork en nogal en el taller"></div>
   <div class="tx">
-    <span class="up" style="color:#b98a4e">Design &amp; craftsmanship</span>
+    <span class="up" style="color:var(--walnut)">Design &amp; craftsmanship</span>
     <h3>Designed in our studio, fabricated in our workshop</h3>
     <p>Cocinas, bares, clósets, vanities y muebles de pared, dibujados para una sola habitación y terminados a mano en madera maciza y superficies naturales.</p>
     <p>Quienes diseñan cada pieza trabajan junto a quienes la construyen, para que proporción, ensambles y acabado sigan fieles al dibujo.</p>
@@ -734,7 +720,7 @@ svg{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-l
 <section class="steps">
   <div class="step bg-sand"><img src="img/samples.jpg" alt=""><div class="ico"><svg><use href="#i-chat"/></svg></div><div><h4>Understand</h4><p>Escuchamos, observamos y preguntamos hasta saber cómo vives y qué esperas del espacio.</p></div></div>
   <div class="step bg-walnut"><img src="img/drawings.jpg" alt=""><div class="ico"><svg><use href="#i-pencil"/></svg></div><div><h4>Design</h4><p>Convertimos esa comprensión en diseño: distribución, luz, materiales, proporciones y piezas hechas para cada habitación.</p></div></div>
-  <div class="step bg-olive"><img src="img/fab-048.jpg" alt=""><div class="ico"><svg><use href="#i-grid"/></svg></div><div><h4>Develop</h4><p>Resolvemos lo técnico antes de empezar: planos, elevaciones, detalles constructivos y especificaciones.</p></div></div>
+  <div class="step bg-ink"><img src="img/fab-048.jpg" alt=""><div class="ico"><svg><use href="#i-grid"/></svg></div><div><h4>Develop</h4><p>Resolvemos lo técnico antes de empezar: planos, elevaciones, detalles constructivos y especificaciones.</p></div></div>
   <div class="step bg-espresso"><img src="img/workshop.jpg" alt=""><div class="ico"><svg><use href="#i-hammer"/></svg></div><div><h4>Build</h4><p>Fabricamos el millwork en nuestro taller y coordinamos materiales, oficios e instalación.</p></div></div>
 </section>
 
@@ -779,7 +765,7 @@ svg{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-l
     <div class="script">A space that feels like you.</div>
     <h2>Let’s talk about<br>your project</h2>
     <div class="ct">Miami · South Florida<br>(786) 617-2548 · management@pambuddhahomes.com</div>
-    <a class="btn" href="https://pambuddhahomes.com/contact-us/" target="_blank" rel="noopener">Begin a conversation <i style="font-style:normal">↗</i></a>
+    <a class="btn" href="https://pambuddhahomes.com/contact-us/" target="_blank" rel="noopener">Begin a conversation <i class="ar"><svg viewBox="0 0 11 11"><path d="M1 10 10 1M3.2 1H10v6.8"/></svg></i></a>
   </div>
 </section>
 </main>
