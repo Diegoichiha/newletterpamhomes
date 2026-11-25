@@ -6,8 +6,10 @@
 <title>Pambuddha Homes · Brandbook</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Forum&family=Hanken+Grotesk:wght@400;500;600&family=Reenie+Beanie&display=swap" rel="stylesheet">
+<script>if("IntersectionObserver" in window&&!matchMedia("(prefers-reduced-motion:reduce)").matches)document.documentElement.classList.add("js")</script>
 <style>
 :root{
+  --ease:cubic-bezier(.16,1,.3,1);
   --walnut:#5B3923; --espresso:#2B2520; --ink:#171411; --taupe:#6B5E52;
   --olive:#56603E; --sage:#939F76; --sand:#F1E3D1; --cream:#F8F1E7; --white:#fff; --line:#D9C7B0;
   --serif:'Cormorant Garamond',Georgia,serif; --body:Forum,Georgia,serif; --ui:'Hanken Grotesk',system-ui,sans-serif; --script:'Reenie Beanie',cursive;
@@ -23,8 +25,9 @@ img{display:block;max-width:100%}
 /* ---- seal (sello): escalonado + trébol, recoloreable ---- */
 .seal{--sb:var(--walnut);--sc:var(--cream);position:relative;display:inline-block;width:1em;height:1em;flex:none}
 .seal::before,.seal::after{content:"";position:absolute}
-.seal::before{inset:0;background:var(--sb);-webkit-mask:url(img/scallop.svg) center/contain no-repeat;mask:url(img/scallop.svg) center/contain no-repeat}
-.seal::after{left:26%;right:26%;top:19%;bottom:15%;background:var(--sc);-webkit-mask:url(img/clover.svg) center/contain no-repeat;mask:url(img/clover.svg) center/contain no-repeat}
+.seal::before{inset:0;background:var(--sb);-webkit-mask:url(img/seal-shape.png) center/contain no-repeat;mask:url(img/seal-shape.png) center/contain no-repeat;transition:transform 1s var(--ease)}
+.seal:hover::before{transform:rotate(90deg)}
+.seal::after{left:23%;right:23%;top:18%;bottom:13%;background:var(--sc);-webkit-mask:url(img/clover.svg) center/contain no-repeat;mask:url(img/clover.svg) center/contain no-repeat}
 .seal.on-dark{--sb:var(--cream);--sc:var(--walnut)}
 .clover{display:inline-block;background:currentColor;-webkit-mask:url(img/clover.svg) center/contain no-repeat;mask:url(img/clover.svg) center/contain no-repeat;aspect-ratio:103/126}
 
@@ -96,7 +99,8 @@ body.nonotes .mk{display:none}
 /* ---- tipográfico oscuro ---- */
 .typo{flex-direction:column;align-items:flex-start;justify-content:center;padding:60px 56px;gap:4px}
 .typo .row{display:flex;align-items:baseline;gap:18px;font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(38px,4.2vw,62px);line-height:1.04;color:var(--cream);opacity:.92}
-.typo .row i{font-family:var(--ui);font-style:normal;font-size:11px;letter-spacing:.1em;opacity:.55;width:22px}
+.typo .row{align-items:center}
+.typo .row i{width:34px;height:34px;flex:none;opacity:.75}
 .typo .frame{position:absolute;right:34px;top:34px;width:min(160px,28%);transform:rotate(3deg);background:var(--cream);padding:10px 10px 16px;box-shadow:0 20px 50px rgba(0,0,0,.5)}
 .typo .frame img{width:100%;aspect-ratio:3/4;object-fit:cover}
 .typo .frame span{display:block;font-family:var(--ui);font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--taupe);margin-top:8px;text-align:center}
@@ -136,7 +140,7 @@ body.nonotes .mk{display:none}
 .m3{grid-column:span 4;min-height:420px}.m4{grid-column:span 4;min-height:420px}.m5{grid-column:span 4;min-height:420px}
 .rules{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);padding:var(--gap)}
 .rule-c{background:var(--sand);padding:34px}
-.rule-c .num{font-family:var(--serif);font-size:44px;color:var(--walnut);line-height:1}
+.rule-c .ico{width:46px;height:46px;color:var(--walnut);transition:transform .7s var(--ease)}
 .rule-c h4{font-family:var(--serif);text-transform:uppercase;letter-spacing:.06em;font-weight:500;font-size:22px;margin:10px 0 8px}
 .rule-c p{color:var(--taupe);font-size:15px}
 
@@ -224,7 +228,8 @@ body.nonotes .mk{display:none}
 
 .tagwrap{position:relative;width:260px;height:480px}
 .tagwrap svg.str{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible;z-index:2}
-.hangtag{position:absolute;left:58px;top:150px;width:150px;height:250px;background:var(--cream);border-radius:10px;transform:rotate(-12deg);box-shadow:0 22px 30px rgba(0,0,0,.5);padding:44px 14px 16px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--ink)}
+.pivot{position:absolute;left:88px;top:156px;width:0;height:0}
+.hangtag{position:absolute;left:-75px;top:-22px;width:150px;height:250px;background:var(--cream);border-radius:10px;transform-origin:75px 22px;transform:rotate(-12deg);box-shadow:0 22px 30px rgba(0,0,0,.5);padding:44px 14px 16px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--ink)}
 .hangtag::before{content:"";position:absolute;top:14px;left:50%;transform:translateX(-50%);width:16px;height:16px;border-radius:50%;background:var(--espresso);box-shadow:inset 0 2px 3px rgba(0,0,0,.5)}
 .hangtag .seal{font-size:40px}
 .hangtag h5{font-family:var(--serif);text-transform:uppercase;letter-spacing:.08em;font-weight:500;font-size:22px;line-height:1.05;color:var(--walnut)}
@@ -245,7 +250,7 @@ body.nonotes .mk{display:none}
 /* ---- proceso ---- */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap);padding:0 var(--gap)}
 .step{min-height:380px;padding:30px;display:flex;flex-direction:column;justify-content:space-between}
-.step .n{font-family:var(--serif);font-size:80px;line-height:.9;font-weight:400}
+.step .ico{width:72px;height:72px;border:1px solid currentColor;border-radius:50%;padding:18px;opacity:.95;transition:transform .8s var(--ease),background .5s}
 .step h4{font-family:var(--serif);font-size:30px;text-transform:uppercase;letter-spacing:.08em;font-weight:500;margin-bottom:8px}
 .step p{font-size:15px;opacity:.85}
 
@@ -257,7 +262,7 @@ body.nonotes .mk{display:none}
 .voice .big .script{font-family:var(--script);font-size:46px;color:var(--walnut);line-height:1}
 .pillars{display:grid;grid-template-rows:repeat(4,1fr);gap:var(--gap)}
 .pillar{background:#fff;padding:22px 28px;display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:center}
-.pillar i{font-family:var(--serif);font-size:34px;font-style:normal;color:var(--walnut)}
+.pillar i{width:34px;height:34px;color:var(--walnut);transition:transform .6s var(--ease)}
 .pillar b{font-family:var(--serif);font-size:22px;letter-spacing:.06em;text-transform:uppercase;font-weight:500;display:block}
 .pillar span{font-size:14.5px;color:var(--taupe);line-height:1.45;display:block}
 
@@ -297,9 +302,175 @@ footer{padding:26px 28px;display:flex;justify-content:space-between;font-family:
   .swatches{flex-direction:column;min-height:0}.sw{min-height:130px}
   .tile{min-height:420px}
 }
+svg{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.ico svg,.ic svg{width:100%;height:100%;display:block}
+
+/* fotos de escena en mockups */
+.bgp{transform:scale(1.04);filter:saturate(.92)}
+.tile.app>.veil{z-index:1}
+.tile.app>.cards,.tile.app>.stationery,.tile.app>.laptop,.tile.app>.phone,.tile.app>.tee,.tile.app>.tagwrap,.tile.app>.sign,.tile.app>.tab{position:relative;z-index:2}
+.tile.app>.tab{position:absolute}
+
+/* pasos y voz con foto */
+.step{position:relative;overflow:hidden;color:var(--cream)}
+.step img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.step::after{content:"";position:absolute;inset:0;background:rgba(23,20,17,.56);transition:background .6s}
+.step:hover::after{background:rgba(23,20,17,.34)}
+.step>*:not(img){position:relative;z-index:2}
+.voice .big{position:relative;overflow:hidden;color:var(--cream);background:var(--espresso)}
+.voice .big .bgi{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.voice .big::after{content:"";position:absolute;inset:0;background:rgba(23,20,17,.6)}
+.voice .big>*:not(.bgi){position:relative;z-index:2}
+.voice .big .script{color:var(--sand)}
+
+/* bandas fotograficas e historias */
+.band{position:relative;height:min(86vh,760px);overflow:hidden;margin:var(--gap) 0;color:var(--cream);display:grid;place-items:center;text-align:center}
+.band.short{height:min(66vh,560px)}
+.band img{position:absolute;left:0;top:-7%;width:100%;height:114%;object-fit:cover;will-change:transform}
+.band::after{content:"";position:absolute;inset:0;background:rgba(23,20,17,.4)}
+.band .bt{position:relative;z-index:2;max-width:980px;padding:0 24px}
+.band h3{font-family:var(--serif);font-weight:500;text-transform:uppercase;letter-spacing:.06em;font-size:clamp(34px,5.4vw,76px);line-height:1.04;margin-top:16px}
+.band .scr{font-family:var(--script);font-size:clamp(44px,5.6vw,78px);line-height:1}
+.story{display:grid;grid-template-columns:1.1fr 1fr;gap:var(--gap);padding:0 var(--gap);margin-bottom:var(--gap)}
+.story .ph{position:relative;min-height:700px;overflow:hidden}
+.story .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.story .tx{background:var(--sand);padding:80px 64px;display:flex;flex-direction:column;justify-content:center;gap:18px}
+.story .tx h3{font-family:var(--serif);text-transform:uppercase;letter-spacing:.05em;font-size:clamp(30px,3.4vw,50px);line-height:1.06;font-weight:500}
+.story .tx p{color:var(--taupe);max-width:520px}
+.story.rev{grid-template-columns:1fr 1.1fr}
+.story.rev .ph{order:2}
+
+/* marquee (hv2-mq del sitio) */
+.marq{overflow:hidden;background:var(--walnut);color:var(--cream);padding:32px 0;margin:var(--gap) 0}
+.marq-row{display:flex;width:max-content;align-items:center;gap:44px;padding-right:44px;animation:mq 46s linear infinite}
+.marq:hover .marq-row{animation-play-state:paused}
+.marq-row span{font-family:var(--serif);font-size:clamp(34px,4vw,58px);letter-spacing:.08em;text-transform:uppercase;font-weight:500;white-space:nowrap}
+.marq-row .clover{width:22px;color:var(--sage);flex:none}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* reveal al hacer scroll (como el sitio) */
+.rv{opacity:0}
+.rv.in{opacity:1;animation:rvUp 1.1s var(--ease) backwards}
+@keyframes rvUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:none}}
+.rvc img{clip-path:inset(100% 0 0)}
+.rvc.in img{clip-path:inset(0);animation:clipIn 1.25s var(--ease) backwards}
+@keyframes clipIn{from{clip-path:inset(100% 0 0);transform:scale(1.14);transform-origin:50% 100%}to{clip-path:inset(0);transform:none}}
+
+/* letras escalonadas */
+.chars .c{display:inline-block;overflow:hidden;vertical-align:bottom;padding:.05em 0 .12em;margin-bottom:-.12em}
+.chars .c>span{display:inline-block;transform:translateY(108%);animation:chIn 1s var(--ease) forwards;animation-delay:calc(var(--i)*45ms + .25s)}
+@keyframes chIn{to{transform:none}}
+.chars.loop .c>span{animation:chLoop 5.6s var(--ease) infinite;animation-delay:calc(var(--i)*70ms)}
+@keyframes chLoop{0%{transform:translateY(108%)}14%,68%{transform:none}84%,100%{transform:translateY(-108%)}}
+
+/* tiles de motion */
+.mo{min-height:420px;flex-direction:column}
+.gc{position:absolute;top:14px;left:14px;z-index:5;font-family:var(--ui);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;background:rgba(248,241,231,.94);color:var(--ink);padding:5px 10px 5px 22px;border-radius:99px}
+.gc::before{content:"";position:absolute;left:9px;top:50%;width:6px;height:6px;margin-top:-3px;border-radius:50%;background:#c0561e;animation:blink 1.4s steps(2) infinite}
+@keyframes blink{50%{opacity:.15}}
+.mo-wm{font-family:var(--serif);font-weight:500;font-size:clamp(34px,4vw,56px);letter-spacing:.16em;color:var(--cream)}
+.seal.spin::before{animation:spin 10s linear infinite}
+.seal.spin::after{animation:pulse 3s ease-in-out infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{50%{transform:scale(1.07)}}
+.flip{position:relative;width:250px;height:310px;perspective:1000px}
+.flip .day{position:absolute;inset:0;background:var(--cream);color:var(--ink);border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;opacity:0;transform-origin:50% 100%;animation:dayflip 10s var(--ease) infinite;animation-delay:calc(var(--k)*2s);box-shadow:0 24px 40px rgba(0,0,0,.5)}
+.flip .day small{font-family:var(--ui);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--taupe)}
+.flip .day b{font-family:var(--serif);font-size:150px;line-height:.9;font-weight:500;color:var(--walnut)}
+.flip .day span{font-family:var(--ui);font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+@keyframes dayflip{0%{opacity:0;transform:rotateX(-90deg)}4%,17%{opacity:1;transform:none}20%,100%{opacity:0;transform:rotateX(80deg)}}
+.hang{display:flex;flex-direction:column;align-items:center;transform-origin:50% 0;animation:sway 4.5s ease-in-out infinite}
+.cord{width:2px;height:90px;background:#C0561E}
+.flipcard{width:190px;height:290px;perspective:1000px}
+.flipcard .in{position:relative;width:100%;height:100%;transform-style:preserve-3d;animation:fcflip 6s ease-in-out infinite}
+.flipcard .in>div{position:absolute;inset:0;backface-visibility:hidden;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;box-shadow:0 22px 34px rgba(0,0,0,.4)}
+.fc-a{background:var(--cream);color:var(--ink)}
+.fc-b{background:var(--walnut);color:var(--cream);transform:rotateY(180deg)}
+.flipcard .seal{font-size:46px}
+.flipcard h5{font-family:var(--serif);font-weight:500;text-transform:uppercase;letter-spacing:.08em;font-size:26px;line-height:1.05}
+.flipcard small{font-family:var(--ui);font-size:9px;letter-spacing:.18em;text-transform:uppercase;opacity:.8}
+@keyframes fcflip{0%,38%{transform:rotateY(0)}50%,88%{transform:rotateY(180deg)}100%{transform:rotateY(360deg)}}
+.btn.loop i{animation:hvArrow 2.6s var(--ease) infinite}
+.clipbox{position:relative;width:min(380px,84%);aspect-ratio:4/5;overflow:hidden;color:var(--cream)}
+.clipbox::after{content:"";position:absolute;inset:0;background:rgba(23,20,17,.2);pointer-events:none}
+.clipbox img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:clipLoop 7s var(--ease) infinite}
+@keyframes clipLoop{0%{clip-path:inset(100% 0 0);transform:scale(1.14);transform-origin:50% 100%}22%,76%{clip-path:inset(0);transform:none}100%{clip-path:inset(0 0 100% 0);transform:scale(1.04)}}
+.clip-t{position:absolute;left:18px;bottom:16px;z-index:2;animation:txUp 7s var(--ease) infinite}
+.clip-t small{font-family:var(--ui);font-size:10px;letter-spacing:.2em;text-transform:uppercase;display:block}
+.clip-t h4{font-family:var(--serif);font-size:30px;letter-spacing:.07em;text-transform:uppercase;font-weight:500;line-height:1}
+@keyframes txUp{0%,14%{opacity:0;transform:translateY(32px)}30%,74%{opacity:1;transform:none}90%,100%{opacity:0;transform:translateY(-12px)}}
+@keyframes sway{0%,100%{transform:rotate(-2.5deg)}50%{transform:rotate(2.5deg)}}
+@keyframes swing{0%,100%{transform:rotate(-16deg)}50%{transform:rotate(10deg)}}
+@keyframes hvArrow{0%{transform:none}40%{transform:translate(140%,-140%);opacity:0}41%{transform:translate(-140%,140%);opacity:0}100%{transform:none;opacity:1}}
+
+/* hovers */
+@media(hover:hover){
+  .stamp{transition:transform .9s var(--ease)}
+  .tile:hover .stamp{transform:rotate(-3deg) scale(1.04) translateY(-8px)}
+  .tote{transform-origin:50% -60px}
+  .tile:hover .tote{animation:sway 2.8s ease-in-out infinite}
+  .cube{transition:transform 1.1s var(--ease)}
+  .tile:hover .cube{transform:rotateX(-12deg) rotateY(-78deg)}
+  .bc{transition:transform .9s var(--ease)}
+  .tile:hover .bc.a{transform:rotate(-17deg) translate(-34px,14px)}
+  .tile:hover .bc.b{transform:rotate(9deg) translate(30px,-10px)}
+  .paper{transition:transform .9s var(--ease)}
+  .tile:hover .paper.a4{transform:translateY(-10px)}
+  .tile:hover .paper.env{transform:rotate(1deg) translate(44px,70px)}
+  .laptop .hero img{transition:transform 2s var(--ease)}
+  .tile:hover .laptop .hero img{transform:scale(1.14) translateY(-3%)}
+  .phone{transition:transform .9s var(--ease)}
+  .tile:hover .phone{transform:translateY(-12px) rotate(-2.5deg)}
+  .tee{transition:transform .9s var(--ease)}
+  .tile:hover .tee{transform:rotate(-3deg) translateY(-8px) scale(1.04)}
+  .tile:hover .hangtag{animation:swing 2.4s ease-in-out infinite}
+  .sgrid>div{transition:transform .6s var(--ease)}
+  .sgrid>div:hover{transform:scale(1.06);z-index:3}
+  .sw{transition:flex .5s var(--ease),transform .5s var(--ease)}
+  .sw:hover{transform:translateY(-8px)}
+  .tile>img.fill{transition:transform 1.8s var(--ease)}
+  .tile:hover>img.fill:not(.bgp){transform:scale(1.05)}
+  .proj img,.person img,.step img,.story .ph img{transition:transform 1.6s var(--ease)}
+  .proj:hover img,.person:hover img,.step:hover img,.story .ph:hover img{transform:scale(1.07)}
+  .proj .tx,.person .tx{transition:transform .8s var(--ease)}
+  .proj:hover .tx,.person:hover .tx{transform:translateY(-10px)}
+  .rule-c{transition:transform .6s var(--ease),background .5s,color .5s}
+  .rule-c:hover{transform:translateY(-8px);background:var(--walnut);color:var(--cream)}
+  .rule-c:hover p{color:var(--sand)}
+  .rule-c:hover .ico{color:var(--cream);transform:rotate(-8deg) scale(1.12)}
+  .step{transition:transform .6s var(--ease)}
+  .step:hover{transform:translateY(-8px)}
+  .step:hover .ico{transform:rotate(-10deg) scale(1.1);background:rgba(248,241,231,.16)}
+  .pillar{transition:transform .6s var(--ease),background .4s}
+  .pillar:hover{transform:translateX(10px);background:var(--sand)}
+  .pillar:hover i{transform:scale(1.2) rotate(-8deg)}
+  .typo .row{transition:transform .7s var(--ease),opacity .5s}
+  .typo .row:hover{transform:translateX(16px);opacity:1}
+  .btn i{display:inline-block}
+  .btn:hover i{animation:hvArrow .6s var(--ease)}
+  .btn{transition:box-shadow .3s,transform .3s}
+  .btn:hover{box-shadow:0 0 0 0 var(--line);transform:translate(4px,4px)}
+}
+@media(max-width:1000px){.story,.story.rev{grid-template-columns:1fr}.story.rev .ph{order:0}.story .ph{min-height:460px}.story .tx{padding:50px 28px}}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-chair" viewBox="0 0 24 24"><path d="M7 10V7a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3v3"/><path d="M4 15a2 2 0 0 1 3-1.7V17h10v-3.7A2 2 0 0 1 20 15v3H4z"/><path d="M6 18v2.5M18 18v2.5"/></symbol>
+<symbol id="i-house" viewBox="0 0 24 24"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></symbol>
+<symbol id="i-cabinet" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M4 12h16M10 7.5h4M10 16.5h4"/></symbol>
+<symbol id="i-hammer" viewBox="0 0 24 24"><path d="M13.5 3.5l7 7-3 3-7-7z"/><path d="M12 9.5 4 17.5V20h2.5L14.5 12"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M18.7 5.3l-2.1 2.1M7.4 16.6l-2.1 2.1"/></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3.5 21 8l-9 4.5L3 8z"/><path d="M3 12.5l9 4.5 9-4.5"/><path d="M3 17l9 4.5 9-4.5"/></symbol>
+<symbol id="i-people" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16.5 14.2c2.7.2 4.5 2.3 4.5 5.3"/></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H10l-5 4v-4H4z"/><path d="M8.5 10.5h.01M12 10.5h.01M15.5 10.5h.01" stroke-width="2.4"/></symbol>
+<symbol id="i-pencil" viewBox="0 0 24 24"><path d="M4 20l1.2-4.4L16.5 4.3a1.6 1.6 0 0 1 2.2 0l1 1a1.6 1.6 0 0 1 0 2.2L8.4 18.8z"/><path d="M14.5 6.3l3.2 3.2"/></symbol>
+<symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 10h16M10 4v16M14 14h6"/></symbol>
+<symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.6 8.4l-2.1 5.1-5.1 2.1 2.1-5.1z"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.3a4.3 4.3 0 0 1 7.5 2.5C19.5 15.4 12 20 12 20z"/></symbol>
+<symbol id="i-ruler" viewBox="0 0 24 24"><path d="M3.5 15.5 15.5 3.5l5 5-12 12z"/><path d="M7 12l2.2 2.2M10 9l2.2 2.2M13 6l2.2 2.2"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 21c0-4.4 3.4-7 7.5-7s7.5 2.6 7.5 7"/></symbol>
+</defs></svg>
 
 <!-- ================= PORTADA ================= -->
 <header class="cover">
@@ -344,13 +515,30 @@ footer{padding:26px 28px;display:flex;justify-content:space-between;font-family:
   <p>La promesa es una sola, la misma que guía al estudio: no seguir tendencias, sino entender a las personas, sus necesidades y sus rutinas, y llevar esa idea a cada detalle. Porque el buen diseño no es solo algo que se ve, es algo que se vive cada día.</p>
 </section>
 
+<section class="band">
+  <img src="img/pinecrest.jpg" alt="Cocina de Renovation in Pinecrest">
+  <div class="bt"><span class="up">Design · Wellness · Execution</span><h3>More than spaces.<br>A better way of living.</h3></div>
+</section>
+
+<section class="story">
+  <div class="ph"><img src="img/team.jpg" alt="Pamela y Melissa en un proyecto" style="object-position:center 30%"></div>
+  <div class="tx">
+    <span class="up" style="color:#b98a4e">Our story</span>
+    <h3>A home begins with the people who live there</h3>
+    <p>Pamela Sarmiento y Melissa Sierra aportan miradas distintas a un mismo proyecto: Pamela conecta diseño, bienestar y real estate; Melissa suma conocimiento arquitectónico, desarrollo técnico y coordinación de obra.</p>
+    <p>Juntas empiezan por tus necesidades, tus rutinas y lo que esperas que el espacio te dé. Esas conversaciones guían la distribución, los materiales y el trabajo que sigue.</p>
+  </div>
+</section>
+
+<div class="marq"><div class="marq-row"><span>Interior design</span><i class="clover"></i><span>Custom millwork</span><i class="clover"></i><span>Renovation</span><i class="clover"></i><span>Architecture</span><i class="clover"></i><span>Interior design</span><i class="clover"></i><span>Custom millwork</span><i class="clover"></i><span>Renovation</span><i class="clover"></i><span>Architecture</span><i class="clover"></i><span>Interior design</span><i class="clover"></i><span>Custom millwork</span><i class="clover"></i><span>Renovation</span><i class="clover"></i><span>Architecture</span><i class="clover"></i><span>Interior design</span><i class="clover"></i><span>Custom millwork</span><i class="clover"></i><span>Renovation</span><i class="clover"></i><span>Architecture</span><i class="clover"></i><span>Interior design</span><i class="clover"></i><span>Custom millwork</span><i class="clover"></i><span>Renovation</span><i class="clover"></i><span>Architecture</span><i class="clover"></i><span>Interior design</span><i class="clover"></i><span>Custom millwork</span><i class="clover"></i><span>Renovation</span><i class="clover"></i><span>Architecture</span><i class="clover"></i></div></div>
+
 <!-- ================= 2-UP: servicios tipográfico + trébol ================= -->
 <section class="grid g2">
   <div class="tile bg-espresso typo" style="min-height:640px">
-    <div class="row"><i>01</i>Interior Design</div>
-    <div class="row"><i>02</i>Architecture</div>
-    <div class="row"><i>03</i>Custom Millwork</div>
-    <div class="row"><i>04</i>Renovation</div>
+    <div class="row"><i class="ic"><svg><use href="#i-chair"/></svg></i>Interior Design</div>
+    <div class="row"><i class="ic"><svg><use href="#i-house"/></svg></i>Architecture</div>
+    <div class="row"><i class="ic"><svg><use href="#i-cabinet"/></svg></i>Custom Millwork</div>
+    <div class="row"><i class="ic"><svg><use href="#i-hammer"/></svg></i>Renovation</div>
     <div class="frame"><img src="img/drawings.jpg" alt="Planos y detalles de millwork"><span>Pambuddha Homes · Plans &amp; details</span></div>
   </div>
   <div class="tile" style="min-height:640px;background:var(--walnut)">
@@ -419,9 +607,9 @@ footer{padding:26px 28px;display:flex;justify-content:space-between;font-family:
   <div class="tile m5"><img class="fill" src="img/limonti.jpg" alt="Limonti Residence"><span class="cap" style="color:#fff">Detalle · baño</span></div>
 </section>
 <section class="rules">
-  <div class="rule-c"><div class="num">01</div><h4>Luz cálida</h4><p>Luz natural o ambiental cálida; evitar blancos fríos y filtros pesados.</p></div>
-  <div class="rule-c"><div class="num">02</div><h4>Material primero</h4><p>Veta, piedra y textura como protagonistas; planos de detalle junto a planos generales.</p></div>
-  <div class="rule-c"><div class="num">03</div><h4>Gente y proceso</h4><p>Taller, planos y obra real. El trabajo hecho a mano es parte de la historia.</p></div>
+  <div class="rule-c"><div class="ico"><svg><use href="#i-sun"/></svg></div><h4>Luz cálida</h4><p>Luz natural o ambiental cálida; evitar blancos fríos y filtros pesados.</p></div>
+  <div class="rule-c"><div class="ico"><svg><use href="#i-layers"/></svg></div><h4>Material primero</h4><p>Veta, piedra y textura como protagonistas; planos de detalle junto a planos generales.</p></div>
+  <div class="rule-c"><div class="ico"><svg><use href="#i-people"/></svg></div><h4>Gente y proceso</h4><p>Taller, planos y obra real. El trabajo hecho a mano es parte de la historia.</p></div>
 </section>
 
 <!-- ================= 05 ELEMENTOS GRÁFICOS ================= -->
@@ -446,18 +634,18 @@ footer{padding:26px 28px;display:flex;justify-content:space-between;font-family:
 </section>
 
 <section class="grid g2" style="margin-top:var(--gap)">
-  <div class="tile bg-sand app"><div class="cards"><div class="bc a"><span class="seal on-dark" style="font-size:58px"></span></div><div class="bc b"><div><b>Pamela Sarmiento</b><em>Cofounder · Realtor®</em></div><div>(786) 617-2548<br>management@pambuddhahomes.com<br>pambuddhahomes.com · Miami, FL</div></div></div><span class="mk">Mockup: tarjetas</span></div>
-  <div class="tile bg-cream app" style="background:#e9dfd1"><div class="stationery"><div class="paper a4"><div class="hd"><div class="lockup"><span class="seal"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div></div><div style="height:46px"></div><div class="ln" style="width:38%;background:var(--line)"></div><div class="ln"></div><div class="ln"></div><div class="ln" style="width:92%"></div><div class="ln" style="width:70%"></div><div style="height:10px"></div><div class="ln"></div><div class="ln" style="width:84%"></div><div class="ln" style="width:55%"></div><div class="ft"><span>Miami · South Florida</span><span>pambuddhahomes.com</span></div></div><div class="paper env"><div class="lockup"><span class="seal"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div></div></div><span class="mk">Mockup: papelería</span></div>
+  <div class="tile bg-sand app"><img class="fill bgp" src="img/workshop.jpg" alt=""><div class="veil" style="background:rgba(23,20,17,.28)"></div><div class="cards"><div class="bc a"><span class="seal on-dark" style="font-size:58px"></span></div><div class="bc b"><div><b>Pamela Sarmiento</b><em>Cofounder · Realtor®</em></div><div>(786) 617-2548<br>management@pambuddhahomes.com<br>pambuddhahomes.com · Miami, FL</div></div></div><span class="mk">Mockup: tarjetas</span></div>
+  <div class="tile bg-cream app" style="background:#e9dfd1"><img class="fill bgp" src="img/samples.jpg" alt=""><div class="veil" style="background:rgba(248,241,231,.18)"></div><div class="stationery"><div class="paper a4"><div class="hd"><div class="lockup"><span class="seal"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div></div><div style="height:46px"></div><div class="ln" style="width:38%;background:var(--line)"></div><div class="ln"></div><div class="ln"></div><div class="ln" style="width:92%"></div><div class="ln" style="width:70%"></div><div style="height:10px"></div><div class="ln"></div><div class="ln" style="width:84%"></div><div class="ln" style="width:55%"></div><div class="ft"><span>Miami · South Florida</span><span>pambuddhahomes.com</span></div></div><div class="paper env"><div class="lockup"><span class="seal"></span><span class="wm">Pambuddha</span><span class="sub">Homes</span></div></div></div><span class="mk">Mockup: papelería</span></div>
 </section>
 
 <section class="grid" style="grid-template-columns:1.35fr 1fr;margin-top:var(--gap)">
-  <div class="tile app" style="background:radial-gradient(ellipse at 50% 30%,#9a5a34,#5b3320 70%)"><div class="laptop"><div class="scr"><div class="site"><div class="nav"><span class="seal" style="--sb:var(--walnut)"></span><span>Services · Portfolio · About · Contact</span></div><div class="ht"><small>Luxury residential interiors</small><h6>PAMBUDDHA</h6></div><div class="hero"><img src="img/webb.jpg" alt="" style="object-position:center 32%"></div><div style="height:10px"></div></div></div><div class="base"></div></div><div class="tab"><span class="seal on-dark"></span> Pambuddha Homes · pambuddhahomes.com</div><span class="mk">Mockup: sitio web</span></div>
-  <div class="tile bg-sage app"><div class="phone"><div class="ps"><iframe src="https://diegoichiha.github.io/newletterpamhomes/" title="Newsletter de eventos" loading="lazy"></iframe></div></div><span class="mk">Newsletter (propuesta real)</span></div>
+  <div class="tile app" style="background:#2b2520"><img class="fill bgp" src="img/delray.jpg" alt=""><div class="veil" style="background:rgba(23,20,17,.38)"></div><div class="laptop"><div class="scr"><div class="site"><div class="nav"><span class="seal" style="--sb:var(--walnut)"></span><span>Services · Portfolio · About · Contact</span></div><div class="ht"><small>Luxury residential interiors</small><h6>PAMBUDDHA</h6></div><div class="hero"><img src="img/webb.jpg" alt="" style="object-position:center 32%"></div><div style="height:10px"></div></div></div><div class="base"></div></div><div class="tab"><span class="seal on-dark"></span> Pambuddha Homes · pambuddhahomes.com</div><span class="mk">Mockup: sitio web</span></div>
+  <div class="tile bg-sage app"><img class="fill bgp" src="img/limonti.jpg" alt=""><div class="veil" style="background:rgba(23,20,17,.34)"></div><div class="phone"><div class="ps"><iframe src="https://diegoichiha.github.io/newletterpamhomes/" title="Newsletter de eventos" loading="lazy"></iframe></div></div><span class="mk">Newsletter (propuesta real)</span></div>
 </section>
 
 <section class="grid g2" style="margin-top:var(--gap)">
-  <div class="tile bg-olive app"><div class="tee"><svg viewBox="0 0 200 200"><path fill="#f7f4ee" d="M62 14 Q100 34 138 14 L184 36 L200 84 L168 96 L158 74 L158 188 Q100 196 42 188 L42 74 L32 96 L0 84 L16 36 Z"/><path fill="rgba(0,0,0,.07)" d="M62 14 Q100 34 138 14 Q100 48 62 14Z"/></svg><div class="chest"><div class="lockup"><span class="seal"></span><span class="wm" style="font-size:.0em"></span></div></div></div><span class="mk">Mockup: uniforme</span></div>
-  <div class="tile bg-espresso app"><div class="tagwrap"><svg class="str" viewBox="0 0 260 480"><path d="M88 156 C60 60 120 20 190 50" fill="none" stroke="#C0561E" stroke-width="3.4" stroke-linecap="round"/><circle cx="196" cy="52" r="26" fill="#d8d4cd" stroke="#bdb7ae"/></svg><div class="hangtag"><span class="seal"></span><h5>Walnut</h5><small>Natural oil · Matte<br>Regatta Residence<br>Custom millwork</small></div></div><span class="mk">Mockup: etiqueta de muestra</span></div>
+  <div class="tile bg-olive app"><img class="fill bgp" src="img/pinecrest.jpg" alt=""><div class="veil" style="background:rgba(43,50,28,.55)"></div><div class="tee"><svg viewBox="0 0 200 200"><path fill="#f7f4ee" d="M62 14 Q100 34 138 14 L184 36 L200 84 L168 96 L158 74 L158 188 Q100 196 42 188 L42 74 L32 96 L0 84 L16 36 Z"/><path fill="rgba(0,0,0,.07)" d="M62 14 Q100 34 138 14 Q100 48 62 14Z"/></svg><div class="chest"><div class="lockup"><span class="seal"></span><span class="wm" style="font-size:.0em"></span></div></div></div><span class="mk">Mockup: uniforme</span></div>
+  <div class="tile bg-espresso app"><img class="fill bgp" src="img/fab-014.jpg" alt="" style="opacity:.55"><div class="veil" style="background:rgba(23,20,17,.5)"></div><div class="tagwrap"><svg class="str" viewBox="0 0 260 480"><path d="M88 156 C60 60 120 20 190 50" fill="none" stroke="#C0561E" stroke-width="3.4" stroke-linecap="round"/><circle cx="196" cy="52" r="26" fill="#d8d4cd" stroke="#bdb7ae"/></svg><div class="pivot"><div class="hangtag"><span class="seal"></span><h5>Walnut</h5><small>Natural oil · Matte<br>Regatta Residence<br>Custom millwork</small></div></div></div><span class="mk">Mockup: etiqueta de muestra</span></div>
 </section>
 
 <section class="grid" style="margin-top:var(--gap)">
@@ -475,29 +663,64 @@ footer{padding:26px 28px;display:flex;justify-content:space-between;font-family:
     </div></div><span class="mk">Mockup: perfil de Instagram</span></div>
 </section>
 
-<!-- ================= 07 PROCESO ================= -->
-<div class="sec"><div class="n">07</div><h2>Proceso<br>de trabajo</h2><p>El método del estudio se vuelve un sistema visual: cuatro pasos numerados que pueden aparecer en propuestas, redes y presentaciones.</p></div>
+<section class="band short">
+  <img src="img/webb.jpg" alt="Webb Residence wine bar" style="object-position:center 35%">
+  <div class="bt"><div class="scr">Design with intention.<br>Crafted for living.</div></div>
+</section>
+
+<!-- ================= 07 MOTION ================= -->
+<div class="sec"><div class="n">07</div><h2>Motion<br>&amp; GIF</h2><p>Loops recreados con el movimiento del sitio web: reveal que sube, recorte de imagen, letras escalonadas, marquee y la flecha ↗ que sale y entra. Se exportan a GIF o MP4 para redes y correo.</p></div>
+<section class="grid g3">
+  <div class="tile bg-walnut mo"><div class="mo-wm chars loop">PAMBUDDHA</div><span class="gc">GIF · letras escalonadas</span></div>
+  <div class="tile bg-sand mo"><span class="seal spin" style="font-size:170px"></span><span class="gc">GIF · sello</span></div>
+  <div class="tile bg-ink mo"><div class="flip">
+    <div class="day" style="--k:0"><small>Miami Art Week</small><b>02</b><span>Wednesday · Dec</span></div>
+    <div class="day" style="--k:1"><small>Miami Art Week</small><b>03</b><span>Thursday · Dec</span></div>
+    <div class="day" style="--k:2"><small>Miami Art Week</small><b>04</b><span>Friday · Dec</span></div>
+    <div class="day" style="--k:3"><small>Miami Art Week</small><b>05</b><span>Saturday · Dec</span></div>
+    <div class="day" style="--k:4"><small>Miami Art Week</small><b>06</b><span>Sunday · Dec</span></div>
+  </div><span class="gc">GIF · fechas (newsletter)</span></div>
+  <div class="tile bg-olive mo"><div class="hang"><div class="cord"></div><div class="flipcard"><div class="in">
+    <div class="fc-a"><span class="seal"></span><h5>Studio<br>open</h5><small>By appointment</small></div>
+    <div class="fc-b"><span class="seal on-dark"></span><h5>See you<br>soon</h5><small>Begin a conversation</small></div>
+  </div></div></div><span class="gc">GIF · etiqueta</span></div>
+  <div class="tile mo" style="background:#fff"><a class="btn loop" style="font-size:14px;padding:16px 24px">Begin a conversation <i>↗</i></a><span class="gc">GIF · botón ↗</span></div>
+  <div class="tile mo bg-espresso"><div class="clipbox"><img src="img/webb.jpg" alt="" style="object-position:center 30%"><div class="clip-t"><small>Custom millwork</small><h4>Webb Residence</h4></div></div><span class="gc">GIF · reveal de imagen</span></div>
+</section>
+
+<section class="story rev">
+  <div class="ph"><img src="img/workshop.jpg" alt="Millwork en nogal en el taller"></div>
+  <div class="tx">
+    <span class="up" style="color:#b98a4e">Design &amp; craftsmanship</span>
+    <h3>Designed in our studio, fabricated in our workshop</h3>
+    <p>Cocinas, bares, clósets, vanities y muebles de pared, dibujados para una sola habitación y terminados a mano en madera maciza y superficies naturales.</p>
+    <p>Quienes diseñan cada pieza trabajan junto a quienes la construyen, para que proporción, ensambles y acabado sigan fieles al dibujo.</p>
+  </div>
+</section>
+
+<!-- ================= 08 PROCESO ================= -->
+<div class="sec"><div class="n">08</div><h2>Proceso<br>de trabajo</h2><p>El método del estudio se vuelve un sistema visual: cuatro pasos numerados que pueden aparecer en propuestas, redes y presentaciones.</p></div>
 <section class="steps">
-  <div class="step bg-sand"><div class="n">01</div><div><h4>Understand</h4><p>Escuchamos, observamos y preguntamos hasta saber cómo vives y qué esperas del espacio.</p></div></div>
-  <div class="step bg-walnut"><div class="n">02</div><div><h4>Design</h4><p>Convertimos esa comprensión en diseño: distribución, luz, materiales, proporciones y piezas hechas para cada habitación.</p></div></div>
-  <div class="step bg-olive"><div class="n">03</div><div><h4>Develop</h4><p>Resolvemos lo técnico antes de empezar: planos, elevaciones, detalles constructivos y especificaciones.</p></div></div>
-  <div class="step bg-espresso"><div class="n">04</div><div><h4>Build</h4><p>Fabricamos el millwork en nuestro taller y coordinamos materiales, oficios e instalación.</p></div></div>
+  <div class="step bg-sand"><img src="img/samples.jpg" alt=""><div class="ico"><svg><use href="#i-chat"/></svg></div><div><h4>Understand</h4><p>Escuchamos, observamos y preguntamos hasta saber cómo vives y qué esperas del espacio.</p></div></div>
+  <div class="step bg-walnut"><img src="img/drawings.jpg" alt=""><div class="ico"><svg><use href="#i-pencil"/></svg></div><div><h4>Design</h4><p>Convertimos esa comprensión en diseño: distribución, luz, materiales, proporciones y piezas hechas para cada habitación.</p></div></div>
+  <div class="step bg-olive"><img src="img/fab-048.jpg" alt=""><div class="ico"><svg><use href="#i-grid"/></svg></div><div><h4>Develop</h4><p>Resolvemos lo técnico antes de empezar: planos, elevaciones, detalles constructivos y especificaciones.</p></div></div>
+  <div class="step bg-espresso"><img src="img/workshop.jpg" alt=""><div class="ico"><svg><use href="#i-hammer"/></svg></div><div><h4>Build</h4><p>Fabricamos el millwork en nuestro taller y coordinamos materiales, oficios e instalación.</p></div></div>
 </section>
 
 <!-- ================= 08 VOZ ================= -->
-<div class="sec"><div class="n">08</div><h2>Voz<br>&amp; mensaje</h2><p>Cercana, serena y precisa. Habla de personas y de oficio, no de tendencias. (Pilares: propuesta a validar con el cliente.)</p></div>
+<div class="sec"><div class="n">09</div><h2>Voz<br>&amp; mensaje</h2><p>Cercana, serena y precisa. Habla de personas y de oficio, no de tendencias. (Pilares: propuesta a validar con el cliente.)</p></div>
 <section class="voice">
-  <div class="big"><q>We listen, observe, question, <b>and explore before we design.</b></q><div class="script">Design with intention. Crafted for living.</div></div>
+  <div class="big"><img class="bgi" src="img/oak-kitchen.jpg" alt=""><q>We listen, observe, question, <b>and explore before we design.</b></q><div class="script">Design with intention. Crafted for living.</div></div>
   <div class="pillars">
-    <div class="pillar"><i>I</i><div><b>Considerada</b><span>Cada decisión responde a una intención; nada está ahí por casualidad.</span></div></div>
-    <div class="pillar"><i>II</i><div><b>Cálida</b><span>Habla de cómo se vive, se siente y se conecta en casa.</span></div></div>
-    <div class="pillar"><i>III</i><div><b>Precisa</b><span>Materiales, proporciones y detalles nombrados con claridad.</span></div></div>
-    <div class="pillar"><i>IV</i><div><b>Personal</b><span>Pamela responde personalmente; cada proyecto se construye con una persona.</span></div></div>
+    <div class="pillar"><i class="ic"><svg><use href="#i-compass"/></svg></i><div><b>Considerada</b><span>Cada decisión responde a una intención; nada está ahí por casualidad.</span></div></div>
+    <div class="pillar"><i class="ic"><svg><use href="#i-heart"/></svg></i><div><b>Cálida</b><span>Habla de cómo se vive, se siente y se conecta en casa.</span></div></div>
+    <div class="pillar"><i class="ic"><svg><use href="#i-ruler"/></svg></i><div><b>Precisa</b><span>Materiales, proporciones y detalles nombrados con claridad.</span></div></div>
+    <div class="pillar"><i class="ic"><svg><use href="#i-user"/></svg></i><div><b>Personal</b><span>Pamela responde personalmente; cada proyecto se construye con una persona.</span></div></div>
   </div>
 </section>
 
 <!-- ================= EQUIPO ================= -->
-<div class="sec"><div class="n">09</div><h2>El equipo</h2><p>Cofundadoras con miradas distintas sobre el mismo proyecto: diseño, bienestar y real estate, junto a arquitectura, desarrollo técnico y coordinación de obra.</p></div>
+<div class="sec"><div class="n">10</div><h2>El equipo</h2><p>Cofundadoras con miradas distintas sobre el mismo proyecto: diseño, bienestar y real estate, junto a arquitectura, desarrollo técnico y coordinación de obra.</p></div>
 <section class="team">
   <div class="person"><img src="img/team.jpg" alt="Pamela y Melissa" style="object-position:center 30%"><div class="tx"><h4>Pambuddha<br>Homes</h4><span>Studio team</span></div></div>
   <div class="person"><img src="img/pamela.jpg" alt="Pamela Sarmiento"><div class="tx"><h4>Pamela Sarmiento</h4><span>Cofounder · Realtor®</span></div></div>
@@ -505,7 +728,7 @@ footer{padding:26px 28px;display:flex;justify-content:space-between;font-family:
 </section>
 
 <!-- ================= PROYECTOS ================= -->
-<div class="sec"><div class="n">10</div><h2>Proyectos</h2><p>Marca en uso: la identidad se apoya en el trabajo, y el trabajo se firma con el sello.</p></div>
+<div class="sec"><div class="n">11</div><h2>Proyectos</h2><p>Marca en uso: la identidad se apoya en el trabajo, y el trabajo se firma con el sello.</p></div>
 <section class="grid g3">
   <div class="proj"><img src="img/delray.jpg" alt=""><div class="tx"><span>Interior design</span><h4>The Delray<br>Residence</h4></div></div>
   <div class="proj"><img src="img/pinecrest.jpg" alt=""><div class="tx"><span>Interior design</span><h4>Renovation<br>in Pinecrest</h4></div></div>
@@ -534,6 +757,20 @@ footer{padding:26px 28px;display:flex;justify-content:space-between;font-family:
 <button class="notes-toggle" id="nt" type="button">Ocultar notas de mockup</button>
 <script>
 (function(){
+  var html=document.documentElement;
+  document.querySelectorAll('.cover .wm,.chars').forEach(function(el){
+    var t=el.textContent.trim();el.classList.add('chars');el.setAttribute('aria-label',t);
+    el.innerHTML=t.split('').map(function(c,i){return '<span class="c" aria-hidden="true"><span style="--i:'+i+'">'+c+'</span></span>';}).join('');
+  });
+  if(html.classList.contains('js')){
+    var els=document.querySelectorAll('.tile > img.fill:not(.bgp),.proj,.person,.step,.rule-c,.pillar,.manifesto h2,.manifesto p,.sec > *,.story .tx,.story .ph');
+    els.forEach(function(e){e.classList.add(e.matches('.proj,.person,.step,.story .ph')?'rvc':'rv');});
+    var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.1});
+    els.forEach(function(e){io.observe(e);});
+  }
+  var bands=document.querySelectorAll('.band img'),tick=false;
+  function par(){tick=false;var vh=innerHeight;bands.forEach(function(im){var r=im.parentNode.getBoundingClientRect();if(r.bottom<0||r.top>vh)return;im.style.transform='translateY('+((r.top+r.height/2-vh/2)*-.09).toFixed(1)+'px)';});}
+  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(par);}},{passive:true});par();
   var b=document.getElementById('nt');
   b.addEventListener('click',function(){
     var off=document.body.classList.toggle('nonotes');
