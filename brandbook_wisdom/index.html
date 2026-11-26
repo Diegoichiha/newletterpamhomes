@@ -78,8 +78,8 @@ body.nonotes .mk{display:none}
 .badge .lan i{position:absolute;left:50%;top:40px;transform:translateX(-50%);width:26px;opacity:.9}
 .badge .clip{position:absolute;left:50%;top:6px;transform:translateX(-50%);width:54px;height:26px;border-radius:8px;background:linear-gradient(#d9d9d9,#a9a9a9);z-index:3}
 .badge .card{position:absolute;inset:22px 0 0;background:#fff;color:#000;border-radius:var(--rs);box-shadow:0 30px 50px rgba(0,0,0,.35);overflow:hidden;display:flex;flex-direction:column;align-items:center;text-align:center}
-.badge .card .top{width:100%;height:118px;background:var(--teal);display:grid;place-items:center}
-.badge .card .top img{width:150px}
+.badge .card .top{width:100%;height:132px;background:var(--teal);display:grid;place-items:center;padding-bottom:34px}
+.badge .card .top img{width:132px}
 .badge .card .ph{width:88px;height:88px;border-radius:50%;margin-top:-44px;border:4px solid #fff;background:var(--mint);display:grid;place-items:center;color:var(--teal)}
 .badge .card .ph svg{width:44px;height:44px}
 .badge .card b{display:block;font-size:18px;letter-spacing:-.03em;margin-top:14px}
@@ -402,6 +402,12 @@ footer b{font-weight:700}
 .ppanel[hidden]{display:none}
 .ppanel.on{animation:rvUp .6s var(--ease)}
 @media(max-width:1000px){.ptabs{grid-template-columns:repeat(2,1fr)}.ptab{border-bottom:1px solid var(--rule)}}
+/* titulos: tras coma la frase baja completa; saltos equilibrados sin palabras sueltas */
+.l.nl{display:block}
+h1,h2,h3,h4,h5,.h,q{text-wrap:balance}
+p,.sm,dd{text-wrap:pretty}
+.nw{white-space:nowrap}
+@media(max-width:700px){.story .tx{padding:44px 28px}.voice .big{padding:44px 28px}.voice .big q{font-size:28px}}
 </style>
 </head>
 <body>
@@ -437,7 +443,7 @@ footer b{font-weight:700}
 <main class="wrap">
 
 <!-- ================= 2-UP: credencial + flota real ================= -->
-<section class="grid g2" style="margin-top:var(--gap)">
+<section class="grid g2" style="margin-top:clamp(56px,7vw,110px)">
   <div class="tile bg-teal" style="min-height:660px">
     <div class="badge">
       <div class="lan"><i><img src="img/symbol-white.png" alt=""></i></div>
@@ -458,7 +464,7 @@ footer b{font-weight:700}
 <!-- ================= MANIFIESTO ================= -->
 <section class="manifesto">
   <span class="eb">Wisdom Tecnology</span>
-  <h2 style="margin-top:18px">Movilidad sostenible, <span class="l">diseñada como un sistema.</span></h2>
+  <h2 style="margin-top:18px">Movilidad sostenible, <span class="l nl">diseñada como un sistema.</span></h2>
   <p>Wisdom Tecnology es una empresa colombiana enfocada en movilidad sostenible y proyectos tecnológicos para el transporte. Integra vehículo, carga, energía y gestión de flota dentro de una sola propuesta operativa.</p>
   <p>La identidad habla ese mismo idioma: un teal profundo que conecta movilidad y tecnología, una tipografía clara y técnica, y un símbolo de dos eslabones que representa la integración entre el vehículo y su operación.</p>
   <p>La promesa es una conversación técnica, no una compra aislada: acompañar a cada entidad desde la selección del vehículo hasta la operación.</p>
@@ -467,14 +473,14 @@ footer b{font-weight:700}
 <section class="band">
   <img src="img/movilidad.jpg" alt="Flota de buses eléctricos al atardecer">
   <div class="ov"></div>
-  <div class="bt"><span class="eb">Capacidad técnica para una transición operable</span><h3>Una conversación técnica, <span class="l">no una compra aislada.</span></h3></div>
+  <div class="bt"><span class="eb">Capacidad técnica para una transición operable</span><h3>Una conversación técnica, <span class="l nl">no una compra aislada.</span></h3></div>
 </section>
 
 <section class="story">
   <div class="ph"><img src="img/bus-bogota.jpg" alt="Bus eléctrico en Bogotá"></div>
   <div class="tx">
     <span class="eb">Quiénes somos</span>
-    <h3>Vehículo, energía y operación conectados.</h3>
+    <h3>Vehículo,<br>energía y <span class="nw">operación conectados.</span></h3>
     <p>La selección de una tecnología de propulsión depende de la infraestructura disponible, la autonomía requerida, las condiciones urbanas y la capacidad de soporte.</p>
     <p>Por eso el alcance comienza antes del vehículo y continúa después de su puesta en servicio.</p>
     <a class="pill t" style="align-self:flex-start;margin-top:8px">Conocer el soporte <i class="ar"><svg><use href="#i-ar"/></svg></i></a>
@@ -539,7 +545,7 @@ footer b{font-weight:700}
 <!-- ================= 03 TIPOGRAFÍA ================= -->
 <div class="sec"><div class="n">03</div><h2>Tipo&shy;grafía</h2><p>Una sola familia, la del sitio: Roboto. Titulares en 700 con tracking negativo combinados con 300 para el énfasis, texto en 400 y etiquetas en 700 mayúsculas espaciadas.</p></div>
 <section class="grid g2">
-  <div class="tile bg-white spec"><div class="nm">Titulares · Roboto 700 + 300</div><div class="aa" style="font-weight:700;color:var(--teal)">Aa</div><div class="h" style="font-size:38px">Movilidad sostenible, <span class="l">diseñada como un sistema.</span></div></div>
+  <div class="tile bg-white spec"><div class="nm">Titulares · Roboto 700 + 300</div><div class="aa" style="font-weight:700;color:var(--teal)">Aa</div><div class="h" style="font-size:38px">Movilidad sostenible, <span class="l nl">diseñada como un sistema.</span></div></div>
   <div class="tile bg-mint spec"><div class="nm">Texto · Roboto 400</div><div class="aa" style="font-weight:400;color:var(--teal)">Aa</div><div style="font-size:18px;max-width:520px">Autobuses eléctricos, de hidrógeno e híbridos, conectados con infraestructura de carga, energía y herramientas para la gestión de flotas.</div></div>
   <div class="tile bg-black spec"><div class="nm">Jerarquía del sitio</div>
     <div style="display:grid;gap:16px"><div class="eb" style="color:#B8D0CF">Eyebrow · 11 px · 700 · .16em</div><div class="h" style="font-size:40px">Título · 700 · −0.045em</div><div style="font-size:16px;color:rgba(255,255,255,.72);max-width:420px">Texto · 16 px · 400 · interlineado 1.6. Gris #616161 sobre blanco, blanco 72 % sobre oscuros.</div></div>
@@ -642,7 +648,7 @@ footer b{font-weight:700}
 <!-- ================= 09 VOZ ================= -->
 <div class="sec"><div class="n">09</div><h2>Voz <span class="l">y mensaje</span></h2><p>Técnica, clara y orientada a la operación. Habla de decisiones que deben sostenerse en el tiempo. Pilares tomados de los criterios de trabajo del sitio.</p></div>
 <section class="voice">
-  <div class="big"><img src="img/contacto-flota.jpg" alt=""><span class="eb" style="color:#fff">Misión</span><q>Hacer operable <span class="l">la movilidad sostenible.</span></q><a class="pill w" style="align-self:flex-start">Iniciar conversación técnica <i class="ar"><svg><use href="#i-ar"/></svg></i></a></div>
+  <div class="big"><img src="img/contacto-flota.jpg" alt=""><span class="eb" style="color:#fff">Misión</span><q>Hacer operable <span class="l">la <span class="nw">movilidad sostenible.</span></span></q><a class="pill w" style="align-self:flex-start">Iniciar conversación técnica <i class="ar"><svg><use href="#i-ar"/></svg></i></a></div>
   <div class="pillars">
     <div class="pillar"><span class="ic"><svg><use href="#i-leaf"/></svg></span><div><b>Movilidad sostenible</b><span>Tecnologías eléctricas, híbridas y de hidrógeno según cada operación.</span></div></div>
     <div class="pillar"><span class="ic"><svg><use href="#i-gauge"/></svg></span><div><b>Eficiencia operativa</b><span>Disponibilidad, consumo, mantenimiento y continuidad del servicio.</span></div></div>
@@ -655,7 +661,7 @@ footer b{font-weight:700}
 <div class="sec"><div class="n">10</div><h2>Tecnología <span class="l">que escala</span></h2><p>La segunda unidad de negocio. «No vendemos TI. Construimos capacidad operativa»: cinco capacidades con fotografía real del sitio.</p></div>
 <section class="cap5">
   <div class="capc"><img src="img/cap-software.jpg" alt=""><span class="ic w"><svg><use href="#i-code"/></svg></span><h4>Desarrollo de software</h4><p>A la medida, metodologías ágiles, entregas incrementales y métricas.</p></div>
-  <div class="capc"><img src="img/cap-ciber.jpg" alt=""><span class="ic w"><svg><use href="#i-shield"/></svg></span><h4>Infraestructura &amp; ciberseguridad</h4><p>Auditoría TI, redes, cloud, on-premise y ciberseguridad.</p></div>
+  <div class="capc"><img src="img/cap-ciber.jpg" alt=""><span class="ic w"><svg><use href="#i-shield"/></svg></span><h4>Infraestructura <span class="nw">&amp; ciberseguridad</span></h4><p>Auditoría TI, redes, cloud, on-premise y ciberseguridad.</p></div>
   <div class="capc"><img src="img/cap-soporte.jpg" alt=""><span class="ic w"><svg><use href="#i-headset"/></svg></span><h4>Servicio y soporte TI</h4><p>Mesa de servicio, soporte multinivel y monitoreo proactivo.</p></div>
   <div class="capc"><img src="img/cap-auto.jpg" alt=""><span class="ic w"><svg><use href="#i-gear"/></svg></span><h4>Automatización</h4><p>Procesos optimizados e integración tecnológica para la eficiencia operativa.</p></div>
   <div class="capc"><img src="img/cap-cctv.jpg" alt=""><span class="ic w"><svg><use href="#i-cam"/></svg></span><h4>Sistemas CCTV</h4><p>Videovigilancia: diseño, implementación, monitoreo y soporte.</p></div>
