@@ -303,7 +303,6 @@ body.nonotes .mk{display:none}
 .close .btn:hover{color:var(--ink);border-color:var(--sand)}
 footer{padding:26px 28px;display:flex;justify-content:space-between;font-family:var(--ui);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--taupe)}
 
-.notes-toggle{position:fixed;right:16px;bottom:16px;z-index:50;font-family:var(--ui);font-size:11px;letter-spacing:.12em;text-transform:uppercase;background:var(--ink);color:#fff;border:0;padding:10px 14px;border-radius:99px;cursor:pointer;opacity:.85}
 
 @media(max-width:1000px){
   .g2,.g3,.team,.voice,.steps{grid-template-columns:1fr}
@@ -823,7 +822,6 @@ svg{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-l
 </main>
 <footer><span>Pambuddha Homes · Brandbook · Propuesta</span><span>2026</span></footer>
 
-<button class="notes-toggle" id="nt" type="button">Ocultar notas de mockup</button>
 <script>
 (function(){
   var html=document.documentElement;
@@ -840,11 +838,6 @@ svg{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-l
   var bands=document.querySelectorAll('.band img'),tick=false;
   function par(){tick=false;var vh=innerHeight;bands.forEach(function(im){var r=im.parentNode.getBoundingClientRect();if(r.bottom<0||r.top>vh)return;im.style.transform='translateY('+((r.top+r.height/2-vh/2)*-.09).toFixed(1)+'px)';});}
   addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(par);}},{passive:true});par();
-  var b=document.getElementById('nt');
-  b.addEventListener('click',function(){
-    var off=document.body.classList.toggle('nonotes');
-    b.textContent=off?'Mostrar notas de mockup':'Ocultar notas de mockup';
-  });
 })();
 </script>
 </body>
