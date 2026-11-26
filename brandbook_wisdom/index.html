@@ -1,0 +1,702 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wisdom Tecnology · Brandbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<script>if("IntersectionObserver" in window&&!matchMedia("(prefers-reduced-motion:reduce)").matches)document.documentElement.classList.add("js")</script>
+<style>
+:root{
+  --teal:#005957; --black:#000; --white:#fff;
+  --mint:#E8F0F0; --t16:#D6E3E3; --t28:#B8D0CF; --gray:#616161; --rule:#D6D6D6;
+  --r:28px; --rs:18px; --gap:10px;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --font:Roboto,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--black);font-family:var(--font);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.wrap{max-width:1440px;margin:0 auto}
+.eb{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--teal)}
+.h{font-weight:700;letter-spacing:-.045em;line-height:1.08}
+.h .l{font-weight:300}
+
+/* botones del sitio: píldora */
+.pill{display:inline-flex;align-items:center;gap:14px;border-radius:999px;padding:15px 26px;font-size:14px;font-weight:700;text-decoration:none;transition:transform .45s var(--ease),background .35s,color .35s;cursor:pointer}
+.pill .ar{width:12px;height:12px;display:inline-block}
+.pill .ar svg{width:100%;height:100%;stroke-width:1.6}
+.pill.w{background:#fff;color:var(--teal)}
+.pill.t{background:var(--teal);color:#fff}
+.pill.o{border:1px solid rgba(255,255,255,.55);color:#fff}
+.pill.ok{border:1px solid var(--teal);color:var(--teal)}
+@media(hover:hover){.pill:hover{transform:translateY(-2px)}.pill:hover .ar{animation:arw .6s var(--ease)}}
+@keyframes arw{0%{transform:none}40%{transform:translate(140%,-140%);opacity:0}41%{transform:translate(-140%,140%);opacity:0}100%{transform:none;opacity:1}}
+
+/* iconos en círculo menta (sistema integrado del sitio) */
+.ic{width:46px;height:46px;border-radius:50%;background:rgba(0,89,87,.09);color:var(--teal);display:grid;place-items:center;flex:none}
+.ic svg{width:22px;height:22px}
+.ic.w{background:rgba(255,255,255,.14);color:#fff}
+
+/* logo */
+.logo{display:block}
+.sym{display:inline-block;aspect-ratio:474/414}
+
+/* láminas */
+.grid{display:grid;gap:var(--gap);padding:0 var(--gap)}
+.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.tile{position:relative;overflow:hidden;min-height:480px;display:flex;align-items:center;justify-content:center;border-radius:var(--r)}
+.tile img.fill{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.bg-teal{background:var(--teal);color:#fff}.bg-black{background:#000;color:#fff}.bg-mint{background:var(--mint)}.bg-white{background:#fff;box-shadow:inset 0 0 0 1px var(--rule)}
+.ov{position:absolute;inset:0;background:rgba(0,89,87,.62)}
+.ovk{position:absolute;inset:0;background:rgba(0,0,0,.35)}
+.mk{position:absolute;top:16px;right:16px;z-index:20;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:rgba(0,0,0,.72);color:#fff;padding:6px 11px;border-radius:99px}
+body.nonotes .mk{display:none}
+.cap{position:absolute;left:22px;bottom:18px;z-index:5;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.85}
+
+.sec{padding:110px 5vw 40px;display:grid;grid-template-columns:110px 1fr 1fr;gap:20px 40px;align-items:start}
+.sec .n{font-size:56px;line-height:.9;font-weight:300;color:var(--teal);letter-spacing:-.04em}
+.sec h2{font-size:44px;font-weight:700;letter-spacing:-.045em;line-height:1.02}
+.sec h2 .l{font-weight:300}
+.sec p{color:var(--gray);max-width:520px}
+
+/* portada */
+.cover{position:relative;height:min(92vh,860px);min-height:560px;overflow:hidden;color:#fff;display:grid;place-items:center;text-align:center}
+.cover img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cover .ov{background:rgba(0,89,87,.66)}
+.cover .in{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:26px}
+.cover .in .logo{width:min(420px,70vw)}
+.cover .foot{position:absolute;z-index:2;left:0;right:0;bottom:26px;display:flex;justify-content:space-between;padding:0 32px;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+
+/* credencial */
+.badge{position:relative;width:250px;height:380px;margin-top:70px}
+.badge .lan{position:absolute;left:50%;top:-230px;width:46px;height:250px;transform:translateX(-50%);background:repeating-linear-gradient(0deg,#0b0b0b 0 2px,#151515 2px 4px);border-radius:4px}
+.badge .lan i{position:absolute;left:50%;top:40px;transform:translateX(-50%);width:26px;opacity:.9}
+.badge .clip{position:absolute;left:50%;top:6px;transform:translateX(-50%);width:54px;height:26px;border-radius:8px;background:linear-gradient(#d9d9d9,#a9a9a9);z-index:3}
+.badge .card{position:absolute;inset:22px 0 0;background:#fff;color:#000;border-radius:var(--rs);box-shadow:0 30px 50px rgba(0,0,0,.35);overflow:hidden;display:flex;flex-direction:column;align-items:center;text-align:center}
+.badge .card .top{width:100%;height:118px;background:var(--teal);display:grid;place-items:center}
+.badge .card .top img{width:150px}
+.badge .card .ph{width:88px;height:88px;border-radius:50%;margin-top:-44px;border:4px solid #fff;background:var(--mint);display:grid;place-items:center;color:var(--teal)}
+.badge .card .ph svg{width:44px;height:44px}
+.badge .card b{display:block;font-size:18px;letter-spacing:-.03em;margin-top:14px}
+.badge .card span{font-size:12px;color:var(--gray)}
+.badge .card .bar{margin-top:auto;width:100%;padding:14px;border-top:1px solid var(--rule);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--teal)}
+
+/* manifiesto */
+.manifesto{padding:150px 6vw 130px;max-width:1150px}
+.manifesto h2{font-size:clamp(38px,5vw,68px);font-weight:700;letter-spacing:-.045em;line-height:1.02}
+.manifesto h2 .l{font-weight:300}
+.manifesto p{max-width:760px;margin-top:24px;color:var(--gray);font-size:18px}
+.manifesto p:first-of-type{margin-top:46px;color:#000}
+
+/* bandas */
+.band{position:relative;height:min(86vh,760px);overflow:hidden;margin:var(--gap);border-radius:var(--r);color:#fff;display:grid;place-items:center;text-align:center}
+.band.short{height:min(64vh,540px)}
+.band img{position:absolute;left:0;top:-7%;width:100%;height:114%;object-fit:cover;will-change:transform}
+.band .ov{background:rgba(0,89,87,.6)}
+.band .bt{position:relative;z-index:2;max-width:980px;padding:0 24px}
+.band h3{font-size:clamp(36px,5.4vw,76px);font-weight:700;letter-spacing:-.045em;line-height:1.02;margin-top:16px}
+.band h3 .l{font-weight:300}
+.band .eb{color:#fff;opacity:.85}
+
+/* historia */
+.story{display:grid;grid-template-columns:1.1fr 1fr;gap:var(--gap);padding:0 var(--gap);margin-bottom:var(--gap)}
+.story .ph{position:relative;min-height:640px;overflow:hidden;border-radius:var(--r)}
+.story .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.story .tx{background:var(--mint);border-radius:var(--r);padding:80px 64px;display:flex;flex-direction:column;justify-content:center;gap:18px}
+.story .tx h3{font-size:clamp(30px,3.4vw,48px);font-weight:700;letter-spacing:-.045em;line-height:1.04}
+.story .tx p{color:var(--gray);max-width:520px}
+.story.rev{grid-template-columns:1fr 1.1fr}.story.rev .ph{order:2}
+
+/* marquee */
+.marq{overflow:hidden;background:var(--teal);color:#fff;padding:30px 0;margin:var(--gap);border-radius:var(--r)}
+.marq-row{display:flex;width:max-content;align-items:center;gap:40px;padding-right:40px;animation:mq 46s linear infinite}
+.marq:hover .marq-row{animation-play-state:paused}
+.marq-row span{font-size:clamp(30px,3.6vw,52px);font-weight:700;letter-spacing:-.04em;white-space:nowrap}
+.marq-row img{width:34px;opacity:.85}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* panel negro con lista */
+.list{flex-direction:column;align-items:flex-start;justify-content:center;padding:56px;gap:18px}
+.list .row{display:flex;align-items:center;gap:18px;font-size:clamp(28px,3vw,44px);font-weight:700;letter-spacing:-.045em;line-height:1.05;transition:transform .6s var(--ease)}
+.list .row .ic{width:52px;height:52px}
+.list .row small{display:block;font-size:14px;font-weight:400;letter-spacing:0;color:rgba(255,255,255,.62);margin-top:4px}
+.float-sym{position:relative;z-index:2;width:220px;filter:drop-shadow(0 24px 30px rgba(0,0,0,.35))}
+
+/* logo */
+.logo-big{min-height:560px}
+.clear{position:relative;padding:34px 40px;border:1px dashed var(--gray);border-radius:6px}
+.clear i{position:absolute;font-style:normal;font-size:11px;font-weight:700;color:var(--gray)}
+.dont{min-height:300px;flex-direction:column;gap:18px}
+.dont .x{position:absolute;top:14px;left:16px;width:24px;height:24px;border-radius:50%;background:#000;color:#fff;font:700 13px/24px var(--font);text-align:center}
+.dont p{position:absolute;bottom:16px;left:0;right:0;text-align:center;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gray)}
+.appicon{width:112px;height:112px;border-radius:26px;background:var(--teal);display:grid;place-items:center;box-shadow:0 18px 30px rgba(0,89,87,.3)}
+.appicon img{width:62px}
+
+/* color */
+.swatches{display:flex;min-height:560px;padding:0 var(--gap);gap:var(--gap)}
+.sw{flex:1;padding:22px 18px;display:flex;flex-direction:column;justify-content:flex-end;font-size:12px;line-height:1.55;min-width:0;border-radius:var(--rs);transition:flex .5s var(--ease),transform .5s var(--ease)}
+.sw b{font-size:20px;font-weight:700;letter-spacing:-.03em;display:block;line-height:1.1;margin-bottom:6px}
+.sw.main{flex:2.4}
+@media(hover:hover){.sw:hover{flex:1.7;transform:translateY(-8px)}.sw.main:hover{flex:2.6}}
+.ratio{display:flex;height:16px;margin:var(--gap);margin-bottom:0;border-radius:99px;overflow:hidden;box-shadow:inset 0 0 0 1px var(--rule)}
+.ratio span{display:block;height:100%}
+.ratio-l{display:flex;justify-content:space-between;padding:8px 18px 0;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gray)}
+
+/* tipografía */
+.spec{flex-direction:column;align-items:flex-start;justify-content:space-between;padding:42px;gap:20px}
+.spec .aa{font-size:clamp(120px,15vw,220px);line-height:.85;letter-spacing:-.05em}
+.spec .nm{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.7}
+
+/* fotografía */
+.g12{grid-template-columns:repeat(12,1fr)}
+.m1{grid-column:span 7;min-height:560px}.m2{grid-column:span 5;min-height:560px}
+.m3,.m4,.m5{grid-column:span 4;min-height:420px}
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);padding:var(--gap)}
+.rule-c{background:var(--mint);padding:34px;border-radius:var(--rs);transition:transform .6s var(--ease),background .5s,color .5s}
+.rule-c h4{font-size:22px;letter-spacing:-.035em;margin:16px 0 8px}
+.rule-c p{color:var(--gray);font-size:15px}
+@media(hover:hover){.rule-c:hover{transform:translateY(-8px);background:var(--teal);color:#fff}.rule-c:hover p{color:rgba(255,255,255,.78)}.rule-c:hover .ic{background:rgba(255,255,255,.14);color:#fff}}
+
+/* elementos gráficos */
+.ge{flex-direction:column;gap:20px;padding:40px;text-align:center}
+.tabs{display:flex;border:1px solid var(--rule);border-radius:6px;overflow:hidden;font-size:12px;font-weight:700}
+.tabs span{padding:14px 16px;display:flex;gap:10px;align-items:center;border-right:1px solid var(--rule)}
+.tabs span:last-child{border:0}
+.tabs span.on{background:var(--teal);color:#fff}
+.card-demo{width:220px;background:#fff;border-radius:var(--rs);overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.14);text-align:left}
+.card-demo img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.card-demo div{padding:14px 16px}
+.card-demo small{font-size:9px;font-weight:700;letter-spacing:.16em;color:var(--teal)}
+.card-demo b{display:block;font-size:20px;letter-spacing:-.03em}
+.card-demo em{display:flex;justify-content:space-between;font-style:normal;font-size:11px;font-weight:700;color:var(--teal);border-top:1px solid var(--rule);padding-top:10px;margin-top:10px}
+
+/* aplicaciones */
+.app{min-height:620px}
+.tile.app>.veil{position:absolute;inset:0;z-index:1}
+.tile.app>*:not(img):not(.veil):not(.mk){position:relative;z-index:2}
+.charger{width:min(300px,70%);background:#fff;border-radius:22px;box-shadow:0 30px 60px rgba(0,0,0,.4);overflow:hidden;text-align:center}
+.charger .hd{background:var(--teal);padding:26px 20px;display:grid;place-items:center}
+.charger .hd img{width:170px}
+.charger .bd{padding:22px 20px}
+.charger .bd b{display:block;font-size:22px;letter-spacing:-.035em;line-height:1.1}
+.charger .bd span{font-size:12px;color:var(--gray)}
+.charger .lv{display:flex;gap:8px;justify-content:center;margin-top:16px}
+.charger .lv i{font-style:normal;font-size:10px;font-weight:700;letter-spacing:.1em;padding:7px 10px;border-radius:99px;background:var(--mint);color:var(--teal)}
+.cards{position:relative;width:440px;height:300px}
+.bc{position:absolute;width:310px;height:180px;border-radius:14px;box-shadow:0 18px 34px rgba(0,0,0,.3);transition:transform .9s var(--ease)}
+.bc.a{left:0;top:84px;background:var(--teal);transform:rotate(-8deg);display:grid;place-items:center}
+.bc.a img{width:150px}
+.bc.b{left:110px;top:16px;background:#fff;transform:rotate(5deg);padding:22px 24px;display:flex;flex-direction:column;justify-content:space-between;font-size:10px;line-height:1.7;color:var(--gray)}
+.bc.b b{font-size:18px;letter-spacing:-.03em;color:#000;display:block;line-height:1.2}
+.bc.b img{width:92px}
+.sheet{width:330px;height:460px;background:#fff;border-radius:6px;box-shadow:0 30px 60px rgba(0,0,0,.35);overflow:hidden;display:flex;flex-direction:column;transform:rotate(-2deg);transition:transform .9s var(--ease)}
+.sheet .hd{background:var(--teal);padding:16px 20px;display:flex;justify-content:space-between;align-items:center}
+.sheet .hd img{width:96px}
+.sheet .hd span{font-size:9px;font-weight:700;letter-spacing:.16em;color:#fff;opacity:.85}
+.sheet .bus{height:170px;background:#eee}
+.sheet .bus img{width:100%;height:100%;object-fit:cover}
+.sheet .bd{padding:18px 20px}
+.sheet .bd small{font-size:9px;font-weight:700;letter-spacing:.16em;color:var(--teal)}
+.sheet .bd h5{font-size:26px;letter-spacing:-.04em;line-height:1.1;margin:2px 0 10px}
+.sheet .bd dl{display:grid;grid-template-columns:1fr 1fr;gap:8px 12px}
+.sheet .bd dt{font-size:8.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gray)}
+.sheet .bd dd{font-size:12px;font-weight:700;color:#000}
+.sheet .ft{margin-top:auto;border-top:1px solid var(--rule);padding:10px 20px;font-size:8.5px;color:var(--gray);display:flex;justify-content:space-between}
+.polo{position:relative;width:340px}
+.polo svg{width:100%;filter:drop-shadow(0 24px 24px rgba(0,0,0,.3));stroke:none}
+.polo .lg{position:absolute;left:58%;top:31%;width:64px}
+.dev-wrap{position:relative;z-index:2;width:min(1120px,94%);height:640px}
+.laptop{position:absolute;left:0;top:24px;width:80%;transition:transform .9s var(--ease)}
+.laptop .scr{background:#0d0d0d;border-radius:16px 16px 0 0;padding:14px 14px 18px;aspect-ratio:16/10;box-shadow:0 30px 60px rgba(0,0,0,.45)}
+.laptop .site{height:100%;overflow:hidden;border-radius:3px;background:#fff}
+.laptop .site img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform 2.2s var(--ease)}
+.laptop .base{height:15px;background:linear-gradient(#d4d4d4,#a3a3a3);border-radius:0 0 18px 18px;width:110%;margin-left:-5%;position:relative}
+.laptop .base::after{content:"";position:absolute;left:50%;top:0;width:90px;height:5px;transform:translateX(-50%);background:#8f8f8f;border-radius:0 0 8px 8px}
+.phone{position:absolute;right:0;bottom:-10px;width:296px;height:612px;border-radius:44px;background:#111;padding:10px;box-shadow:0 30px 60px rgba(0,0,0,.45);transition:transform .9s var(--ease)}
+.phone::before{content:"";position:absolute;top:16px;left:50%;transform:translateX(-50%);width:80px;height:22px;border-radius:12px;background:#111;z-index:5}
+.phone .ps{border-radius:35px;overflow:hidden;height:100%;background:#fff}
+.phone .ps img{width:100%;height:100%;object-fit:cover;object-position:top}
+.ig{width:min(540px,94%);background:#fff;color:#111;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;padding:30px 22px 0;box-shadow:0 24px 50px rgba(0,0,0,.25);border-radius:6px}
+.ig-top{display:flex;gap:26px;align-items:center}
+.ig-av{width:112px;height:112px;border-radius:50%;padding:3px;background:linear-gradient(45deg,#f9b233,#f0486f 55%,#c13584 78%,#8a3ab9);flex:none}
+.ig-av>div{width:100%;height:100%;border-radius:50%;border:4px solid #fff;background:var(--teal);display:grid;place-items:center}
+.ig-av img{width:54px}
+.ig-name{font-size:19px}.ig-name b{font-weight:600}
+.ig-sub{font-size:14px;color:#444;margin:2px 0 6px}
+.ig-bio{margin-top:16px;font-size:14px;line-height:1.45}
+.ig-bio .c{color:#6b7280}
+.ig-bio a{color:#3b5bdb}
+.ig-btns{display:flex;gap:8px;margin:16px 0}
+.ig-btns span{height:36px;border-radius:10px;display:grid;place-items:center;font-size:14px;font-weight:600;flex:1;background:#eff1f5}
+.ig-btns span:first-child{background:#4f5dff;color:#fff}
+.ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:0 -22px}
+.ig-grid>div{aspect-ratio:3/4;overflow:hidden;position:relative;display:flex;align-items:flex-end;padding:12px}
+.ig-grid img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.ig-grid .tp{background:var(--teal);color:#fff;font-size:15px;font-weight:700;letter-spacing:-.03em;line-height:1.1}
+.ig-grid .tp.k{background:#000}
+.ig-grid .tp.m{background:var(--mint);color:var(--teal)}
+.ig-grid .tp small{display:block;font-size:8px;letter-spacing:.16em;font-weight:700;margin-bottom:6px;opacity:.8}
+@media(hover:hover){.ig-grid>div:hover img{transform:scale(1.06)}}
+
+/* motion */
+.mo{min-height:420px;flex-direction:column}
+.gc{position:absolute;top:16px;left:16px;z-index:6;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:#fff;color:#000;padding:6px 11px 6px 24px;border-radius:99px}
+.gc::before{content:"";position:absolute;left:10px;top:50%;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;background:var(--teal);animation:blink 1.4s steps(2) infinite}
+.gc.gif{background:var(--teal);color:#fff}.gc.gif::before{background:#fff}
+@keyframes blink{50%{opacity:.15}}
+.gifimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.links{position:relative;width:200px;height:180px}
+.links img{position:absolute;inset:0;width:100%;animation:breathe 3.2s var(--ease) infinite}
+.links i{position:absolute;inset:-30px;border-radius:50%;border:1px solid rgba(255,255,255,.4);animation:ring 3.2s var(--ease) infinite}
+.links i:nth-of-type(2){animation-delay:1.6s}
+@keyframes breathe{50%{transform:scale(1.06)}}
+@keyframes ring{0%{transform:scale(.6);opacity:.9}100%{transform:scale(1.5);opacity:0}}
+.tabloop{width:min(360px,86%);background:#000;border-radius:var(--rs);padding:12px;color:#fff}
+.tabloop .tb{display:flex;gap:6px;font-size:9px;font-weight:700;letter-spacing:.06em;margin-bottom:10px}
+.tabloop .tb span{flex:1;text-align:center;padding:7px 2px;border-radius:5px;background:#1a1a1a;animation:tabOn 10s steps(1) infinite;animation-delay:calc(var(--k)*2s)}
+@keyframes tabOn{0%,19.99%{background:var(--teal)}20%,100%{background:#1a1a1a}}
+.tabloop .pics{position:relative;aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:#fff}
+.tabloop .pics img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;animation:picOn 10s var(--ease) infinite;animation-delay:calc(var(--k)*2s)}
+@keyframes picOn{0%{opacity:0;transform:scale(1.06)}4%,18%{opacity:1;transform:none}22%,100%{opacity:0}}
+.battery{width:min(320px,84%);color:#fff}
+.battery small{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.8}
+.battery b{display:block;font-size:46px;letter-spacing:-.05em;line-height:1;margin:6px 0 16px}
+.battery .cell{height:56px;border:2px solid rgba(255,255,255,.8);border-radius:12px;padding:5px;position:relative}
+.battery .cell::after{content:"";position:absolute;right:-10px;top:16px;width:6px;height:20px;border-radius:0 4px 4px 0;background:rgba(255,255,255,.8)}
+.battery .cell i{display:block;height:100%;border-radius:7px;background:#fff;animation:charge 4s var(--ease) infinite}
+@keyframes charge{0%{width:8%}80%,100%{width:100%}}
+.battery span{display:flex;justify-content:space-between;font-size:11px;margin-top:10px;opacity:.8}
+.pill.loop .ar{animation:arw 2.6s var(--ease) infinite}
+.clipbox{position:relative;width:min(560px,86%);aspect-ratio:16/9;overflow:hidden;border-radius:var(--rs);color:#fff}
+.clipbox img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:clipLoop 7s var(--ease) infinite}
+.clipbox::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.18);pointer-events:none}
+@keyframes clipLoop{0%{clip-path:inset(100% 0 0);transform:scale(1.14);transform-origin:50% 100%}22%,76%{clip-path:inset(0);transform:none}100%{clip-path:inset(0 0 100% 0);transform:scale(1.04)}}
+.clip-t{position:absolute;left:20px;bottom:18px;z-index:2;animation:txUp 7s var(--ease) infinite}
+.clip-t h4{font-size:28px;letter-spacing:-.04em;line-height:1}
+@keyframes txUp{0%,14%{opacity:0;transform:translateY(32px)}30%,74%{opacity:1;transform:none}90%,100%{opacity:0;transform:translateY(-12px)}}
+.chars{font-size:clamp(44px,5vw,70px);font-weight:700;letter-spacing:-.05em;color:#fff}
+.chars .c{display:inline-block;overflow:hidden;vertical-align:bottom;padding:.04em 0 .12em;margin-bottom:-.12em}
+.chars .c>span{display:inline-block;transform:translateY(108%);animation:chLoop 5.6s var(--ease) infinite;animation-delay:calc(var(--i)*70ms)}
+@keyframes chLoop{0%{transform:translateY(108%)}14%,68%{transform:none}84%,100%{transform:translateY(-108%)}}
+
+/* proceso con foto */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap);padding:0 var(--gap)}
+.step{position:relative;overflow:hidden;min-height:420px;padding:30px;display:flex;flex-direction:column;justify-content:space-between;color:#fff;border-radius:var(--r);transition:transform .6s var(--ease)}
+.step img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease)}
+.step::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.82) 0%,rgba(0,0,0,.3) 50%,rgba(0,89,87,.35) 100%);transition:opacity .6s}
+.step>*:not(img){position:relative;z-index:2}
+.step h4{font-size:26px;letter-spacing:-.04em;margin-bottom:8px}
+.step p{font-size:15px;opacity:.85}
+.step .idx{font-size:11px;font-weight:800;letter-spacing:.14em;display:flex;flex-direction:column;gap:8px}
+.step .idx::after{content:"";width:48px;height:2px;background:#fff}
+@media(hover:hover){.step:hover{transform:translateY(-8px)}.step:hover img{transform:scale(1.07)}}
+
+/* voz */
+.voice{display:grid;grid-template-columns:1.2fr 1fr;gap:var(--gap);padding:0 var(--gap)}
+.voice .big{position:relative;overflow:hidden;border-radius:var(--r);color:#fff;padding:70px 56px;display:flex;flex-direction:column;justify-content:center;gap:22px;min-height:520px}
+.voice .big img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.voice .big::after{content:"";position:absolute;inset:0;background:rgba(0,89,87,.7)}
+.voice .big>*:not(img){position:relative;z-index:2}
+.voice .big q{font-size:clamp(34px,4vw,58px);font-weight:700;letter-spacing:-.045em;line-height:1.04;quotes:none}
+.voice .big q .l{font-weight:300}
+.pillars{display:grid;grid-template-rows:repeat(4,1fr);gap:var(--gap)}
+.pillar{background:var(--mint);border-radius:var(--rs);padding:20px 26px;display:flex;gap:18px;align-items:center;transition:transform .6s var(--ease),background .4s}
+.pillar b{display:block;font-size:19px;letter-spacing:-.03em}
+.pillar span{font-size:14.5px;color:var(--gray);line-height:1.45;display:block}
+@media(hover:hover){.pillar:hover{transform:translateX(10px);background:var(--t16)}}
+
+/* capacidades */
+.cap5{display:grid;grid-template-columns:repeat(6,1fr);gap:var(--gap);padding:0 var(--gap)}
+.capc{grid-column:span 2;position:relative;min-height:380px;overflow:hidden;border-radius:var(--r);color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:28px}
+.capc:nth-child(4),.capc:nth-child(5){grid-column:span 3}
+.capc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease)}
+.capc::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.85) 0%,rgba(0,0,0,.25) 55%,rgba(0,0,0,.05) 100%)}
+.capc>*:not(img){position:relative;z-index:2}
+.capc h4{font-size:24px;letter-spacing:-.04em;line-height:1.1;margin:12px 0 6px}
+.capc p{font-size:14px;opacity:.82;max-width:420px}
+@media(hover:hover){.capc:hover img{transform:scale(1.07)}}
+
+/* portafolio */
+.port{background:#000;border-radius:var(--r);margin:0 var(--gap);padding:22px;color:#fff}
+.port .hd{display:flex;justify-content:space-between;align-items:center;padding:4px 6px 18px}
+.port .hd b{font-size:20px;letter-spacing:-.03em}
+.port .hd span{font-size:10px;font-weight:700;letter-spacing:.16em;opacity:.7}
+.pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.pc{background:#fff;color:#000;border-radius:var(--rs);overflow:hidden;transition:transform .6s var(--ease)}
+.pc img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform 1.4s var(--ease)}
+.pc div{padding:16px 18px 18px}
+.pc small{font-size:9px;font-weight:700;letter-spacing:.16em;color:var(--teal)}
+.pc b{display:block;font-size:22px;letter-spacing:-.035em;margin-bottom:12px}
+.pc em{display:flex;justify-content:space-between;font-style:normal;font-size:11px;font-weight:700;color:var(--teal);border-top:1px solid var(--rule);padding-top:12px}
+.pc dl{font-size:11.5px;color:var(--gray);margin:-4px 0 12px}
+@media(hover:hover){.pc:hover{transform:translateY(-6px)}.pc:hover img{transform:scale(1.06)}}
+
+/* cierre */
+.close{position:relative;min-height:80vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;margin:var(--gap);border-radius:var(--r)}
+.close img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.close::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,89,87,.92) 0%,rgba(0,89,87,.7) 55%,rgba(0,89,87,.35) 100%)}
+.close .in{position:relative;z-index:2;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;padding:70px 56px;width:100%;align-items:end}
+.close h2{font-size:clamp(34px,4vw,56px);font-weight:700;letter-spacing:-.045em;line-height:1.04;margin:14px 0 26px}
+.close .ct{font-size:15px;line-height:1.5}
+.close .ct div{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.45)}
+.close .eb{color:#fff}
+footer{background:#000;color:#fff;margin-top:var(--gap);padding:22px 32px;display:flex;justify-content:space-between;font-size:11px;letter-spacing:.07em}
+footer b{font-weight:700}
+
+/* reveal como el sitio */
+.rv{opacity:0}
+.rv.in{opacity:1;animation:rvUp 1s var(--ease) backwards}
+@keyframes rvUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+.rvc img{clip-path:inset(100% 0 0)}
+.rvc.in img{clip-path:inset(0);animation:clipIn 1.2s var(--ease) backwards}
+@keyframes clipIn{from{clip-path:inset(100% 0 0);transform:scale(1.12);transform-origin:50% 100%}to{clip-path:inset(0);transform:none}}
+
+@media(hover:hover){
+  .tile>img.fill{transition:transform 1.8s var(--ease)}
+  .tile:hover>img.fill:not(.bgp){transform:scale(1.05)}
+  .tile:hover .badge{transform:rotate(-3deg)}
+  .badge{transition:transform 1s var(--ease);transform-origin:50% -200px}
+  .tile:hover .bc.a{transform:rotate(-16deg) translate(-30px,14px)}
+  .tile:hover .bc.b{transform:rotate(9deg) translate(30px,-10px)}
+  .tile:hover .sheet{transform:rotate(0) translateY(-10px) scale(1.02)}
+  .tile:hover .charger{transform:translateY(-10px)}
+  .charger{transition:transform .9s var(--ease)}
+  .devices:hover .laptop{transform:translateY(-6px)}
+  .devices:hover .laptop .site img{transform:scale(1.04)}
+  .devices:hover .phone{transform:translateY(-12px) rotate(-2.5deg)}
+  .list .row:hover{transform:translateX(14px)}
+  .polo{transition:transform .9s var(--ease)}.tile:hover .polo{transform:rotate(-3deg) translateY(-8px) scale(1.04)}
+  .float-sym{transition:transform 1s var(--ease)}.tile:hover .float-sym{transform:translateY(-10px) scale(1.05)}
+  .story .ph img{transition:transform 1.6s var(--ease)}.story .ph:hover img{transform:scale(1.06)}
+}
+.notes-toggle{position:fixed;right:16px;bottom:16px;z-index:50;font:700 11px var(--font);letter-spacing:.1em;text-transform:uppercase;background:#000;color:#fff;border:0;padding:11px 15px;border-radius:99px;cursor:pointer;opacity:.85}
+@media(max-width:1000px){
+  .g2,.g3,.g4,.voice,.steps,.story,.story.rev,.close .in{grid-template-columns:1fr}
+  .story.rev .ph{order:0}
+  .sec{grid-template-columns:1fr;padding-top:80px}
+  .m1,.m2,.m3,.m4,.m5{grid-column:span 12;min-height:360px}
+  .rules{grid-template-columns:1fr}
+  .swatches{flex-direction:column;min-height:0}.sw{min-height:120px}
+  .tile{min-height:420px}
+  .cap5{grid-template-columns:1fr}.capc,.capc:nth-child(4),.capc:nth-child(5){grid-column:auto}
+  .pgrid{grid-template-columns:1fr 1fr}
+  .dev-wrap{height:560px}.laptop{width:100%}.phone{width:220px;height:455px;right:-6px}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-bus" viewBox="0 0 24 24"><rect x="5" y="3.5" width="14" height="14" rx="2.5"/><path d="M5 10.5h14M8 17.5v2.5M16 17.5v2.5M8.5 14h.01M15.5 14h.01M8 6.5h8"/></symbol>
+<symbol id="i-charge" viewBox="0 0 24 24"><rect x="5" y="3.5" width="10" height="17" rx="2"/><path d="M15 8h2.5a1.5 1.5 0 0 1 1.5 1.5V15a1.5 1.5 0 0 0 3 0V8l-2-2M10.5 7.5 8.5 11.5h3l-2 4"/></symbol>
+<symbol id="i-solar" viewBox="0 0 24 24"><path d="M4 14 6 6h12l2 8z"/><path d="M5 10h14M10 6l-.8 8M14 6l.8 8M12 14v5M8.5 19.5h7"/></symbol>
+<symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M7 16v-4M11 16V8M15 16v-6M19 16V5"/></symbol>
+<symbol id="i-code" viewBox="0 0 24 24"><path d="m8.5 8-4 4 4 4M15.5 8l4 4-4 4M13.5 5.5l-3 13"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v5.5c0 4.3 3 7.8 7 9 4-1.2 7-4.7 7-9V6z"/><path d="m9 12 2 2 4-4"/></symbol>
+<symbol id="i-headset" viewBox="0 0 24 24"><path d="M4.5 14v-2a7.5 7.5 0 0 1 15 0v2"/><rect x="3.5" y="13.5" width="4" height="6" rx="1.5"/><rect x="16.5" y="13.5" width="4" height="6" rx="1.5"/><path d="M18.5 19.5c0 1.5-1.5 2-3.5 2h-2"/></symbol>
+<symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.6 5.6l1.8 1.8M16.6 16.6l1.8 1.8M18.4 5.6l-1.8 1.8M7.4 16.6l-1.8 1.8"/></symbol>
+<symbol id="i-cam" viewBox="0 0 24 24"><path d="M3.5 8.5 17 5l1.5 5.5L5 14z"/><path d="M18 8l2.5-.7M9 13.5 10 17H5M10 17v3"/></symbol>
+<symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19c0-8 5-13 15-14-1 10-6 15-14 15"/><path d="M5 19 13 11"/></symbol>
+<symbol id="i-gauge" viewBox="0 0 24 24"><path d="M4 17a8 8 0 1 1 16 0"/><path d="m12 17 4-6M8 17h.01"/></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3.5 21 8l-9 4.5L3 8z"/><path d="M3 12.5l9 4.5 9-4.5M3 17l9 4.5 9-4.5"/></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H10l-5 4v-4H4z"/><path d="M8.5 10.5h.01M12 10.5h.01M15.5 10.5h.01" stroke-width="2.4"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20.5c0-4.2 3.4-6.8 7.5-6.8s7.5 2.6 7.5 6.8"/></symbol>
+<symbol id="i-ar" viewBox="0 0 12 12"><path d="M1.5 10.5 10.5 1.5M3.8 1.5h6.7v6.7"/></symbol>
+</defs></svg>
+
+<!-- ================= PORTADA ================= -->
+<header class="cover">
+  <img class="bg" src="img/hero.jpg" alt="Bus eléctrico en movimiento">
+  <div class="ov"></div>
+  <div class="in">
+    <span class="eb" style="color:#fff">Movilidad sostenible con tecnología</span>
+    <img class="logo" src="img/logo-white.png" alt="Wisdom Movilidad y Tecnología">
+  </div>
+  <div class="foot"><span>Brand Identity · Portafolio &amp; Brandbook</span><span>Vehículo · Carga · Energía · Flota</span></div>
+</header>
+
+<main class="wrap">
+
+<!-- ================= 2-UP: credencial + flota real ================= -->
+<section class="grid g2" style="margin-top:var(--gap)">
+  <div class="tile bg-teal" style="min-height:660px">
+    <div class="badge">
+      <div class="lan"><i><img src="img/symbol-white.png" alt=""></i></div>
+      <span class="clip"></span>
+      <div class="card"><div class="top"><img src="img/logo-white.png" alt=""></div>
+        <div class="ph"><svg><use href="#i-user"/></svg></div>
+        <b>Nombre Apellido</b><span>Equipo técnico · Movilidad</span>
+        <div class="bar">Wisdom Tecnology</div></div>
+    </div>
+    <span class="mk">Mockup de ejemplo</span>
+  </div>
+  <div class="tile" style="min-height:660px">
+    <img class="fill" src="img/flota-tres-buses.jpg" alt="Buses con la identidad Wisdom">
+    <span class="cap" style="color:#fff">Aplicación real · flota con identidad Wisdom</span>
+  </div>
+</section>
+
+<!-- ================= MANIFIESTO ================= -->
+<section class="manifesto">
+  <span class="eb">Wisdom Tecnology</span>
+  <h2 style="margin-top:18px">Movilidad sostenible, <span class="l">diseñada como un sistema.</span></h2>
+  <p>Wisdom Tecnology es una empresa colombiana enfocada en movilidad sostenible y proyectos tecnológicos para el transporte. Integra vehículo, carga, energía y gestión de flota dentro de una sola propuesta operativa.</p>
+  <p>La identidad habla ese mismo idioma: un teal profundo que conecta movilidad y tecnología, una tipografía clara y técnica, y un símbolo de dos eslabones que representa la integración entre el vehículo y su operación.</p>
+  <p>La promesa es una conversación técnica, no una compra aislada: acompañar a cada entidad desde la selección del vehículo hasta la operación.</p>
+</section>
+
+<section class="band">
+  <img src="img/movilidad.jpg" alt="Flota de buses eléctricos al atardecer">
+  <div class="ov"></div>
+  <div class="bt"><span class="eb">Capacidad técnica para una transición operable</span><h3>Una conversación técnica, <span class="l">no una compra aislada.</span></h3></div>
+</section>
+
+<section class="story">
+  <div class="ph"><img src="img/bus-bogota.jpg" alt="Bus eléctrico en Bogotá"></div>
+  <div class="tx">
+    <span class="eb">Quiénes somos</span>
+    <h3>Vehículo, energía y operación conectados.</h3>
+    <p>La selección de una tecnología de propulsión depende de la infraestructura disponible, la autonomía requerida, las condiciones urbanas y la capacidad de soporte.</p>
+    <p>Por eso el alcance comienza antes del vehículo y continúa después de su puesta en servicio.</p>
+    <a class="pill t" style="align-self:flex-start;margin-top:8px">Conocer el soporte <i class="ar"><svg><use href="#i-ar"/></svg></i></a>
+  </div>
+</section>
+
+<div class="marq"><div class="marq-row" id="mq"></div></div>
+
+<!-- ================= 2-UP: sistema integrado + símbolo ================= -->
+<section class="grid g2">
+  <div class="tile bg-black list" style="min-height:640px">
+    <span class="eb" style="color:#fff;opacity:.7">Sistema integrado</span>
+    <div class="row"><span class="ic w"><svg><use href="#i-bus"/></svg></span><div>Vehículo<small>Eléctricos, híbridos gas-eléctricos y de hidrógeno.</small></div></div>
+    <div class="row"><span class="ic w"><svg><use href="#i-charge"/></svg></span><div>Infraestructura de carga<small>Sistemas que hacen operable una flota eléctrica.</small></div></div>
+    <div class="row"><span class="ic w"><svg><use href="#i-solar"/></svg></span><div>Energía fotovoltaica<small>Generación solar en patios y estaciones.</small></div></div>
+    <div class="row"><span class="ic w"><svg><use href="#i-chart"/></svg></span><div>Gestión de flota<small>Software y telemetría para disponibilidad y rutas.</small></div></div>
+  </div>
+  <div class="tile bg-teal" style="min-height:640px">
+    <img class="fill" src="img/tecnologia.jpg" alt="" style="opacity:.28">
+    <img class="float-sym" src="img/symbol-white.png" alt="Símbolo Wisdom">
+  </div>
+</section>
+
+<!-- ================= 01 LOGO ================= -->
+<div class="sec"><div class="n">01</div><h2>Logo <span class="l">y símbolo</span></h2><p>El logo combina el símbolo de dos eslabones, el wordmark WISDOM y el descriptor «Movilidad y Tecnología». El símbolo funciona solo como favicon, ícono de app y sello en vehículos.</p></div>
+<section class="grid" style="grid-template-columns:2fr 1fr">
+  <div class="tile bg-white logo-big"><img src="img/logo-teal.png" alt="Logo principal" style="width:min(460px,70%)"><span class="cap" style="color:var(--gray)">Logo principal · teal</span></div>
+  <div class="tile bg-teal logo-big"><img src="img/symbol-white.png" alt="" style="width:200px"><span class="cap">Símbolo · favicon</span></div>
+</section>
+<section class="grid g3" style="margin-top:var(--gap)">
+  <div class="tile bg-teal" style="min-height:340px"><img src="img/logo-white.png" alt="" style="width:260px"><span class="cap">Negativo · blanco sobre teal</span></div>
+  <div class="tile" style="min-height:340px"><img class="fill" src="img/cuatro-buses.jpg" alt=""><div class="ov"></div><img src="img/logo-white.png" alt="" style="width:260px;position:relative"><span class="cap" style="color:#fff">Sobre fotografía · velo teal</span></div>
+  <div class="tile bg-mint" style="min-height:340px"><img src="img/logo-black.png" alt="" style="width:260px"><span class="cap" style="color:var(--gray)">Monocromo · negro</span></div>
+</section>
+<section class="grid g3" style="margin-top:var(--gap)">
+  <div class="tile bg-white" style="min-height:340px"><div class="clear"><img src="img/logo-teal.png" alt="" style="width:220px"><i style="top:8px;left:50%">x</i><i style="bottom:8px;left:50%">x</i><i style="left:14px;top:50%">x</i><i style="right:14px;top:50%">x</i></div><span class="cap" style="color:var(--gray)">Zona de respeto · x = alto del símbolo ÷ 2</span></div>
+  <div class="tile bg-mint" style="min-height:340px;flex-direction:column;gap:24px"><div style="display:flex;align-items:flex-end;gap:36px"><img src="img/logo-teal.png" alt="" style="width:120px"><img src="img/symbol-teal.png" alt="" style="width:28px"></div><div class="eb" style="color:var(--gray);text-align:center;line-height:2">Tamaño mínimo · logo 90 px / 25 mm<br>Símbolo 16 px / 6 mm</div><span class="cap" style="color:var(--gray)">Tamaños mínimos (propuesta)</span></div>
+  <div class="tile bg-white" style="min-height:340px;flex-direction:column;gap:20px"><div class="eb" style="color:var(--gray)">Variantes del símbolo</div><div style="display:flex;gap:22px;align-items:center"><img src="img/symbol-teal.png" alt="" style="width:70px"><div class="appicon"><img src="img/symbol-white.png" alt=""></div><img src="img/symbol-black.png" alt="" style="width:70px"></div><span class="cap" style="color:var(--gray)">Teal · ícono de app · negro</span></div>
+</section>
+<section class="grid g4" style="margin-top:var(--gap)">
+  <div class="tile bg-white dont"><span class="x">×</span><img src="img/logo-teal.png" alt="" style="width:180px;transform:scaleX(1.45)"><p>No deformar</p></div>
+  <div class="tile bg-white dont"><span class="x">×</span><img src="img/logo-teal.png" alt="" style="width:180px;filter:hue-rotate(150deg) saturate(3)"><p>No cambiar colores</p></div>
+  <div class="tile dont" style="background:url(img/cap-auto.jpg) center/cover"><span class="x">×</span><img src="img/logo-teal.png" alt="" style="width:180px"><p style="color:#000;background:#fff;left:50%;right:auto;transform:translateX(-50%);padding:4px 10px;border-radius:99px;white-space:nowrap">No sobre fondos ruidosos</p></div>
+  <div class="tile bg-white dont"><span class="x">×</span><img src="img/logo-teal.png" alt="" style="width:180px;transform:rotate(-12deg);filter:drop-shadow(4px 6px 4px rgba(0,0,0,.35))"><p>No rotar ni añadir efectos</p></div>
+</section>
+
+<!-- ================= 02 COLOR ================= -->
+<div class="sec"><div class="n">02</div><h2>Paleta <span class="l">de color</span></h2><p>La paleta exacta del sitio: el teal #005957 como color de marca, negro y blanco como base, y tintes del mismo teal para superficies y bordes. Sin colores adicionales.</p></div>
+<section class="swatches">
+  <div class="sw main" style="background:#005957;color:#fff"><b>Teal Wisdom</b>Primario · logo, header, botones<br>#005957<br>RGB 0 · 89 · 87</div>
+  <div class="sw" style="background:#000;color:#fff"><b>Black</b>Títulos, portafolio, footer<br>#000000<br>0 · 0 · 0</div>
+  <div class="sw" style="background:#fff;color:#000;box-shadow:inset 0 0 0 1px #D6D6D6"><b>White</b>Fondo base<br>#FFFFFF<br>255 · 255 · 255</div>
+  <div class="sw" style="background:#E8F0F0;color:#005957"><b>Mint</b>Teal 9 % · superficies<br>#E8F0F0</div>
+  <div class="sw" style="background:#D6E3E3;color:#005957"><b>Teal 16</b>Bordes y estados<br>#D6E3E3</div>
+  <div class="sw" style="background:#B8D0CF;color:#005957"><b>Teal 28</b>Bordes activos<br>#B8D0CF</div>
+  <div class="sw" style="background:#616161;color:#fff"><b>Gray</b>Negro 62 % · texto secundario<br>#616161</div>
+  <div class="sw" style="background:#D6D6D6;color:#000"><b>Rule</b>Negro 16 % · filetes<br>#D6D6D6</div>
+</section>
+<div class="ratio"><span style="width:50%;background:#fff"></span><span style="width:24%;background:#005957"></span><span style="width:14%;background:#000"></span><span style="width:8%;background:#E8F0F0"></span><span style="width:4%;background:#616161"></span></div>
+<div class="ratio-l"><span>White 50 % · Teal 24 % · Black 14 % · Mint 8 % · Gray 4 %</span><span>Proporción de uso (propuesta)</span></div>
+
+<!-- ================= 03 TIPOGRAFÍA ================= -->
+<div class="sec"><div class="n">03</div><h2>Tipo&shy;grafía</h2><p>Una sola familia, la del sitio: Roboto. Titulares en 700 con tracking negativo combinados con 300 para el énfasis, texto en 400 y etiquetas en 700 mayúsculas espaciadas.</p></div>
+<section class="grid g2">
+  <div class="tile bg-white spec"><div class="nm">Titulares · Roboto 700 + 300</div><div class="aa" style="font-weight:700;color:var(--teal)">Aa</div><div class="h" style="font-size:38px">Movilidad sostenible, <span class="l">diseñada como un sistema.</span></div></div>
+  <div class="tile bg-mint spec"><div class="nm">Texto · Roboto 400</div><div class="aa" style="font-weight:400;color:var(--teal)">Aa</div><div style="font-size:18px;max-width:520px">Autobuses eléctricos, de hidrógeno e híbridos, conectados con infraestructura de carga, energía y herramientas para la gestión de flotas.</div></div>
+  <div class="tile bg-black spec"><div class="nm">Jerarquía del sitio</div>
+    <div style="display:grid;gap:16px"><div class="eb" style="color:#B8D0CF">Eyebrow · 11 px · 700 · .16em</div><div class="h" style="font-size:40px">Título · 700 · −0.045em</div><div style="font-size:16px;color:rgba(255,255,255,.72);max-width:420px">Texto · 16 px · 400 · interlineado 1.6. Gris #616161 sobre blanco, blanco 72 % sobre oscuros.</div></div>
+    <div class="nm">Roboto</div></div>
+  <div class="tile bg-teal spec"><div class="nm">Botones · píldora · Roboto 700 · 14 px</div>
+    <div style="display:flex;gap:14px;flex-wrap:wrap"><a class="pill w">Iniciar conversación técnica <i class="ar"><svg><use href="#i-ar"/></svg></i></a><a class="pill o">Llamar <i class="ar"><svg><use href="#i-ar"/></svg></i></a></div>
+    <div class="nm">Radio 999 px · flecha ↗ animada</div></div>
+</section>
+
+<!-- ================= 04 FOTOGRAFÍA ================= -->
+<div class="sec"><div class="n">04</div><h2>Dirección <span class="l">fotográfica</span></h2><p>Flota real en ciudades colombianas, infraestructura en funcionamiento y equipos técnicos trabajando. Cuando la foto lleva texto encima, se cubre con el velo teal del sitio.</p></div>
+<section class="grid g12">
+  <div class="tile m1"><img class="fill" src="img/cuatro-buses.jpg" alt=""><span class="cap" style="color:#fff">Flota · contexto urbano real</span></div>
+  <div class="tile m2"><img class="fill" src="img/carga-bus.jpg" alt=""><span class="cap" style="color:#fff">Infraestructura de carga</span></div>
+  <div class="tile m3"><img class="fill" src="img/bus-evg9.jpg" alt=""><span class="cap" style="color:#fff">Producto · serie EVG9</span></div>
+  <div class="tile m4"><img class="fill" src="img/solar.jpg" alt=""><span class="cap" style="color:#fff">Energía fotovoltaica</span></div>
+  <div class="tile m5"><img class="fill" src="img/cap-cctv.jpg" alt=""><span class="cap" style="color:#fff">Tecnología en operación</span></div>
+</section>
+<section class="rules">
+  <div class="rule-c"><span class="ic"><svg><use href="#i-bus"/></svg></span><h4>Contexto real</h4><p>Vehículos en ciudades y rutas reales; nada de renders aislados sin entorno.</p></div>
+  <div class="rule-c"><span class="ic"><svg><use href="#i-gear"/></svg></span><h4>Sistema en operación</h4><p>Carga, energía y control: mostrar la infraestructura que hace operable la flota.</p></div>
+  <div class="rule-c"><span class="ic"><svg><use href="#i-layers"/></svg></span><h4>Velo teal</h4><p>Sobre fotografía con texto, velo teal #005957 al 60–70 % para legibilidad.</p></div>
+</section>
+
+<!-- ================= 05 ELEMENTOS GRÁFICOS ================= -->
+<div class="sec"><div class="n">05</div><h2>Elementos <span class="l">gráficos</span></h2><p>Los componentes del sitio: botones píldora con flecha, íconos de línea en círculo menta, tarjetas con radio de 18 y 28 px y pestañas para categorías.</p></div>
+<section class="grid g3">
+  <div class="tile bg-white ge"><div style="display:flex;gap:12px"><span class="ic"><svg><use href="#i-bus"/></svg></span><span class="ic"><svg><use href="#i-charge"/></svg></span><span class="ic"><svg><use href="#i-solar"/></svg></span><span class="ic"><svg><use href="#i-chart"/></svg></span></div><div class="tabs"><span class="on">EV BUS</span><span>COACH BUS</span><span>CITY BUS</span></div><span class="cap" style="color:var(--gray)">Íconos y pestañas</span></div>
+  <div class="tile bg-mint ge"><a class="pill t">Ver catálogo completo <i class="ar"><svg><use href="#i-ar"/></svg></i></a><a class="pill ok">Conocer Movilidad <i class="ar"><svg><use href="#i-ar"/></svg></i></a><span class="cap" style="color:var(--gray)">Botones</span></div>
+  <div class="tile bg-black ge"><div class="card-demo"><img src="img/bus-g60e.jpg" alt=""><div><small>EV BUS</small><b>G60E</b><em>Ver ficha completa <span>↗</span></em></div></div><span class="cap">Tarjeta de producto</span></div>
+</section>
+
+<!-- ================= 06 APLICACIONES ================= -->
+<div class="sec"><div class="n">06</div><h2>Aplica&shy;ciones</h2><p>La identidad en la flota, la infraestructura, los documentos técnicos y los canales digitales. Los mockups de ejemplo usan fotografía real del sitio y se reemplazarán por los finales.</p></div>
+<section class="grid g2">
+  <div class="tile app"><img class="fill bgp" src="img/carga-bus.jpg" alt=""><div class="veil" style="background:rgba(0,0,0,.42)"></div><div class="charger"><div class="hd"><img src="img/logo-white.png" alt=""></div><div class="bd"><b>Estación de carga</b><span>Patio · Infraestructura Wisdom</span><div class="lv"><i>Lenta</i><i>Semirrápida</i><i>Rápida</i></div></div></div><span class="mk">Mockup: señalética de carga</span></div>
+  <div class="tile app bg-mint"><div class="sheet"><div class="hd"><img src="img/logo-white.png" alt=""><span>FICHA TÉCNICA</span></div><div class="bus"><img src="img/bus-g60e.jpg" alt=""></div><div class="bd"><small>EV BUS · SERIE</small><h5>G60E</h5><dl><div><dt>Referencia</dt><dd>HFF6600GEV2</dd></div><div><dt>Potencia</dt><dd>60 kW</dd></div><div><dt>Batería</dt><dd>155.33 kWh</dd></div><div><dt>Dimensiones</dt><dd>5990 × 2100</dd></div></dl></div><div class="ft"><span>wisdomtecnology.com.co</span><span>Catálogo EV BUS</span></div></div><span class="mk">Mockup: ficha técnica</span></div>
+</section>
+<section class="grid g2" style="margin-top:var(--gap)">
+  <div class="tile app bg-teal"><img class="fill bgp" src="img/tecnologia.jpg" alt="" style="opacity:.25"><div class="cards"><div class="bc a"><img src="img/logo-white.png" alt=""></div><div class="bc b"><img src="img/logo-teal.png" alt=""><div><b>Nombre Apellido</b>Equipo comercial · Movilidad</div><div>+57 310 293 1338<br>wisdomtecnology.com.co<br>Bocagrande, Cartagena</div></div></div><span class="mk">Mockup: tarjetas</span></div>
+  <div class="tile app bg-black"><img class="fill bgp" src="img/cuatro-buses.jpg" alt="" style="opacity:.35"><div class="polo"><svg viewBox="0 0 200 200"><path fill="#005957" d="M62 14 Q100 34 138 14 L184 36 L200 84 L168 96 L158 74 L158 188 Q100 196 42 188 L42 74 L32 96 L0 84 L16 36 Z"/><path fill="#00413F" d="M86 18 L100 40 L114 18 Q100 26 86 18Z"/><path fill="none" stroke="#00413F" stroke-width="1.2" d="M100 40 V70"/></svg><img class="lg" src="img/symbol-white.png" alt=""></div><span class="mk">Mockup: uniforme</span></div>
+</section>
+<section class="grid" style="margin-top:var(--gap)">
+  <div class="tile app devices" style="min-height:780px;background:#00413f">
+    <img class="fill bgp" src="img/movilidad.jpg" alt=""><div class="veil" style="background:rgba(0,89,87,.55)"></div>
+    <div class="dev-wrap">
+      <div class="laptop"><div class="scr"><div class="site"><img src="img/site-home-desktop.jpg" alt="Home de wisdomtecnology.com.co en escritorio"></div></div><div class="base"></div></div>
+      <div class="phone"><div class="ps"><img src="img/site-home-mobile.jpg" alt="Home de wisdomtecnology.com.co en móvil"></div></div>
+    </div>
+    <span class="mk">Home real de wisdomtecnology.com.co · escritorio y responsive</span>
+  </div>
+</section>
+<section class="grid g2" style="margin-top:var(--gap)">
+  <div class="tile app bg-teal"><div class="badge" style="margin-top:90px"><div class="lan"><i><img src="img/symbol-white.png" alt=""></i></div><span class="clip"></span><div class="card"><div class="top"><img src="img/logo-white.png" alt=""></div><div class="ph"><svg><use href="#i-user"/></svg></div><b>Visitante técnico</b><span>Patio de carga · Acceso</span><div class="bar">Wisdom Tecnology</div></div></div><span class="mk">Mockup: credencial</span></div>
+  <div class="tile app bg-mint" style="min-height:900px"><div class="ig">
+      <div class="ig-top"><div class="ig-av"><div><img src="img/symbol-white.png" alt=""></div></div><div><div class="ig-name"><b>wisdom_technology22</b></div><div class="ig-sub">Wisdom Tecnology</div></div></div>
+      <div class="ig-bio"><div class="c">Movilidad sostenible con tecnología</div><div>Autobuses eléctricos, de hidrógeno e híbridos · Infraestructura de carga · Energía · Gestión de flota</div><a>wisdomtecnology.com.co</a></div>
+      <div class="ig-btns"><span>Seguir</span><span>Mensaje</span></div>
+      <div class="ig-grid">
+        <div><img src="img/flota-tres-buses.jpg" alt=""></div>
+        <div class="tp"><div><small>MOVILIDAD SOSTENIBLE</small>Diseñada como un sistema.</div></div>
+        <div><img src="img/bus-g70e.jpg" alt=""></div>
+        <div class="tp k"><div><small>EV BUS · G60E</small>155.33 kWh de batería</div></div>
+        <div><img src="img/carga-bus.jpg" alt=""></div>
+        <div><img src="img/cap-cctv.jpg" alt=""></div>
+        <div><img src="img/solar.jpg" alt=""></div>
+        <div class="tp m"><div><small>SERVICIOS</small>Una conversación técnica.</div></div>
+        <div><img src="img/bus-e60.jpg" alt=""></div>
+      </div>
+    </div><span class="mk">Mockup: Instagram (@wisdom_technology22)</span></div>
+</section>
+
+<!-- ================= 07 MOTION & GIF ================= -->
+<div class="sec"><div class="n">07</div><h2>Motion <span class="l">&amp; GIF</span></h2><p>GIF del acordeón de servicios del sitio (arriba) y loops con su movimiento: pestañas del portafolio, carga de batería, flecha del botón y reveal de imagen. Todos se exportan a GIF o MP4.</p></div>
+<section class="grid g3">
+  <div class="tile bg-white mo" style="grid-column:span 2;aspect-ratio:920/575;min-height:0"><img class="gifimg" src="img/services-accordion.gif" alt="GIF: acordeón de servicios como en wisdomtecnology.com.co"><span class="gc gif">GIF · acordeón de servicios (sitio)</span></div>
+  <div class="tile bg-teal mo"><div class="links"><i></i><i></i><img src="img/symbol-white.png" alt=""></div><span class="gc">LOOP · símbolo</span></div>
+  <div class="tile bg-mint mo"><div class="tabloop"><div class="tb"><span style="--k:0">EV</span><span style="--k:1">COACH</span><span style="--k:2">BUSINESS</span><span style="--k:3">CITY</span><span style="--k:4">SPECIAL</span></div><div class="pics"><img src="img/bus-g60e.jpg" alt="" style="--k:0"><img src="img/bus-e80.jpg" alt="" style="--k:1"><img src="img/bus-evg9.jpg" alt="" style="--k:2"><img src="img/bus-e85.jpg" alt="" style="--k:3"><img src="img/bus-e60.jpg" alt="" style="--k:4"></div></div><span class="gc">LOOP · pestañas del portafolio</span></div>
+  <div class="tile bg-black mo"><div class="battery"><small>EV BUS · G60E</small><b>155.33 kWh</b><div class="cell"><i></i></div><span><em style="font-style:normal">Capacidad de batería</em><em style="font-style:normal">60 kW</em></span></div><span class="gc">LOOP · carga</span></div>
+  <div class="tile bg-teal mo"><div class="chars loop">Movilidad</div><span class="gc">LOOP · letras escalonadas</span></div>
+  <div class="tile bg-white mo"><a class="pill t loop">Iniciar conversación técnica <i class="ar"><svg><use href="#i-ar"/></svg></i></a><span class="gc">LOOP · botón ↗</span></div>
+  <div class="tile bg-black mo" style="grid-column:span 2"><div class="clipbox"><img src="img/cuatro-buses.jpg" alt=""><div class="clip-t"><span class="eb" style="color:#fff">Portafolio</span><h4>Cinco categorías para cada operación.</h4></div></div><span class="gc">LOOP · reveal de imagen</span></div>
+</section>
+
+<section class="band short">
+  <img src="img/cta-cartagena.jpg" alt="Bus en Cartagena">
+  <div class="ov"></div>
+  <div class="bt"><span class="eb">Sistema integrado</span><h3>Movilidad y tecnología <span class="l">en una misma conversación técnica.</span></h3></div>
+</section>
+
+<!-- ================= 08 SISTEMA ================= -->
+<div class="sec"><div class="n">08</div><h2>Sistema <span class="l">integrado</span></h2><p>El modelo del sitio convertido en sistema visual: cuatro piezas que acompañan a la entidad desde la selección del vehículo hasta la operación.</p></div>
+<section class="steps">
+  <div class="step"><img src="img/cuatro-buses.jpg" alt=""><div class="idx">01</div><div><span class="ic w" style="margin-bottom:16px"><svg><use href="#i-bus"/></svg></span><h4>Vehículo</h4><p>Autobuses eléctricos, híbridos gas-eléctricos y de hidrógeno para transporte público.</p></div></div>
+  <div class="step"><img src="img/carga-bus.jpg" alt=""><div class="idx">02</div><div><span class="ic w" style="margin-bottom:16px"><svg><use href="#i-charge"/></svg></span><h4>Infraestructura de carga</h4><p>Diseño e implementación de los sistemas que hacen operable una flota eléctrica.</p></div></div>
+  <div class="step"><img src="img/solar.jpg" alt=""><div class="idx">03</div><div><span class="ic w" style="margin-bottom:16px"><svg><use href="#i-solar"/></svg></span><h4>Energía fotovoltaica</h4><p>Generación solar integrada a patios, estaciones y operación de flota.</p></div></div>
+  <div class="step"><img src="img/technology.jpg" alt=""><div class="idx">04</div><div><span class="ic w" style="margin-bottom:16px"><svg><use href="#i-chart"/></svg></span><h4>Gestión de flota</h4><p>Software y telemetría para disponibilidad, consumo, mantenimiento y rutas.</p></div></div>
+</section>
+
+<!-- ================= 09 VOZ ================= -->
+<div class="sec"><div class="n">09</div><h2>Voz <span class="l">y mensaje</span></h2><p>Técnica, clara y orientada a la operación. Habla de decisiones que deben sostenerse en el tiempo. Pilares tomados de los criterios de trabajo del sitio.</p></div>
+<section class="voice">
+  <div class="big"><img src="img/contacto-flota.jpg" alt=""><span class="eb" style="color:#fff">Misión</span><q>Hacer operable <span class="l">la movilidad sostenible.</span></q><a class="pill w" style="align-self:flex-start">Iniciar conversación técnica <i class="ar"><svg><use href="#i-ar"/></svg></i></a></div>
+  <div class="pillars">
+    <div class="pillar"><span class="ic"><svg><use href="#i-leaf"/></svg></span><div><b>Movilidad sostenible</b><span>Tecnologías eléctricas, híbridas y de hidrógeno según cada operación.</span></div></div>
+    <div class="pillar"><span class="ic"><svg><use href="#i-gauge"/></svg></span><div><b>Eficiencia operativa</b><span>Disponibilidad, consumo, mantenimiento y continuidad del servicio.</span></div></div>
+    <div class="pillar"><span class="ic"><svg><use href="#i-layers"/></svg></span><div><b>Flexibilidad tecnológica</b><span>Alternativas según infraestructura, autonomía, rutas y ciudad.</span></div></div>
+    <div class="pillar"><span class="ic"><svg><use href="#i-chat"/></svg></span><div><b>Conversación técnica</b><span>Un mismo alcance técnico, no una compra aislada.</span></div></div>
+  </div>
+</section>
+
+<!-- ================= 10 TECNOLOGÍA ================= -->
+<div class="sec"><div class="n">10</div><h2>Tecnología <span class="l">que escala</span></h2><p>La segunda unidad de negocio. «No vendemos TI. Construimos capacidad operativa»: cinco capacidades con fotografía real del sitio.</p></div>
+<section class="cap5">
+  <div class="capc"><img src="img/cap-software.jpg" alt=""><span class="ic w"><svg><use href="#i-code"/></svg></span><h4>Desarrollo de software</h4><p>A la medida, metodologías ágiles, entregas incrementales y métricas.</p></div>
+  <div class="capc"><img src="img/cap-ciber.jpg" alt=""><span class="ic w"><svg><use href="#i-shield"/></svg></span><h4>Infraestructura &amp; ciberseguridad</h4><p>Auditoría TI, redes, cloud, on-premise y ciberseguridad.</p></div>
+  <div class="capc"><img src="img/cap-soporte.jpg" alt=""><span class="ic w"><svg><use href="#i-headset"/></svg></span><h4>Servicio y soporte TI</h4><p>Mesa de servicio, soporte multinivel y monitoreo proactivo.</p></div>
+  <div class="capc"><img src="img/cap-auto.jpg" alt=""><span class="ic w"><svg><use href="#i-gear"/></svg></span><h4>Automatización</h4><p>Procesos optimizados e integración tecnológica para la eficiencia operativa.</p></div>
+  <div class="capc"><img src="img/cap-cctv.jpg" alt=""><span class="ic w"><svg><use href="#i-cam"/></svg></span><h4>Sistemas CCTV</h4><p>Videovigilancia: diseño, implementación, monitoreo y soporte.</p></div>
+</section>
+
+<!-- ================= 11 PORTAFOLIO ================= -->
+<div class="sec"><div class="n">11</div><h2>Portafolio <span class="l">EV BUS</span></h2><p>El panel negro del sitio con sus tarjetas de producto: siete series eléctricas con datos reales del catálogo.</p></div>
+<div class="port">
+  <div class="hd"><b>EV BUS</b><span>7 REFERENCIAS</span></div>
+  <div class="pgrid">
+    <div class="pc"><img src="img/bus-g60e.jpg" alt=""><div><small>EV BUS</small><b>G60E</b><dl>60 kW · 155.33 kWh</dl><em>Ver ficha completa <span>↗</span></em></div></div>
+    <div class="pc"><img src="img/bus-g70e.jpg" alt=""><div><small>EV BUS</small><b>G70E</b><dl>24–28 asientos · 163.36 kWh</dl><em>Ver ficha completa <span>↗</span></em></div></div>
+    <div class="pc"><img src="img/bus-evg9.jpg" alt=""><div><small>EV BUS</small><b>EVG9</b><dl>26+4+1 asientos · 300.81 kWh</dl><em>Ver ficha completa <span>↗</span></em></div></div>
+    <div class="pc"><img src="img/bus-e60.jpg" alt=""><div><small>EV BUS</small><b>E60</b><dl>9+1 asientos · 127.51 kWh</dl><em>Ver ficha completa <span>↗</span></em></div></div>
+    <div class="pc"><img src="img/bus-e85.jpg" alt=""><div><small>EV BUS</small><b>E85</b><dl>8540 × 2550 × 3200 · 255.02 kWh</dl><em>Ver ficha completa <span>↗</span></em></div></div>
+    <div class="pc"><img src="img/bus-e80.jpg" alt=""><div><small>EV BUS</small><b>E80</b><dl>120 kW · 140.95 / 176.04 kWh</dl><em>Ver ficha completa <span>↗</span></em></div></div>
+    <div class="pc"><img src="img/bus-e70.jpg" alt=""><div><small>EV BUS</small><b>E70</b><dl>120 kW · 340 / 280 km</dl><em>Ver ficha completa <span>↗</span></em></div></div>
+    <div class="pc" style="background:var(--teal);color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:22px"><img src="img/symbol-white.png" alt="" style="width:54px;aspect-ratio:auto;object-fit:contain"><div style="padding:0"><b style="font-size:26px">Cinco categorías para cada operación.</b><a class="pill w" style="margin-top:8px">Ver catálogo completo <i class="ar"><svg><use href="#i-ar"/></svg></i></a></div></div>
+  </div>
+</div>
+
+<!-- ================= CIERRE ================= -->
+<section class="close">
+  <img src="img/contacto-flota.jpg" alt="Bus Wisdom en Cartagena">
+  <div class="in">
+    <div><span class="eb">Contacto</span><h2>Inicie una conversación técnica sobre su operación.</h2>
+      <div style="display:flex;gap:12px;flex-wrap:wrap"><a class="pill w" href="mailto:bbarreto@wisdomtecnology.com.co">Escribir por correo <i class="ar"><svg><use href="#i-ar"/></svg></i></a><a class="pill o" href="tel:+573102931338">Llamar <i class="ar"><svg><use href="#i-ar"/></svg></i></a></div></div>
+    <div class="ct"><div>Bocagrande, Av. San Martín No. 11-41<br>Torre Grupo Área, Of. 2001</div><div>+57 310 293 1338</div><div>bbarreto@wisdomtecnology.com.co</div></div>
+  </div>
+</section>
+</main>
+<footer><b>Wisdom Tecnology</b><span>Brandbook · Propuesta · 2026</span></footer>
+
+<button class="notes-toggle" id="nt" type="button">Ocultar notas de mockup</button>
+<script>
+(function(){
+  var html=document.documentElement;
+  // marquee
+  var items=['Vehículo','Infraestructura de carga','Energía fotovoltaica','Gestión de flota'];
+  var one=items.map(function(t){return '<span>'+t+'</span><img src="img/symbol-white.png" alt="">';}).join('');
+  var mq=document.getElementById('mq'); mq.innerHTML=one+one+one+one+one+one;
+  // letras escalonadas
+  document.querySelectorAll('.chars').forEach(function(el){var t=el.textContent.trim();el.setAttribute('aria-label',t);el.innerHTML=t.split('').map(function(c,i){return '<span class="c" aria-hidden="true"><span style="--i:'+i+'">'+c+'</span></span>';}).join('');});
+  // reveal al hacer scroll
+  if(html.classList.contains('js')){
+    var els=document.querySelectorAll('.tile > img.fill:not(.bgp),.step,.rule-c,.pillar,.capc,.pc,.manifesto h2,.manifesto p,.sec > *,.story .tx,.story .ph');
+    els.forEach(function(e){e.classList.add(e.matches('.step,.capc,.story .ph')?'rvc':'rv');});
+    var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.1});
+    els.forEach(function(e){io.observe(e);});
+  }
+  // parallax en bandas
+  var bands=document.querySelectorAll('.band img'),tick=false;
+  function par(){tick=false;var vh=innerHeight;bands.forEach(function(im){var r=im.parentNode.getBoundingClientRect();if(r.bottom<0||r.top>vh)return;im.style.transform='translateY('+((r.top+r.height/2-vh/2)*-.09).toFixed(1)+'px)';});}
+  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(par);}},{passive:true});par();
+  var b=document.getElementById('nt');
+  b.addEventListener('click',function(){var off=document.body.classList.toggle('nonotes');b.textContent=off?'Mostrar notas de mockup':'Ocultar notas de mockup';});
+})();
+</script>
+</body>
+</html>
