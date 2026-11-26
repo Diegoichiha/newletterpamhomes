@@ -38,7 +38,8 @@ svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-l
 
 /* iconos en círculo menta (sistema integrado del sitio) */
 .ic{width:46px;height:46px;border-radius:50%;background:rgba(0,89,87,.09);color:var(--teal);display:grid;place-items:center;flex:none}
-.ic svg{width:22px;height:22px}
+.ic svg{width:22px;height:22px;display:block}
+span.ic,.pillar span.ic,.list .ic,.capc .ic,.step .ic,.rule-c .ic{display:grid;place-items:center}
 .ic.w{background:rgba(255,255,255,.14);color:#fff}
 
 /* logo */
@@ -332,7 +333,7 @@ body.nonotes .mk{display:none}
 .pc small{font-size:9px;font-weight:700;letter-spacing:.16em;color:var(--teal)}
 .pc b{display:block;font-size:22px;letter-spacing:-.035em;margin-bottom:12px}
 .pc em{display:flex;justify-content:space-between;font-style:normal;font-size:11px;font-weight:700;color:var(--teal);border-top:1px solid var(--rule);padding-top:12px}
-.pc dl{font-size:11.5px;color:var(--gray);margin:-4px 0 12px}
+.pc dl{font-size:12px;line-height:1.55;color:var(--gray);margin:-4px 0 12px;min-height:38px}
 @media(hover:hover){.pc:hover{transform:translateY(-6px)}.pc:hover img{transform:scale(1.06)}}
 
 /* cierre */
@@ -386,6 +387,21 @@ footer b{font-weight:700}
   .pgrid{grid-template-columns:1fr 1fr}
   .dev-wrap{height:560px}.laptop{width:100%}.phone{width:220px;height:455px;right:-6px}
 }
+/* pestañas del portafolio (como el sitio) */
+.portwrap{padding:0 var(--gap)}
+.ptabs{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:18px}
+.ptab{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:82px;padding:19px 18px;background:transparent;border:0;border-right:1px solid var(--rule);font:inherit;color:#000;cursor:pointer;text-align:left;transition:background .35s var(--ease),color .35s var(--ease)}
+.ptab:last-child{border-right:0}
+.ptab b{font-size:15px;font-weight:700;letter-spacing:-.01em}
+.tab-icon{width:36px;height:36px;border-radius:50%;border:1px solid rgba(0,89,87,.28);color:var(--teal);display:grid;place-items:center;flex:none;transition:border-color .35s,color .35s}
+.tab-icon svg{width:16px;height:16px;display:block;stroke-width:1.7}
+.ptab.on{background:var(--teal);color:#fff}
+.ptab.on .tab-icon{border-color:rgba(255,255,255,.5);color:#fff}
+@media(hover:hover){.ptab:not(.on):hover{background:var(--mint)}}
+.port{margin:0}
+.ppanel[hidden]{display:none}
+.ppanel.on{animation:rvUp .6s var(--ease)}
+@media(max-width:1000px){.ptabs{grid-template-columns:repeat(2,1fr)}.ptab{border-bottom:1px solid var(--rule)}}
 </style>
 </head>
 <body>
@@ -601,7 +617,7 @@ footer b{font-weight:700}
 <section class="grid g3">
   <div class="tile bg-white mo" style="grid-column:span 2;aspect-ratio:920/575;min-height:0"><img class="gifimg" src="img/services-accordion.gif" alt="GIF: acordeón de servicios como en wisdomtecnology.com.co"><span class="gc gif">GIF · acordeón de servicios (sitio)</span></div>
   <div class="tile bg-teal mo"><div class="links"><i></i><i></i><img src="img/symbol-white.png" alt=""></div><span class="gc">LOOP · símbolo</span></div>
-  <div class="tile bg-mint mo"><div class="tabloop"><div class="tb"><span style="--k:0">EV</span><span style="--k:1">COACH</span><span style="--k:2">BUSINESS</span><span style="--k:3">CITY</span><span style="--k:4">SPECIAL</span></div><div class="pics"><img src="img/bus-g60e.jpg" alt="" style="--k:0"><img src="img/bus-e80.jpg" alt="" style="--k:1"><img src="img/bus-evg9.jpg" alt="" style="--k:2"><img src="img/bus-e85.jpg" alt="" style="--k:3"><img src="img/bus-e60.jpg" alt="" style="--k:4"></div></div><span class="gc">LOOP · pestañas del portafolio</span></div>
+  <div class="tile bg-mint mo"><div class="tabloop"><div class="tb"><span style="--k:0">EV</span><span style="--k:1">COACH</span><span style="--k:2">BUSINESS</span><span style="--k:3">CITY</span><span style="--k:4">SPECIAL</span></div><div class="pics"><img src="img/bus-g60e.jpg" alt="" style="--k:0"><img src="img/bus-a12.jpg" alt="" style="--k:1"><img src="img/bus-k75.jpg" alt="" style="--k:2"><img src="img/bus-g9.jpg" alt="" style="--k:3"><img src="img/bus-s10.jpg" alt="" style="--k:4"></div></div><span class="gc">LOOP · pestañas del portafolio</span></div>
   <div class="tile bg-black mo"><div class="battery"><small>EV BUS · G60E</small><b>155.33 kWh</b><div class="cell"><i></i></div><span><em style="font-style:normal">Capacidad de batería</em><em style="font-style:normal">60 kW</em></span></div><span class="gc">LOOP · carga</span></div>
   <div class="tile bg-teal mo"><div class="chars loop">Movilidad</div><span class="gc">LOOP · letras escalonadas</span></div>
   <div class="tile bg-white mo"><a class="pill t loop">Iniciar conversación técnica <i class="ar"><svg><use href="#i-ar"/></svg></i></a><span class="gc">LOOP · botón ↗</span></div>
@@ -646,20 +662,8 @@ footer b{font-weight:700}
 </section>
 
 <!-- ================= 11 PORTAFOLIO ================= -->
-<div class="sec"><div class="n">11</div><h2>Portafolio <span class="l">EV BUS</span></h2><p>El panel negro del sitio con sus tarjetas de producto: siete series eléctricas con datos reales del catálogo.</p></div>
-<div class="port">
-  <div class="hd"><b>EV BUS</b><span>7 REFERENCIAS</span></div>
-  <div class="pgrid">
-    <div class="pc"><img src="img/bus-g60e.jpg" alt=""><div><small>EV BUS</small><b>G60E</b><dl>60 kW · 155.33 kWh</dl><em>Ver ficha completa <span>↗</span></em></div></div>
-    <div class="pc"><img src="img/bus-g70e.jpg" alt=""><div><small>EV BUS</small><b>G70E</b><dl>24–28 asientos · 163.36 kWh</dl><em>Ver ficha completa <span>↗</span></em></div></div>
-    <div class="pc"><img src="img/bus-evg9.jpg" alt=""><div><small>EV BUS</small><b>EVG9</b><dl>26+4+1 asientos · 300.81 kWh</dl><em>Ver ficha completa <span>↗</span></em></div></div>
-    <div class="pc"><img src="img/bus-e60.jpg" alt=""><div><small>EV BUS</small><b>E60</b><dl>9+1 asientos · 127.51 kWh</dl><em>Ver ficha completa <span>↗</span></em></div></div>
-    <div class="pc"><img src="img/bus-e85.jpg" alt=""><div><small>EV BUS</small><b>E85</b><dl>8540 × 2550 × 3200 · 255.02 kWh</dl><em>Ver ficha completa <span>↗</span></em></div></div>
-    <div class="pc"><img src="img/bus-e80.jpg" alt=""><div><small>EV BUS</small><b>E80</b><dl>120 kW · 140.95 / 176.04 kWh</dl><em>Ver ficha completa <span>↗</span></em></div></div>
-    <div class="pc"><img src="img/bus-e70.jpg" alt=""><div><small>EV BUS</small><b>E70</b><dl>120 kW · 340 / 280 km</dl><em>Ver ficha completa <span>↗</span></em></div></div>
-    <div class="pc" style="background:var(--teal);color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:22px"><img src="img/symbol-white.png" alt="" style="width:54px;aspect-ratio:auto;object-fit:contain"><div style="padding:0"><b style="font-size:26px">Cinco categorías para cada operación.</b><a class="pill w" style="margin-top:8px">Ver catálogo completo <i class="ar"><svg><use href="#i-ar"/></svg></i></a></div></div>
-  </div>
-</div>
+<div class="sec"><div class="n">11</div><h2>Portafolio <span class="l">de buses</span></h2><p>Las cinco pestañas del sitio con el panel negro y sus tarjetas: 22 referencias reales del catálogo en EV, Coach, Business, City y Special Bus.</p></div>
+<div class="portwrap"><div class="ptabs" role="tablist"><button class="ptab on" type="button" role="tab" aria-selected="true" data-k="ev"><b>EV BUS</b><span class="tab-icon"><svg viewBox="0 0 24 24"><path d="M5 4h14v13H5z"/><path d="M7 17v2m10-2v2M7 7h10M8 13h.01M16 13h.01"/></svg></span></button><button class="ptab" type="button" role="tab" aria-selected="false" data-k="coach"><b>COACH BUS</b><span class="tab-icon"><svg viewBox="0 0 24 24"><path d="M5 4h14v13H5z"/><path d="M7 17v2m10-2v2M7 7h10M8 13h.01M16 13h.01"/></svg></span></button><button class="ptab" type="button" role="tab" aria-selected="false" data-k="business"><b>BUSINESS BUS</b><span class="tab-icon"><svg viewBox="0 0 24 24"><path d="M5 4h14v13H5z"/><path d="M7 17v2m10-2v2M7 7h10M8 13h.01M16 13h.01"/></svg></span></button><button class="ptab" type="button" role="tab" aria-selected="false" data-k="city"><b>CITY BUS</b><span class="tab-icon"><svg viewBox="0 0 24 24"><path d="M5 4h14v13H5z"/><path d="M7 17v2m10-2v2M7 7h10M8 13h.01M16 13h.01"/></svg></span></button><button class="ptab" type="button" role="tab" aria-selected="false" data-k="special"><b>SPECIAL BUS</b><span class="tab-icon"><svg viewBox="0 0 24 24"><path d="M5 4h14v13H5z"/><path d="M7 17v2m10-2v2M7 7h10M8 13h.01M16 13h.01"/></svg></span></button></div><div class="port"><div class="ppanel on" role="tabpanel" data-k="ev"><div class="hd"><b>EV BUS</b><span>7 REFERENCIAS</span></div><div class="pgrid"><div class="pc"><img src="img/bus-g60e.jpg" alt="EV BUS G60E"><div><small>EV BUS</small><b>G60E</b><dl>Referencia: HFF6600GEV2<br>Batería: 155.33 kWh</dl><em>Ver ficha completa <span>↗</span></em></div></div><div class="pc"><img src="img/bus-g70e.jpg" alt="EV BUS G70E"><div><small>EV BUS</small><b>G70E</b><dl>Referencia: HFF6709G7EV21<br>Batería: 163.36 kWh</dl><em>Ver ficha completa <span>↗</span></em></div></div><div class="pc"><img src="img/bus-evg9.jpg" alt="EV BUS EVG9"><div><small>EV BUS</small><b>EVG9</b><dl>Asientos: 26+4+1<br>Batería: 300.81 kWh</dl><em>Ver ficha completa <span>↗</span></em></div></div><div class="pc"><img src="img/bus-e60.jpg" alt="EV BUS E60"><div><small>EV BUS</small><b>E60</b><dl>Asientos: 9+1<br>Batería: 127.51 kWh</dl><em>Ver ficha completa <span>↗</span></em></div></div><div class="pc"><img src="img/bus-e85.jpg" alt="EV BUS E85"><div><small>EV BUS</small><b>E85</b><dl>8540 × 2550 × 3200<br>Batería: 255.02 kWh</dl><em>Ver ficha completa <span>↗</span></em></div></div><div class="pc"><img src="img/bus-e80.jpg" alt="EV BUS E80"><div><small>EV BUS</small><b>E80</b><dl>Motor: 120 kW<br>Batería: 140.95 / 176.04 kWh</dl><em>Ver ficha completa <span>↗</span></em></div></div><div class="pc"><img src="img/bus-e70.jpg" alt="EV BUS E70"><div><small>EV BUS</small><b>E70</b><dl>Motor: 120 kW<br>Autonomía: 340 / 280 km</dl><em>Ver ficha completa <span>↗</span></em></div></div></div></div><div class="ppanel" role="tabpanel" data-k="coach" hidden><div class="hd"><b>COACH BUS</b><span>2 REFERENCIAS</span></div><div class="pgrid"><div class="pc"><img src="img/bus-a12.jpg" alt="COACH BUS Serie A12"><div><small>COACH BUS</small><b>Serie A12</b><dl>Capacidad: 49+1+1 a 51+1+1<br>Emisiones: Euro V</dl><em>Ver ficha completa <span>↗</span></em></div></div><div class="pc"><img src="img/bus-a6.jpg" alt="COACH BUS Serie A6"><div><small>COACH BUS</small><b>Serie A6</b><dl>Asientos: 33+1 / 47+1<br>Batería: 200.54 / 338.4 kWh</dl><em>Ver ficha completa <span>↗</span></em></div></div></div></div><div class="ppanel" role="tabpanel" data-k="business" hidden><div class="hd"><b>BUSINESS BUS</b><span>6 REFERENCIAS</span></div><div class="pgrid"><div class="pc"><img src="img/bus-k75.jpg" alt="BUSINESS BUS K75"><div><small>BUSINESS BUS</small><b>K75</b><dl>Capacidad: 29+1<br>7.480 × 2.340 × 3.150 mm</dl><em>Ver ficha completa <span>↗</span></em></div></div><div class="pc"><img src="img/bus-k60.jpg" alt="BUSINESS BUS K60"><div><small>BUSINESS BUS</small><b>K60</b><dl>Capacidad: 18+1<br>5990 × 2250 × 2840 mm</dl><em>Ver ficha completa <span>↗</span></em></div></div><div class="pc"><img src="img/bus-n90.jpg" alt="BUSINESS BUS N90"><div><small>BUSINESS BUS</small><b>N90</b><dl>Capacidad: 37+1 (24–40)<br>8.990 × 2.530 × 3.425 mm</dl><em>Ver ficha completa <span>↗</span></em></div></div><div class="pc"><img src="img/bus-n12plus.jpg" alt="BUSINESS BUS N12PLUS"><div><small>BUSINESS BUS</small><b>N12PLUS</b><dl>Referencia: HFF6120N8A<br>12.500 × 2.550 × 3.820 mm</dl><em>Ver ficha completa <span>↗</span></em></div></div><div class="pc"><img src="img/bus-n71.jpg" alt="BUSINESS BUS N71"><div><small>BUSINESS BUS</small><b>N71</b><dl>Capacidad: 22+6+1<br>7.145 × 2.080 × 2.850 mm</dl><em>Ver ficha completa <span>↗</span></em></div></div><div class="pc"><img src="img/bus-n70.jpg" alt="BUSINESS BUS N70"><div><small>BUSINESS BUS</small><b>N70</b><dl>Capacidad: 18+1 (10–23)<br>7.005 × 2.080 mm</dl><em>Ver ficha completa <span>↗</span></em></div></div></div></div><div class="ppanel" role="tabpanel" data-k="city" hidden><div class="hd"><b>CITY BUS</b><span>3 REFERENCIAS</span></div><div class="pgrid"><div class="pc"><img src="img/bus-g9.jpg" alt="CITY BUS G9"><div><small>CITY BUS</small><b>G9</b><dl>Capacidad: 32+1 / 36+1<br>Longitud: 10.450 / 12.000 mm</dl><em>Ver ficha completa <span>↗</span></em></div></div><div class="pc"><img src="img/bus-brt.jpg" alt="CITY BUS BRT"><div><small>CITY BUS</small><b>BRT</b><dl>Referencia: HFF6182G02D<br>18.000 × 2.550 mm</dl><em>Ver ficha completa <span>↗</span></em></div></div><div class="pc"><img src="img/bus-c9.jpg" alt="CITY BUS C9"><div><small>CITY BUS</small><b>C9</b><dl>Capacidad: 54+1 / 66+1<br>Emisiones: Euro V</dl><em>Ver ficha completa <span>↗</span></em></div></div></div></div><div class="ppanel" role="tabpanel" data-k="special" hidden><div class="hd"><b>SPECIAL BUS</b><span>4 REFERENCIAS</span></div><div class="pgrid"><div class="pc"><img src="img/bus-s10.jpg" alt="SPECIAL BUS S10"><div><small>SPECIAL BUS</small><b>S10</b><dl>Capacidad: 53+2+1<br>Emisiones: Euro V</dl><em>Ver ficha completa <span>↗</span></em></div></div><div class="pc"><img src="img/bus-s58.jpg" alt="SPECIAL BUS S58"><div><small>SPECIAL BUS</small><b>S58</b><dl>Capacidad: 17+1+1<br>Emisiones: Euro V</dl><em>Ver ficha completa <span>↗</span></em></div></div><div class="pc"><img src="img/bus-s80.jpg" alt="SPECIAL BUS S80"><div><small>SPECIAL BUS</small><b>S80</b><dl>Capacidad: 40+2+1<br>Emisiones: Euro V</dl><em>Ver ficha completa <span>↗</span></em></div></div><div class="pc"><img src="img/bus-e12s.jpg" alt="SPECIAL BUS E12S"><div><small>SPECIAL BUS</small><b>E12S</b><dl>Motor: 95 × 2 kW<br>Batería: 331.37 kWh</dl><em>Ver ficha completa <span>↗</span></em></div></div></div></div></div><div style="text-align:center;margin-top:28px"><a class="pill t">Ver catálogo completo <i class="ar"><svg><use href="#i-ar"/></svg></i></a></div></div>
 
 <!-- ================= CIERRE ================= -->
 <section class="close">
@@ -694,6 +698,11 @@ footer b{font-weight:700}
   var bands=document.querySelectorAll('.band img'),tick=false;
   function par(){tick=false;var vh=innerHeight;bands.forEach(function(im){var r=im.parentNode.getBoundingClientRect();if(r.bottom<0||r.top>vh)return;im.style.transform='translateY('+((r.top+r.height/2-vh/2)*-.09).toFixed(1)+'px)';});}
   addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(par);}},{passive:true});par();
+  // pestañas del portafolio
+  var ptabs=document.querySelectorAll('.ptab');
+  ptabs.forEach(function(t){t.addEventListener('click',function(){var k=t.dataset.k;
+    ptabs.forEach(function(x){var on=x===t;x.classList.toggle('on',on);x.setAttribute('aria-selected',on);});
+    document.querySelectorAll('.ppanel').forEach(function(p){var on=p.dataset.k===k;p.classList.toggle('on',on);p.hidden=!on;});});});
   var b=document.getElementById('nt');
   b.addEventListener('click',function(){var off=document.body.classList.toggle('nonotes');b.textContent=off?'Mostrar notas de mockup':'Ocultar notas de mockup';});
 })();
